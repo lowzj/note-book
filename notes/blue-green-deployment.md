@@ -165,6 +165,12 @@
 
 ----
 
+> **Marathon Auto-Scaling**, add 3 instances
+> ![marathon_auto_scaling](../img/marathon_auto_scaling.png)
+
+----
+
+
 ### Readings
 
 * [BlueGreenDeployment](http://martinfowler.com/bliki/BlueGreenDeployment.html)
