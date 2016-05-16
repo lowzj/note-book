@@ -5,7 +5,7 @@
 本站是[@lowzj](https://github.com/lowzj)的个人学习笔记，使用下面几个组件搭建：
 * `markdown`。所有内容均使用`markdown`编写。
 * `git`。版本控制。
-* `gitbook`。将markdown生成网页文件。
+* [gitbook](https://github.com/GitbookIO/gitbook)。将markdown生成网页文件。
 * `nginx`。
 * `github`。代码托管。
 * `github webhooks`。发送repo相关的事件通知。
