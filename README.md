@@ -59,7 +59,7 @@
         import commands 
 
         urls = (
-            '/', 'index'
+            '/', 'Index'
         )
 
         class Index:
