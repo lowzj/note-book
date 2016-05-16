@@ -19,7 +19,6 @@
 * 安装`gitbook`。[参考: CentOS上安装gitbook](http://www.jianshu.com/p/4ddfe52a27e4)
     ```sh
     yum -y install nodejs npm git
-    npm install -g gitbook
     npm install -g gitbook-cli
     ```
 
