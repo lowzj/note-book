@@ -13,6 +13,8 @@
     * OS environment variables.
     * A `RandomValuePropertySource` that only has properties in `random.*`.
     * [Profile-specific application properties](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-profile-specific-properties) outside of your packaged jar (`application-{profile}.properties` and YAML variants)
+        * 多个profile，越靠后引入优先级越高
+        * 一个profile文件里使用`spring.profiles.include`引入的配置，优先级比本文件内的配置高
     * [Profile-specific application properties](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-profile-specific-properties) packaged inside your jar (`application-{profile}.properties` and YAML variants)
     * Application properties outside of your packaged jar (`application.properties` and YAML variants).
     * Application properties packaged inside your jar (`application.properties` and YAML variants).
