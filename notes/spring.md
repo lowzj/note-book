@@ -1,5 +1,11 @@
-# Spring Config
+# Spring
 
+### Spring Annotation
+
+* @RequestMapping @RequestBody
+  * [Post JSON to spring REST webservice](http://www.leveluplunch.com/java/tutorials/014-post-json-to-spring-rest-webservice/)
+
+### Spring Config
 * `spring.config.name` and `spring.config.location` are used very early to determine which files have to be loaded so they have to be defined as an environment property (typically **OS env**, **system property** or **command line argument**).
 
     > 这两个配置项放在配置文件里面是无效的
@@ -20,3 +26,5 @@
     * Application properties packaged inside your jar (`application.properties` and YAML variants).
     * `@PropertySource` annotations on your `@Configuration` classes.
     * Default properties (specified using `SpringApplication.setDefaultProperties`).
+
+
