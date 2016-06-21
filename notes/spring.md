@@ -27,4 +27,13 @@
     * `@PropertySource` annotations on your `@Configuration` classes.
     * Default properties (specified using `SpringApplication.setDefaultProperties`).
 
+* [Creating your own auto-configuration](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-auto-configuration.html)
+    * 使用`@Configuration`注解来实现**auto-configuration**类.
+    * `@AutoConfigureAfter`, `@AutoConfigureBefore`, `@AutoConfigureOrder`指定顺序.
+    * 定位需要自动配置的类, spring boot 会检查已发布的jar包里是否存在文件`META-INF/spring.factories`. 文件内容如下:
+        ```
+        org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+        com.mycorp.libx.autoconfigure.LibXAutoConfiguration,\
+        com.mycorp.libx.autoconfigure.LibXWebAutoConfiguration
+        ```
 
