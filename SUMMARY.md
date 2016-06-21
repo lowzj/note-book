@@ -2,6 +2,7 @@
 * [consul](notes/consul.md)
 * [Blue Green Deployment](notes/blue-green-deployment.md)
 * [Spring](notes/spring.md)
+* [Kong](notes/kong.md)
 * [mysql](notes/mysql.md)
 * [zookeeper](notes/zookeeper.md)
 * [shell](notes/shell.md)
