@@ -102,6 +102,14 @@ test(Ljava/lang/String;)V MethodParameters name
 至于JVM是如何从**classfile**创建`Parameter`对象的，现在还没有搞明白。
 
 
+### 后续
+
+java document
+
+You can obtain the names of the formal parameters of any method or constructor with the method java.lang.reflect.Executable.getParameters. (The classes Method and Constructor extend the class Executable and therefore inherit the method Executable.getParameters.) However, .class files do not store formal parameter names by default. This is because many tools that produce and consume class files may not expect the larger static and dynamic footprint of .class files that contain parameter names. In particular, these tools would have to handle larger .class files, and the Java Virtual Machine (JVM) would use more memory. In addition, some parameter names, such as secret or password, may expose information about security-sensitive methods.
+
+To store formal parameter names in a particular .class file, and thus enable the Reflection API to retrieve formal parameter names, compile the source file with the **-parameters** option to the javac compiler.
+
 ### Readings
 
 * [Obtaining Names of Method Parameters](https://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html)
