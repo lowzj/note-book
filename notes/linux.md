@@ -32,3 +32,12 @@ a
 b
 b
 ```
+
+### Yum操作
+
+```
+yum clean all
+yum makecache
+
+createrepo --update ./
+```

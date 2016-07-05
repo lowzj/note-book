@@ -6,5 +6,5 @@
 * [Kong](notes/kong.md)
 * [mysql](notes/mysql.md)
 * [zookeeper](notes/zookeeper.md)
-* [shell](notes/shell.md)
+* [linux](notes/linux.md)
 * [mesos](notes/mesos.md)
