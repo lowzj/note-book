@@ -110,6 +110,8 @@ You can obtain the names of the formal parameters of any method or constructor w
 
 To store formal parameter names in a particular .class file, and thus enable the Reflection API to retrieve formal parameter names, compile the source file with the **-parameters** option to the javac compiler.
 
+> NOTE: `-parameters` is java 8 functionality
+
 ### Readings
 
 * [Obtaining Names of Method Parameters](https://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html)
