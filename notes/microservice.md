@@ -23,6 +23,6 @@ source: [Get Small To Get Big Through Microservices](https://techcrunch.com/2016
 * Architecture
   * [Scalable Microservices through Messaging](http://developers.redhat.com/blog/2016/05/26/scalable-microservices-through-messaging/)
 * Others
-  * [Mesos](http://mesos.apache.org/documentation/latest/)
-  * [Marathon](https://mesosphere.github.io/marathon/docs/)
+  * [Mesos Docments](http://mesos.apache.org/documentation/latest/)
+  * [Marathon Documents](https://mesosphere.github.io/marathon/docs/)
   * [Mesospher Downloads](https://mesosphere.com/downloads/)
