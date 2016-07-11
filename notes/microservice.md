@@ -1,5 +1,10 @@
 # Microservice
 
+> Sam Newman: Microservices are not something you should aim for. They are a means to an end. Focus on what's important - building useful software.
+
+## Microservice-Ecosystem
+
+![microservice-ecosystem](../img/microservice-ecosystem.png)
 ## Docker
 
 ![microservice-docker](../img/microservice-docker.jpg)
