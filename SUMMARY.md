@@ -3,6 +3,7 @@
 * [Blue Green Deployment](notes/blue-green-deployment.md)
 * [Java](notes/java/java.md)
     * [Spring](notes/java/spring.md)
+* [Python](notes/python.md)
 * [Kong](notes/kong.md)
 * [mysql](notes/mysql.md)
 * [zookeeper](notes/zookeeper.md)
