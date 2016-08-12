@@ -9,3 +9,4 @@
 * [zookeeper](notes/zookeeper.md)
 * [linux](notes/linux.md)
 * [mesos](notes/mesos.md)
+* [OSX](notes/OSX_skills.md)
