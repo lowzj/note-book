@@ -1,4 +1,4 @@
-# Study Notes - [@lowzj](https://github.com/lowzj/note-book)
+# [@lowzj](https://github.com/lowzj/note-book)
 
 ### Introduction
 

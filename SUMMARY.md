@@ -1,4 +1,5 @@
-* [Microservice](notes/microservice.md)
+* [Microservice](notes/microservices/README.md)
+  * [Notes](notes/microservices/notes.md)
 * [consul](notes/consul.md)
 * [Blue Green Deployment](notes/blue-green-deployment.md)
 * [Java](notes/java/java.md)
