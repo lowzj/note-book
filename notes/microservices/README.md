@@ -51,3 +51,5 @@ source: [Get Small To Get Big Through Microservices](https://techcrunch.com/2016
   * [Marathon Documents](https://mesosphere.github.io/marathon/docs/)
   * [Mesospher Downloads](https://mesosphere.com/downloads/)
   * [Introducing the Microservices Reference Architecture from NGINX](https://www.nginx.com/blog/introducing-the-nginx-microservices-reference-architecture/)
+* Inter-Services Communication
+  * [Hystrix](http://my.oschina.net/ybakswu/blog/734374)
