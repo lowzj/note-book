@@ -49,9 +49,9 @@
     * 当然可以使用nginx等反向代理，访问`gitbook build`生成的`_book`静态文件，这里就不多说了
 * **自动更新**。当commit push到github后，就更新服务器上的本地repo，如果使用`gitbook build`，就再重新build一次。
     * 这里要利用github提供的[Webhooks](https://developer.github.com/webhooks/)功能。到github repo的`Settings`页面，选择`Webhooks & services`，如图所示。
-    ![github webhook](img/note-book/webhook.png)
+      ![github webhook](./img/note-book/webhook.png)
+      > Webhooks allow external services to be notified when certain events happen within your repository. When the specified events happen, we’ll send a POST request to each of the URLs you provide. Learn more in our [Webhooks Guide](https://developer.github.com/webhooks).
 
-    > Webhooks allow external services to be notified when certain events happen within your repository. When the specified events happen, we’ll send a POST request to each of the URLs you provide. Learn more in our [Webhooks Guide](https://developer.github.com/webhooks).
     * 其中最重要的一项配置就是`Payload URL`，对应着自己服务器上web server提供的`POST`接口。这里使用webpy给出一个简单的例子`main.py`。
 
         ```python
