@@ -35,6 +35,7 @@ source: [Get Small To Get Big Through Microservices](https://techcrunch.com/2016
   * [SmartStack](http://nerds.airbnb.com/smartstack-service-discovery-cloud)
   * [Docker networking and service discovery](https://www.oreilly.com/learning/docker-networking-service-discovery)
   * [Service Discovery in a Microservices Architecture](https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/)
+  * [Consul Service Discovery And Health](http://www.mammatustech.com/consul-service-discovery-and-health-for-microservices-architecture-tutorial)
 * Orchestration
   * [DC/OS Architecture](https://dcos.io/docs/1.7/overview/architecture/)
   * [A Brief Comparison of Mesos and Kubernetes](http://thenewstack.io/a-brief-comparison-of-mesos-and-kubernetes)
@@ -47,7 +48,7 @@ source: [Get Small To Get Big Through Microservices](https://techcrunch.com/2016
   * [Scryer: Netflix’s Predictive Auto Scaling Engine](http://techblog.netflix.com/2013/11/scryer-netflixs-predictive-auto-scaling.html)
   * [Scryer: Netflix's Predictive Auto Scaling Engine - Part 2](http://techblog.netflix.com/2013/12/scryer-netflixs-predictive-auto-scaling.html)
 * Others
-  * [Mesos Docments](http://mesos.apache.org/documentation/latest/)
+  * [Mesos Documents](http://mesos.apache.org/documentation/latest/)
   * [Marathon Documents](https://mesosphere.github.io/marathon/docs/)
   * [Mesospher Downloads](https://mesosphere.com/downloads/)
   * [Introducing the Microservices Reference Architecture from NGINX](https://www.nginx.com/blog/introducing-the-nginx-microservices-reference-architecture/)
