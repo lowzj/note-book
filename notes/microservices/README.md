@@ -36,6 +36,7 @@ source: [Get Small To Get Big Through Microservices](https://techcrunch.com/2016
   * [Docker networking and service discovery](https://www.oreilly.com/learning/docker-networking-service-discovery)
   * [Service Discovery in a Microservices Architecture](https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/)
   * [Consul Service Discovery And Health](http://www.mammatustech.com/consul-service-discovery-and-health-for-microservices-architecture-tutorial)
+  * [Zookeeper vs Etcd vs Consul](https://technologyconversations.com/2015/09/08/service-discovery-zookeeper-vs-etcd-vs-consul)
 * Orchestration
   * [DC/OS Architecture](https://dcos.io/docs/1.7/overview/architecture/)
   * [A Brief Comparison of Mesos and Kubernetes](http://thenewstack.io/a-brief-comparison-of-mesos-and-kubernetes)
