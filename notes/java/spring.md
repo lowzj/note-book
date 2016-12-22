@@ -37,3 +37,19 @@
         com.mycorp.libx.autoconfigure.LibXWebAutoConfiguration
         ```
 
+### Disabling specific auto-configuration
+[Disabling specific auto-configuration](http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-auto-configuration.html#using-boot-disabling-specific-auto-configuration)
+
+使用`@EnableAutoConfiguration`剔除不想引用的自动配置类
+
+```java
+@Configuration
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+public class MyConfiguration {
+}
+```
+或者在`properties`文件里使用配置项`spring.autoconfigure.exclude`，例如
+```
+spring.autoconfigure.exclude=com.lowzj.example.MyAutoConfiguration1,\
+  com.lowzj.example.MyAutoConfiguration2
+```
