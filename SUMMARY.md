@@ -5,6 +5,7 @@
 * [consul](notes/consul.md)
 * [Blue Green Deployment](notes/blue-green-deployment.md)
 * [Java](notes/java/java.md)
+    * [Maven](notes/java/maven.md)
     * [Spring](notes/java/spring.md)
 * [Python](notes/python.md)
 * [Kong](notes/kong.md)
