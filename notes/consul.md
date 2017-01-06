@@ -4,6 +4,8 @@
 
 ## nginx-upsync
 
+## tengine-dyups
+
 ## 两者结合
 
 * spring boot application 启动后注册到 service
