@@ -16,7 +16,14 @@
   * [Out of Order Execution](https://en.wikipedia.org/wiki/Out-of-order_execution)
 * [Happens-Before俗解](http://ifeve.com/easy-happens-before/)
 * [Understanding JIT](http://docs.oracle.com/cd/E15289_01/doc.40/e15058/underst_jit.htm)
+* Video
+  * [Java Memory Model](https://www.youtube.com/watch?v=WTVooKLLVT8)
 
 
 ### Memory Reodering
 Several mechanisms can produce the reordering. A **Just-In-Time**(JIT) compiler in a Java Virtual Machine implementation may rearrange code, or the **processor**. In addition, the memory hierarchy of the architecture on which a Java Virtual Machine implementation is run may make it appear as if code is being reordered. 
+* Compiler can reorder statements
+* Processor can reorder them
+* On multi-processor, values not synchronized to global memory
+* The memeory model is designed to allow aggressive optimization
+* Good for performance
