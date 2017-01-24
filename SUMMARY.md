@@ -6,6 +6,7 @@
 * [Blue Green Deployment](notes/blue-green-deployment.md)
 * [Java](notes/java/java.md)
     * [Java8 Lambda](notes/java/java-lambda.md)
+    * [Lambda表达式的翻译原理](notes/java/translation-of-lambda-expressions.md)
     * [Java Threads and Locks](notes/java/java-thread-lock.md)
     * [Maven](notes/java/maven.md)
     * [Spring](notes/java/spring.md)
