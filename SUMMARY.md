@@ -13,6 +13,7 @@
     * [Maven](notes/java/maven.md)
     * [Spring](notes/java/spring.md)
     * [String Concatenation](notes/java/string-concatenation.md)
+    * [Java Regx](notes/java/java-regx.md)
 * [Python](notes/python.md)
 * [Kong](notes/kong.md)
 * [mysql](notes/mysql.md)
