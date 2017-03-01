@@ -8,3 +8,4 @@
 ### 使用 emoji 表情
 
 * `Command` + `Ctrl` + `Space`
+* [How to use emoji on your Mac](http://www.imore.com/how-to-use-emoji-on-your-mac)
