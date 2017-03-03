@@ -12,3 +12,59 @@
 * 写一个Daemon程序，监控consul上的所有注册services
 * 当有变化的时候，将变化值写入consul key-value中，给nginx-upsync使用
 * 是有一定延迟，但是代码修改量很少
+
+<pre align="center">
+自己实现服务注册发现
+</pre>
+
+> 服务启动完成后，调用注册接口；停止之前，调用注销接口；并且提供一个health接口，用于健康检测。
+
+## 注册
+
+调用本地consul agent接口: POST /v1/agent/service/register，如下: 
+
+```sh
+curl -s -i -XPOST 'localhost:8500/v1/agent/service/register' -H 'Content-type:application/json' -d @register-body.json
+```
+
+**register-body.json**
+
+```
+{
+    "ID": "${SERVICE_ID}",
+        "Name": "${SERVIEC_NAME}",
+        "Tags": [
+        ],
+        "Address": "${SERVICE_IP}",
+        "Port": ${SERVICE_PORT},
+        "EnableTagOverride": false,
+        "Check": {
+            "DeregisterCriticalServiceAfter": "5m",
+            "HTTP": "http://${SERVICE_IP}:${SRVICE_PORT}/management/health",
+            "Interval": "10s",
+            "Timeout": "1s"
+        }
+}
+```
+
+`SERVICE_NAME`: 服务名
+
+`SERVICE_ID`: 用于区分同种服务的不同实例, 可以设置为 `{SERVICE_ID}-{SERVICE_PORT}-{RANDOM_VALUE}`
+
+> `${xxx}`的地方需要替换掉
+
+## 注销
+
+调用本地consul agent接口: POST /v1/agent/service/deregister/{serviceId}
+
+```
+curl -s -i -XPOST "localhost:8500/v1/agent/service/deregister/${serviceId}"
+```
+
+## 服务提供一个health接口
+
+* 服务本身提供一个check health的http接口
+```
+URL: `/management/health`
+Response: 正常返回status code 200
+```
