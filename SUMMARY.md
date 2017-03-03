@@ -2,7 +2,7 @@
   * [Notes](notes/microservices/notes.md)
   * [ServiceDiscovery](notes/microservices/service-discovery.md)
   * [HMAC](notes/microservices/hmac.md)
-  * [SpringCloud实战](notes/microservices/microservice-practice.md)
+  * [SpringCloud实战](notes/microservices/spring-cloud-practice.md)
   * [Share](notes/microservices/share.md)
 * [consul](notes/consul.md)
 * [Blue Green Deployment](notes/blue-green-deployment.md)
