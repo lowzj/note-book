@@ -18,6 +18,7 @@
 * [Kong](notes/kong.md)
 * [mysql](notes/mysql.md)
 * [zookeeper](notes/zookeeper.md)
+* [Kafka](notes/kafka.md)
 * [linux](notes/linux.md)
 * [mesos](notes/mesos.md)
 * [OSX](notes/OSX_skills.md)
