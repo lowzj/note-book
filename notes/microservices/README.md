@@ -48,10 +48,12 @@ source: [Get Small To Get Big Through Microservices](https://techcrunch.com/2016
   * [Improving Netflix’s Operational Visibility with Real-Time Insight Tools](http://techblog.netflix.com/2014/01/improving-netflixs-operational.html)
   * [Scryer: Netflix’s Predictive Auto Scaling Engine](http://techblog.netflix.com/2013/11/scryer-netflixs-predictive-auto-scaling.html)
   * [Scryer: Netflix's Predictive Auto Scaling Engine - Part 2](http://techblog.netflix.com/2013/12/scryer-netflixs-predictive-auto-scaling.html)
+* Inter-Services Communication
+  * [Hystrix](http://my.oschina.net/ybakswu/blog/734374)
+* Serverless
+  * [The Future of Serverless Compute](https://www.infoq.com/articles/future-serverless)
 * Others
   * [Mesos Documents](http://mesos.apache.org/documentation/latest/)
   * [Marathon Documents](https://mesosphere.github.io/marathon/docs/)
   * [Mesospher Downloads](https://mesosphere.com/downloads/)
   * [Introducing the Microservices Reference Architecture from NGINX](https://www.nginx.com/blog/introducing-the-nginx-microservices-reference-architecture/)
-* Inter-Services Communication
-  * [Hystrix](http://my.oschina.net/ybakswu/blog/734374)
