@@ -21,3 +21,12 @@ ALTER TABLE ... ADD PARTITION creates no temporary table except when used with N
 Renaming an index, except for InnoDB.
 
 Adding or dropping an index, for InnoDB (if InnoDB Plugin is used) and NDB.
+
+
+### 外键
+
+* MySQL 要求被引用列必须有索引。
+* 不要求被引用列是`UNIQUE`或者`NOT NULL`，但是这些外键定义是不好的，并且在做级联更新和删除的时候有问题。
+* 强烈建议只引用`UNIQUE`(包括`PRIMARY`)并且是`NOT NULL`的列作为外键。
+
+> Additionally, MySQL requires that the referenced columns be indexed for performance reasons. However, the system does not enforce a requirement that the referenced columns be UNIQUE or be declared NOT NULL. The handling of foreign key references to nonunique keys or keys that contain NULL values is not well defined for operations such as UPDATE or DELETE CASCADE. You are advised to use foreign keys that reference only UNIQUE (including PRIMARY) and NOT NULL keys.
