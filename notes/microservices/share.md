@@ -9,3 +9,10 @@
 ## PDF
 
 * [Migrating to Microservice Databases](https://developers.redhat.com/promotions/migrating-to-microservice-databases)
+
+## API限流
+* [BLOG: 服务接口API限流](http://www.cnblogs.com/exceptioneye/p/4783904.html)
+* [BLOG: 服务限流](http://nll.im/post/rate-limiter.html)
+* [BLOG: 流量控制与令牌桶算法](https://blog.jamespan.me/2015/10/19/traffic-shaping-with-token-bucket)
+* [WIKI: Token bucket](https://en.wikipedia.org/wiki/Token_bucket)
+* [Google AdWords速率限制](https://developers.google.com/adwords/api/docs/guides/rate-limits?hl=zh-cn)
