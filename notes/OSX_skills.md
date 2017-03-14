@@ -9,3 +9,12 @@
 
 * `Command` + `Ctrl` + `Space`
 * [How to use emoji on your Mac](http://www.imore.com/how-to-use-emoji-on-your-mac)
+
+### 终端使用代理
+
+```sh
+# 如果使用ss
+export ALL_PROXY=socks5://127.0.0.1:1080
+# 清除代理
+unset ALL_PROXY
+```

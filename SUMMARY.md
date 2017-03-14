@@ -4,6 +4,7 @@
   * [HMAC](notes/microservices/hmac.md)
   * [SpringCloud实战](notes/microservices/spring-cloud-practice.md)
   * [Share](notes/microservices/share.md)
+* [Serverless](notes/serverless.md)
 * [consul](notes/consul.md)
 * [Blue Green Deployment](notes/blue-green-deployment.md)
 * [Java](notes/java/java.md)
