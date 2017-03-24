@@ -63,7 +63,9 @@ nohup $CONFLUENT_DIR/bin/schema-registry-start $CONFLUENT_DIR/etc/schema-registr
 
 > Kafka Connect是一个框架，用于将Kafka与外部系统（如数据库，键值存储，搜索索引和文件系统）可扩展地，可靠地连接起来。
 
-阿里云OSS connector: https://github.com/lowzj/kafka-connect-aliyun-oss
+* 阿里云OSS connector: https://github.com/lowzj/kafka-connect-aliyun-oss
+* [kafka持久化数据到HDFS的方法](http://kaimingwan.com/post/kafka/kafkachi-jiu-hua-shu-ju-dao-hdfsde-fang-fa)
+* [hdfs connector](http://docs.confluent.io/3.2.0/connect/connect-hdfs/docs/hdfs_connector.html)
 
 ## Kafka Clients
 
