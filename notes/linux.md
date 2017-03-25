@@ -1,6 +1,31 @@
-# shell
+# 小命令
 
-### 求两个文件的差集
+### git 远程仓库强制覆盖本地修改
+
+```sh
+# 清除本地 modified files
+git checkout .
+# 清除本地 untracked files
+git clean -df
+# 强行重置 HEAD
+git fetch origin
+git reset --hard origin/master
+```
+
+### GitHub 自动认证
+HTTPS方式，使用BASIC认证，修改git配置`remote.origin.url`，在url中加入认证信息即可。例子:
+```
+# 原URL
+https://github.com/lowzj/github-auto-ops
+# 加入BASIC认证信息的URL：
+https://{username}:{password}@github.com/lowzj/github-auto-ops
+```
+其中`password`可以用`access_token`来代替，以避免泄漏密码。创建`access_token`见[这里](https://github.com/settings/tokens)。
+
+这里有个例子: https://github.com/lowzj/github-auto-ops
+
+
+### shell 求两个文件的差集
 
 > **comm** 命令
 > ```
