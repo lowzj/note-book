@@ -41,6 +41,7 @@ source: [Get Small To Get Big Through Microservices](https://techcrunch.com/2016
   * [DC/OS Architecture](https://dcos.io/docs/1.7/overview/architecture/)
   * [A Brief Comparison of Mesos and Kubernetes](http://thenewstack.io/a-brief-comparison-of-mesos-and-kubernetes)
   * [Marathon](https://mesosphere.github.io/marathon/)
+  * [Borg-Omega-Kubernetes](http://www.dockone.io/article/1153)
 * Architecture
   * [Scalable Microservices through Messaging](http://developers.redhat.com/blog/2016/05/26/scalable-microservices-through-messaging/)
 * Scheduler
