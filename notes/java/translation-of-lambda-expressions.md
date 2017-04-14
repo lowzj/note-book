@@ -24,7 +24,7 @@ by <a href="http://www.oracle.com/us/technologies/java/briangoetzchief-188795.ht
 
 本文涉及当编译器遇到lambda表达式的时候，我们是如何得到它应当生成的字节码，还有语言运行时是如何参与到lambda表达式的评估中。本文但部分内容涉及到函数式接口的转换机制。
 
-函数式接口是Java中labmbda表达式的核心方面。一个函数式接口是只有一个非Object类方法(non-Object method)的接口类，比如`Runnable`，`Comparator`，等等。（Java类库已经使用这些接口去表示回调多年了。）
+函数式接口是Java中labmbda表达式的核心方面。函数式接口是有且只有一个非Object类方法(non-Object method)的接口类，比如`Runnable`，`Comparator`，等等。（Java类库已经使用这些接口去表示回调多年了。）
 
 Lambda表达式可以出现在被赋值给一个类型为函数式接口的变量的地方。比如：
 ```java
@@ -37,7 +37,17 @@ Collections.sort(strings, (String a, String b) -> -(a.compareTo(b)));
 
 编译器生成的用于捕获这些lambda表达式的代码，取决于lambda表达式本身以及它所赋值的函数式接口类型。
 
-#### Dependencies and notation
+#### 依赖与符号
+编译方案依赖于[JSR 292](http://jcp.org/en/jsr/detail?id=292)中的几个特性，包括invokdynamic，方法句柄(method handle)和用于方法句柄和方法类型(method type)的增强型LDC字节码形式。由于在Java源码中未能表示这些，所以我们的例子中将使用伪代码来表示这些特性。
+
+* 对于方法句柄常量(method handle constants)：**MH([refKind] class-name.method-name)**
+* 对于方法类型常量(method type constants)：**MT(method-signature)**
+* 对于invokedynamic：**INDY((bootstrap, static args...)(dynamic args...))**
+
+读者应该具备一些关于[JSR 292](http://jcp.org/en/jsr/detail?id=292)中的特性的基础知识。
+
+
+编译方案还假定一个新特性：用于使用常量方法句柄的反射API，这个特性正在由Java SE 8的JSR-292的专家组制定规范中。
 
 ## 编译策略
 
@@ -51,6 +61,10 @@ Collections.sort(strings, (String a, String b) -> -(a.compareTo(b)));
 ## 其他方面
 
 ---
+
+## Readings
+
+* [InvokeDynamic指令](http://blog.csdn.net/zxhoo/article/details/38387141)
 
 <pre align='center'>
 脚注
