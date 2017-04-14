@@ -257,6 +257,12 @@ AdminServer-1.3.properties          | AdminServer   | 1.3
 
 另外可以增加一个额外配置项，用于自定义JVM参数和程序参数。
 
+`IMPORTANT` 默认的，来自ConfigServer的配置，优先级会高于系统参数，可以在存储于ConfigServer端(git)的配置文件中加入下面这个配置项：
+```ini
+# 默认为true
+spring.cloud.config.overrideSystemProperties=false
+```
+
 ##### ConfigServer
 
 所有ConfigServer中的配置都是以**Kefu**为**name**，**profile**指定具体的服务及配置版本。
