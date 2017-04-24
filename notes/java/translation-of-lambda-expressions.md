@@ -56,24 +56,24 @@ Collections.sort(strings, (String a, String b) -> -(a.compareTo(b)));
 
 使用`invokedynamic`使得我们将翻译策略的选择推迟到运行时。运行时实现可以动态地选择策略来执行lambda表达式。构造lambda的运行时实现选择被隐藏到标准化(即平台规范的一部分)API之后，因此静态编译器可以调用该API，并且各种JRE实现可以选择他们倾向的实现策略。`invokedynamic`机制允许这样做，并且没有后期绑定方法可能带来的性能损耗。
 
-当编译器遇到lambda表达式的时候，它首先将lambda体转换为一个参数列表和返回类型与此lambda表达式匹配的方法，可能会有一些额外的参数(从词法作用域捕获的值，如果存在的话)。在lambda表达式被捕获处，编译器会生成一个`invokedynamic`调用点；当调用它时，返回一个lambda转换成的函数式接口实例。此调用点被称为给定lambda的lambda工厂(_lambda factory_)[^2]。Lambda factory的动态参数是从词法作用域捕获的值。Lambda facotry的引导方法(_bootstrap_ method, BSM)是Java语言运行库中的标准方法，被称之为lambda元工厂(_lambda metafactory_)。静态_bootstrap_参数在编译期捕获lambda的相关信息(lambda转换成的函数式接口、lambda体转换的方法句柄、有关此SAM[^3]类型是否可序列化的信息，等等)。
+当编译器遇到lambda表达式的时候，它首先将lambda函数体转换为一个参数列表和返回类型与此lambda表达式匹配的方法，可能会有一些额外的参数(从词法作用域捕获的值，如果存在的话)。在lambda表达式被捕获处，编译器会生成一个`invokedynamic`调用点；当调用它时，返回一个lambda转换成的函数式接口实例。此调用点被称为给定lambda的lambda工厂(_lambda factory_)[^2]。Lambda factory的动态参数是从词法作用域捕获的值。Lambda facotry的引导方法(_bootstrap_ method, BSM)是Java语言运行库中的标准方法，被称之为lambda元工厂(_lambda metafactory_)。静态_bootstrap_参数在编译期捕获lambda的相关信息(lambda转换成的函数式接口、lambda函数体转换的方法句柄、有关此SAM[^3]类型是否可序列化的信息，等等)。
 
 除了大多数方法引用不必被转换成一个新的方法外，方法引用以与lambda表达式相同的方式被处理；我们可以简单地加载被引用方法的方法句柄，然后传给元工厂(metafactory)。
 
-## 将lambda体去糖[^4]
+## 将lambda函数体去糖[^4]
 
-将lambda翻译为字节码的第一步就是将lambda体去糖成一个方法。
+将lambda翻译为字节码的第一步就是将lambda函数体去糖成一个方法。
 
-围绕着lambda体的去糖过程，要作出下面几个选择：
+围绕着lambda函数体的去糖过程，要作出下面几个选择：
 
 * 转化为静态方法还是实例方法？
 * 去糖后的方法应该在什么类中？
 * 去糖后的方法应该具有什么可见性？
 * 去糖后的方法名是什么？
-* 如果需要一个适配过程去解决lambda体签名和函数式接口方法前面之间的差异(比如装箱、拆箱、基本类型的宽型和窄型转换、可变参数转换，等等)，那么去糖后方法采用的签名是lambda体的，还是函数式接口方法的，或者介于这两者之间？另外谁来负责这个适配过程？
+* 如果需要一个适配过程去解决lambda函数体签名和函数式接口方法前面之间的差异(比如装箱、拆箱、基本类型的宽型和窄型转换、可变参数转换，等等)，那么去糖后方法采用的签名是lambda函数体的，还是函数式接口方法的，或者介于这两者之间？另外谁来负责这个适配过程？
 * 如果lambda从外部作用域(enclosing scop)中捕获参数，那么在去糖后方法的签名中该如何表示他们？(可以把他们当成相互独立的参数添加到参数列表的最前面或者最后，或者编译器可以把他们集中到一个结构参数中)。
 
-一个将lambda体去糖的相关问题是，方法引用是否需要一个生成的适配器或者“桥接“方法。
+一个将lambda函数体去糖的相关问题是，方法引用是否需要一个生成的适配器或者“桥接“方法。
 
 编译器会为lambda表达式推断一个方法签名，包括参数类型、返回类型以及抛出的异常；我们称之为`自然签名`(_nature signature_)。Lambda表达式还拥有一个是函数式接口的目标类型(target type)；我们将`lambda描述符`(_lambda descriptor_)称为目标类型擦除的描述符的方法签名。_Lambda factory_的返回值，被称为lambda对象(_lambda object_)，实现了对应的函数式接口并捕获了lambda的行为。
 
@@ -81,8 +81,8 @@ Collections.sort(strings, (String a, String b) -> -(a.compareTo(b)));
 
 * 私有方法优于非私有方法。
 * 静态方法优于实例方法。
-* 最好是在lambda表达式出现的最内层类中将lambda体去糖。
-* 签名应该匹配lambda体签名。
+* 最好是在lambda表达式出现的最内层类中将lambda函数体去糖。
+* 签名应该匹配lambda函数体签名。
 * 对于捕获的值，这些额外的参数应该放到参数列表的前面。
 * 绝不转换方法引用。
 
@@ -101,7 +101,7 @@ class A {
 }
 ```
 
-此lambda的自然签名是`(String)V`；`forEach`方法有一个参数`Block<String>`，其lambda描述符为`(Ojbect)V`。编译器将lambda体去糖为一个签名为其自然签名的静态方法，同时为去糖后的函数体生成一个方法名。
+此lambda的自然签名是`(String)V`；`forEach`方法有一个参数`Block<String>`，其lambda描述符为`(Ojbect)V`。编译器将lambda函数体去糖为一个签名为其自然签名的静态方法，同时为去糖后的函数体生成一个方法名。
 
 ```java
 class A {
