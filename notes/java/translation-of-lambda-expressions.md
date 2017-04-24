@@ -9,8 +9,10 @@
 >   * [State of Lambda: Libraries Edition](http://cr.openjdk.java.net/~briangoetz/lambda/lambda-libraries-final.html)，译：[深入理解Java 8 Lambda 类库篇](http://zh.lucida.me/blog/java-8-lambdas-inside-out-library-features/)
 >   * [Translation of Lambda Expressions](http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html)，没有找到翻译，所以决定试着翻译一下。
 
+---
+
 <pre align='center'>
-正文
+译文始
 </pre>
 
 # Translation of Lambda Expressions
@@ -146,7 +148,7 @@ class B {
 }
 ```
 
-可替代的选项是，捕获的值可以被装箱到一个结构(frame)或者数组中；关键点是，在去糖后lambda表达式的签名中的额外参数类型，与他们在_lambda factory_(动态)参数中的类型，是否一致。因为编译器对这两者均有控制权，并且在同一时间生成它们，所以编译器在捕获和包装上具有一定的灵活性。
+可替代的选项是，捕获的值可以被装箱到一个结构(frame)或者数组中；关键点是，在去糖后lambda表达式的签名中的额外参数类型，与他们在_lambda factory_(动态)参数中的类型，是一致的。因为编译器对这两者均有控制权，并且在同一时间生成它们，所以编译器在捕获和包装上具有一定的灵活性。
 
 ## The Lambda Metafactory
 
@@ -162,9 +164,41 @@ class B {
 
 #### Metafactory variants
 
-## 序列化
+## Serialization
+
+#### Accessibility
+
+#### Class caching
+
+#### Performance impact
 
 ## 其他方面
+
+#### 桥接方法
+
+函数式接口实际上可能不止一个非类方法，因为它可能存在桥接方法(bridge method)。
+
+例如，在下面这个函数式接口类型`B`中:
+
+```java
+interface A<T> { void m(T t); }
+
+interface B extends A<String> { void m(String s); }
+```
+
+接口`B`的基本方法(primary method)是`m(String)`，但同时它还有一个`m(String)`的桥接方法`m(Object)`。如若不然，当你将`B`转为`A`并调用`m`方法时，结果就会失败。
+
+当我们将lambda表达式转为实现了函数式接口(比如`B`)的对象时，我们必须确保所有桥接方法连接正确，和基本方法一样有恰当的参数和返回类型适配器(类型转换)。通过生成特意的字节码或者分离编译组件，也可以在编译期找到那些不存在于函数式接口中的“额外”方法。我们可以采取`MethodHandleProxy`提供的方式，仅去桥接那些和基本方法有相同名称和相同参数数量的方法，而不是执行完整的JLS(Java语言规范)中的桥接算法。(如果此两者中任何与基本方法不兼容，在调用时会抛出`ClassCastException`，仅比在链接时抛出的错误些微少些信息量。)我们可以让编译器在元工厂(metafactory)中包含一个已知的在编译期有效的(known-valid-at-compile-time)桥接签名列表，但是这个很小的益处会增大类文件大小。
+
+#### toString
+
+通常情况下，lambda对象的`toString`方法继承自`Object`。但是，对于方法引用的共有非合成方法，我们可能会希望根据此方法实现中的类名或方法名来实现`toString`。例如，将`String::size`转换为`IntFn`时，我们可能需要`toString`返回字符串：**String::size()**、**java.lang.String::size()**、**String::size() as IntFn**，等等。
+
+**TODO**: 如果我们支持命名式lambda(_named lambda_)的概念，当需要将名称以某种方式传递给`metafactory`时，我们可能会希望`toString`方法能够根据名称得出返回结果。
+
+<pre align='center'>
+译文终
+</pre>
 
 ---
 
@@ -172,13 +206,16 @@ class B {
 
 * [InvokeDynamic指令](http://blog.csdn.net/zxhoo/article/details/38387141)
 * [Java范型：类型擦除](https://segmentfault.com/a/1190000003831229)
+* [官方文档：类型擦除](https://docs.oracle.com/javase/tutorial/java/generics/erasure.html)
+* [桥接方法](http://blog.csdn.net/mhmyqn/article/details/47342577)
 
 <pre align='center'>
 脚注
 </pre>
 
-[^1]: 本文将`translate`翻译为`翻译`。
-[^2]: 本文不再翻译`lambda factory`。
+[^1]: 本文将`translate`直译为`翻译`。
+[^2]: 本文直接使用`lambda factory`。
 [^3]: SAM，全称Single Abstract Method。指仅有一个方法的接口，即函数式接口(functional interface)。
 [^4]: 原文_Lambda Body Desugaring_，这里将`Desugaring`直接译为`去糖`，可以参考这里: https://zh.wikipedia.org/wiki/语法糖
 [^5]: _effectively final_，指没有_final_修饰的变量或参数，如果在初始化之后，其值就不会改变，就是_effectively fianl_。在JavaSE8之前局部类仅能访问声明为_final_的局部变量，JavaSE8后局部类就可访问外部语句块中的_final_或者_effectively final_的变量。[Accessing Members of an Enclosing Class](http://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#accessing-members-of-an-enclosing-class)
+
