@@ -95,8 +95,8 @@ Lambda表达式的一种最简单的形式，就是从外部作用域里捕获�
 ```java
 class A {
     public void foo() {
-        List<String> list = ...
-            list.forEach( s -> { System.out.println(s); } );
+        List<String> list = ...;
+        list.forEach( s -> { System.out.println(s); } );
     }
 }
 ```
@@ -106,8 +106,8 @@ class A {
 ```java
 class A {
     public void foo() {
-        List<String> list = ...
-            list.forEach( [lambda for lambda$1 as Block] );
+        List<String> list = ...;
+        list.forEach( [lambda for lambda$1 as Block] );
     }
 
     static void lambda$1(String s) {
