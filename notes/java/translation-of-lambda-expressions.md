@@ -8,6 +8,8 @@
 >   * [State of Lambda](http://cr.openjdk.java.net/~briangoetz/lambda/lambda-state-final.html)，译：[深入理解Java 8 Lambda 语言篇](http://zh.lucida.me/blog/java-8-lambdas-insideout-language-features/)
 >   * [State of Lambda: Libraries Edition](http://cr.openjdk.java.net/~briangoetz/lambda/lambda-libraries-final.html)，译：[深入理解Java 8 Lambda 类库篇](http://zh.lucida.me/blog/java-8-lambdas-inside-out-library-features/)
 >   * [Translation of Lambda Expressions](http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html)，没有找到翻译，所以决定试着翻译一下。
+>
+> 欢迎指正。
 
 ---
 
@@ -56,24 +58,24 @@ Collections.sort(strings, (String a, String b) -> -(a.compareTo(b)));
 
 使用`invokedynamic`使得我们将翻译策略的选择推迟到运行时。运行时实现可以动态地选择策略来执行lambda表达式。构造lambda的运行时实现选择被隐藏到标准化(即平台规范的一部分)API之后，因此静态编译器可以调用该API，并且各种JRE实现可以选择他们倾向的实现策略。`invokedynamic`机制允许这样做，并且没有后期绑定方法可能带来的性能损耗。
 
-当编译器遇到lambda表达式的时候，它首先将lambda函数体转换为一个参数列表和返回类型与此lambda表达式匹配的方法，可能会有一些额外的参数(从词法作用域捕获的值，如果存在的话)。在lambda表达式被捕获处，编译器会生成一个`invokedynamic`调用点；当调用它时，返回一个lambda转换成的函数式接口实例。此调用点被称为给定lambda的lambda工厂(_lambda factory_)[^2]。Lambda factory的动态参数是从词法作用域捕获的值。Lambda facotry的引导方法(_bootstrap_ method, BSM)是Java语言运行库中的标准方法，被称之为lambda元工厂(_lambda metafactory_)。静态_bootstrap_参数在编译期捕获lambda的相关信息(lambda转换成的函数式接口、lambda函数体转换的方法句柄、有关此SAM[^3]类型是否可序列化的信息，等等)。
+当编译器遇到lambda表达式的时候，它首先将lambda体转换为一个参数列表和返回类型与此lambda表达式匹配的方法，可能会有一些额外的参数(从词法作用域捕获的值，如果存在的话)。在lambda表达式被捕获处，编译器会生成一个`invokedynamic`调用点；当调用它时，返回一个lambda转换成的函数式接口实例。此调用点被称为给定lambda的lambda工厂(_lambda factory_)[^2]。Lambda factory的动态参数是从词法作用域捕获的值。Lambda facotry的引导方法(_bootstrap_ method, BSM)是Java语言运行库中的标准方法，被称之为lambda元工厂(_lambda metafactory_)。静态_bootstrap_参数在编译期捕获lambda的相关信息(lambda转换成的函数式接口、lambda体转换的方法句柄、有关此SAM[^3]类型是否可序列化的信息，等等)。
 
 除了大多数方法引用不必被转换成一个新的方法外，方法引用以与lambda表达式相同的方式被处理；我们可以简单地加载被引用方法的方法句柄，然后传给元工厂(metafactory)。
 
-## 将lambda函数体去糖[^4]
+## 将lambda体去糖[^4]
 
-将lambda翻译为字节码的第一步就是将lambda函数体去糖成一个方法。
+将lambda翻译为字节码的第一步就是将lambda体去糖成一个方法。
 
-围绕着lambda函数体的去糖过程，要作出下面几个选择：
+围绕着lambda体的去糖过程，要作出下面几个选择：
 
 * 转化为静态方法还是实例方法？
 * 去糖后的方法应该在什么类中？
 * 去糖后的方法应该具有什么可见性？
 * 去糖后的方法名是什么？
-* 如果需要一个适配过程去解决lambda函数体签名和函数式接口方法前面之间的差异(比如装箱、拆箱、基本类型的宽型和窄型转换、变长参数转换，等等)，那么去糖后方法采用的签名是lambda函数体的，还是函数式接口方法的，或者介于这两者之间？另外谁来负责这个适配过程？
+* 如果需要一个适配过程去解决lambda体签名和函数式接口方法前面之间的差异(比如装箱、拆箱、基本类型的宽型和窄型转换、变长参数转换，等等)，那么去糖后方法采用的签名是lambda体的，还是函数式接口方法的，或者介于这两者之间？另外谁来负责这个适配过程？
 * 如果lambda从外部作用域(enclosing scop)中捕获参数，那么在去糖后方法的签名中该如何表示他们？(可以把他们当成相互独立的参数添加到参数列表的最前面或者最后，或者编译器可以把他们集中到一个结构参数中)。
 
-一个将lambda函数体去糖的相关问题是，方法引用是否需要一个生成的适配器或者“桥接“方法。
+一个将lambda体去糖的相关问题是，方法引用是否需要一个生成的适配器或者“桥接“方法。
 
 编译器会为lambda表达式推断一个方法签名，包括参数类型、返回类型以及抛出的异常；我们称之为`自然签名`(_nature signature_)。Lambda表达式还拥有一个是函数式接口的目标类型(target type)；我们将`lambda描述符`(_lambda descriptor_)称为目标类型擦除的描述符的方法签名。_Lambda factory_的返回值，被称为lambda对象(_lambda object_)，实现了对应的函数式接口并捕获了lambda的行为。
 
@@ -81,8 +83,8 @@ Collections.sort(strings, (String a, String b) -> -(a.compareTo(b)));
 
 * 私有方法优于非私有方法。
 * 静态方法优于实例方法。
-* 最好是在lambda表达式出现的最内层类中将lambda函数体去糖。
-* 签名应该匹配lambda函数体签名。
+* 最好是在lambda表达式出现的最内层类中将lambda体去糖。
+* 签名应该匹配lambda体签名。
 * 对于捕获的值，这些额外的参数应该放到参数列表的前面。
 * 绝不转换方法引用。
 
@@ -101,7 +103,7 @@ class A {
 }
 ```
 
-此lambda的自然签名是`(String)V`；`forEach`方法有一个参数`Block<String>`，其lambda描述符为`(Ojbect)V`。编译器将lambda函数体去糖为一个签名为其自然签名的静态方法，同时为去糖后的函数体生成一个方法名。
+此lambda的自然签名是`(String)V`；`forEach`方法有一个参数`Block<String>`，其lambda描述符为`(Ojbect)V`。编译器将lambda体去糖为一个签名为其自然签名的静态方法，同时为去糖后的函数体生成一个方法名。
 
 ```java
 class A {
@@ -152,7 +154,7 @@ class B {
 
 ## Lambda元工厂
 
-Lambda捕获由`invokedynamic`调用点实现，其静态参数描述了lambda函数体和lambda描述符的特征，其动态参数(如果有)即捕获值。当此调用点被调用时，它会返回一个lambda函数体和描述符相应的绑定了捕获值的lambda对象。此调用点的引导方法(bootstrap method)是一个规范化的平台方法，被称为**lambda元工厂**(_lambda metafactory_)。(我们可以让所有形式的lambda仅有一个单独的元工厂，或者对于普遍情况有专门的版本。) 虚拟机对于每个捕获点仅会调用一次元工厂；在此之后，虚拟机会链接此调用点并完成工作。因为调用点是被懒加载的，所以从未调用的工厂方法(factory site)永远不会被链接。基础的元工厂的静态参数列表如下所示：
+Lambda捕获由`invokedynamic`调用点实现，其静态参数描述了lambda体和lambda描述符的特征，其动态参数(如果有)即捕获值。当此调用点被调用时，它会返回一个lambda体和描述符相应的绑定了捕获值的lambda对象。此调用点的引导方法(bootstrap method)是一个规范化的平台方法，被称为**lambda元工厂**(_lambda metafactory_)。(我们可以让所有形式的lambda仅有一个单独的元工厂，或者对于普遍情况有专门的版本。) 虚拟机对于每个捕获点仅会调用一次元工厂；在此之后，虚拟机会链接此调用点并完成工作。因为调用点是被懒加载的，所以从未调用的工厂方法(factory site)永远不会被链接。基础的元工厂的静态参数列表如下所示：
 
 ```java
 metaFactory(MethodHandles.Lookup caller, // provided by VM
@@ -164,7 +166,7 @@ metaFactory(MethodHandles.Lookup caller, // provided by VM
 
 * 头三个参数(`caller`，`invokedName`，`invokedType`)是由虚拟机在调用点链接期自动添加的。
 * 参数`descriptor`标识了lambda转换成的函数式接口方法。(通过方法句柄的反射API，元工厂可以取得函数式接口类的名称，和其基本方法的方法签名的名称。)
-* 参数`impl`标识了lambda方法，或是去糖后的lambda函数体，或是用方法引用命名的方法。
+* 参数`impl`标识了lambda方法，或是去糖后的lambda体，或是用方法引用命名的方法。
 
 函数式接口的方法和其实现类的方法的方法签名，也可能有一些不同之处。实现类可能会有一些与捕获参数相应的额外参数，其余的参数也可能不完全匹配；**适配器**(Adaptation)小节介绍了某些允许的适配器(自类型，装箱)。
 
@@ -209,7 +211,7 @@ class B {
 
 Lambda表达式如上一节所说，可以被翻译为静态方法，因为其无论如何都不会使用外部对象实例(不引用`this`、`super`以及外部实例的成员)。总而言之，我们将使用`this`、`super`和捕获外部实例成员的lambda成为实例捕获型lambda(_instance-capturing lambda_)。
 
-非实例捕获型lambda(_non-instance-capturing lambda_)被翻译为私有静态方法，实例捕获型lambda则被翻译为私有实例方法。这样简化了实例捕获型lambda的去糖逻辑，lambda函数体中的名称即意味着去糖后方法中的名称，并且非常契合现有的实现技术(方法句柄绑定)。当捕获一个实例捕获型lambda时，接收者(`this`)被作为第一个动态参数。
+非实例捕获型lambda(_non-instance-capturing lambda_)被翻译为私有静态方法，实例捕获型lambda则被翻译为私有实例方法。这样简化了实例捕获型lambda的去糖逻辑，lambda体中的名称即意味着去糖后方法中的名称，并且非常契合现有的实现技术(方法句柄绑定)。当捕获一个实例捕获型lambda时，接收者(`this`)被作为第一个动态参数。
 
 一个例子，考虑一个捕获了成员属性`minSize`的lambda：
 
