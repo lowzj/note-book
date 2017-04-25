@@ -330,13 +330,157 @@ class Bar {
 
 由于元工厂不是由用户直接调用的，所以没有因为用多种方式做同一件事情而引起困惑。通过删除不必要的参数，使得类文件变得更小。快速路径选项减少了虚拟机内置lambda转换操作的障碍，使其可被视为装箱操作，同时使拆箱优化更容易。
 
-## Serialization
+## 序列化
 
-#### Accessibility
+我们的动态翻译策略规定了一个动态序列化策略。假如我们希望能够从今天为每个lambda编造一个内部类，明天则转换到使用动态代理，那么今天序列化的lambda对象在明天反序列化时必须转为动态代理。通过为lambda表达式定义中间的序列格式，并使用`readResolve`和`writeReplace`在lambda对象和序列化格式(serialized form)间进行转换，从而完成上面的要求。这个序列后的格式必须包含通过元工厂重建lambda对象所需的全部信息。举个例子，序列化格式可以如下：
 
-#### Class caching
+```java
+public interface SerializedLambda extends Serializable {
+    // capture context
+    String getCapturingClass();
 
-#### Performance impact
+    // SAM descriptor
+    String getDescriptorClass();
+    String getDescriptorName();
+    String getDescriptorMethodType();
+
+    // implementation
+    int getImplReferenceKind();
+    String getImplClass();
+    String getImplName();
+    String getImplMethodType();
+
+    // dynamic args -- these will individually need to be Serializable too
+    Object[] getCapturedArgs();
+}
+```
+
+这里，`SerializedLambda`接口提供了存在于原始lambda捕获点的所有信息。当捕获一个可序列化的lambda时，元工厂必须返回一个实现了`writeReplace`方法的对象；`writeReplace`方法需返回一个具有`readResolve`方法的`SerializedLambda`的实现类；而`readResolve`方法负责重建lambda对象。
+
+#### 可见性
+
+一个挑战是，反序列化代码需要为实现类方法构造一个方法句柄。虽然序列化格式提供了如此做的所有信息 -- 种类(kind)、类(class)、名称(name)、类型(type) -- 由此可以使用`MethodHandles.Lookup`暴露的`findXxx`方法中的一个来构造方法句柄，但是lambda方法或者被引用的方法对于`SerializedLambda`的实现类是不可见的(要么由于方法不可见，要么由于外部类不可见)。
+
+由于实现类的方法句柄是用该类的访问权限加载的，所以对于创造lambda的lambda工厂点(lambda factory site)来说，这并不是一个问题。但是，为了防止引入安全风险，我们希望最小化任何用在反序列化过程中的权限提升，当然更不想修改JVM的可见性规则。
+
+一种可能是确保可序列化lambda和方法引用的实现类方法是公有类中的公有方法。这也许已经是真的(方法引用`String::length`)，或者可以很容易的实现(对于公有类，我们可以将lambda转换为公有方法)。但是这依然是不可取的，因为它暴露了内部成员为公有方法，这与我们翻译非序列化lambda不一致。在某些情况下，还需要一些有效的技巧，比如当lambda在一个非公有类中时，则创建一个公有的_边车_(_sidecar_)[^8]类。(在某种程度上，暴露为公有的是不可避免的，因为那就是序列化所做的事 -- 提供一个外部的公有的事实上的类的构造函数。但是我们希望尽量减少这种暴露。)
+
+一个更好的方案是将反序列化操作委派回给做lambda捕获的类。一个关键的安全挑战是，不要让反序列化机制允许攻击者通过构造篡改的字节流来构造一个可以调用任意私有方法的lambda对象。序列化天然暴露(函数式接口、行为方法、捕获参数类型)的特定组合的**构造函数**；通过委派回给捕获类，可以在继续之前验证字节流表示的是一个合法有效的组合。一旦验证组合有效，就可以通过元工厂调用来构造lambda，使用其自己的访问权限来加载方法句柄。
+
+为了做到这点，捕获类应当有一个可以从序列化层调用的辅助方法，其实就是`readObject`、`writeObject`、`readResolve`、`writeReplace`。我们将其称为`$deserialize$(SerializedLambda)`。序列化层唯一需要的提权操作就是调用此方法(很可能是私有的)。
+
+当编译一个捕获来可序列化的lambda类时，编译器知道(函数式接口、行为方法、捕获参数类型)中的哪个组合该被捕获为可序列化lambda。`$deserialize$`应当仅支持这些反序列化组合。
+
+考虑下面这个捕获类两个可序列化的lambda类：
+
+```java
+class Foo {
+    void moo() {
+        SerializableComparator<String> byLength = (a,b) -> a.length() - b.length();
+        SerializablePredicate<String> isEmpty = String::isEmpty;
+        ...
+    }
+}
+```
+
+我们可以翻译如下：
+
+```java
+class Foo {
+    void moo() {
+        SerializableComparator<String> byLength
+            = indy(MH(serializableMetafactory), MH(invokeVirtual SerializableComparator.compare),
+                    MH(invokeStatic lambda$1))());
+        SerializablePredicate<String> isEmpty
+            = indy(MH(serializableMetafactory), MH(invokeVirtual SerializablePredicate.apply),
+                    MH(invokeVirtual String.isEmpty)());
+        ...
+    }
+
+    private static int lambda$1(String a, String b) { return a.length() - b.length(); }
+
+    private static $deserialize$(SerializableLambda lambda) {
+        switch(lambda.getImplName()) {
+            case "lambda$1":
+                if (lambda.getSamClass().equals("com/foo/SerializableComparator")
+                        && lambda.getSamMethodName().equals("compare")
+                        && lambda.getSamMethodDesc().equals("...")
+                        && lambda.getImpleReferenceKind() == REF_invokeStatic
+                        && lambda.getImplClass().equals("com/foo/Foo")
+                        && lambda.getImplDesc().equals(...)
+                        && lambda.getInvocationDesc().equals(...))
+                    return indy(MH(serializableMetafactory),
+                            MH(invokeVirtual SerializableComparator.compare),
+                            MH(invokeStatic lambda$1))(lambda.getCapturedArgs()));
+                break;
+
+            case "isEmpty":
+                if (lambda.getSamClass().equals("com/foo/SerializablePredicate")
+                        && lambda.getSamMethodName().equals("apply")
+                        && lambda.getSamMethodDesc().equals("...")
+                        && lambda.getImpleReferenceKind() == REF_invokeVirtual
+                        && lambda.getImplClass().equals("java/lang/String")
+                        && lambda.getImplDesc().equals(...)
+                        && lambda.getInvocationDesc().equals(...))
+                    return indy(MH(serializableMetafactory),
+                            MH(invokeVirtual SerializablePredicate.apply),
+                            MH(invokeVirtual String.isEmpty)(lambda.getCapturedArgs));
+
+                break;
+        }
+        throw new ...;
+    }
+}
+```
+
+`$deserialize$`方法知道哪些lambda已被这个类捕获，所以可以根据此列表检查序列化格式，然后使用一个可以与捕获点一样共享相同引导索引(bootstrap index)的同一调用点来重新构造lambda。(或者，通过将捕获分解为一个私有方法来共享同一个实际捕获点，由此共享相同的链接状态(linkage state)；这样也许能简化下节**类缓存**提到的某些问题。)
+
+如果一个恶意的调用者欺骗我们去反序列化一段恶意字节流，也仅适用于那些事实上确实是在该编译单元中lambda转换目标的方法，即我们在翻译为可序列化内部类时所暴露的方法。因为是与去糖后方法在同一个编译单元，所以不会在重新编译时引入额外的名称不稳定性问题。
+
+这就允许了一个对所有lambda体都简单的、通用的(one-size-fits-all)去糖策略 -- 我们对序列化和非序列化lambda使用同样的策略。这个策略让所有去糖后lambda体都是私有的，不需要边车类或者可访问的桥接方法，且唯一需要提权的操作仅是调用`$deserialize$`。
+
+为了减少过多暴露带来的类加载攻击(攻击者创建一个序列化lambda的描述，意图强制加载该类，以产生其静态初始化方法引起的副作用)，最好是将`SerializedLambda`接口完全处理为类名称的名义标识符(nominal identifier)，而不是`Class`对象。
+
+#### 类缓存
+
+在众多可能的翻译策略中，我们都需要生成新的类。例如，如果每个lambda我们都生成一个类(在运行时而不是编译期编造内部类)，我们只在给定的_lambda factory_第一次被调用时才生成此类。之后，对先前的那个_lambda factory_的调用都将重用第一次调用时生成的类。
+
+对于可序列化的lambda，在类生成时可能会触发两点：捕获点，以及在`$deserialize$`代码中相应的工厂调用点。理想的情况是(尽管非必须)，不管哪条路径先触发，通过两者中任何一个生成的对象都应有相同的类，这要求每个lambda捕获有唯一的key，且缓存在此给定可序列化lambda的两个捕获点之间是共享的。
+
+```java
+class SerializationExperiment {
+    interface Foo extends Serializable { int m(); }
+
+    public static void main(String[] args) {
+        Foo f1, f2;
+        if (args[0].equals("r")) {
+            // read file 'foo.ser' and deserialize into f1
+        }
+
+        f2 = () -> 3;
+
+        if (args[0].equals("w")) {
+            // serialize f2 and write into file 'foo.ser'
+            // read file 'foo.ser' and deserialize into f1
+        }
+
+        assert f1.getClass() == f2.getClass();
+    }
+}
+```
+
+如果我们运行这个程序两次：
+
+```sh
+java -ea SerializationExperiment w
+java -ea SerializationExperiment r
+```
+
+期望的是，不管类编造(class spinning)发生在第一次反序列化时还是第一次调用元工厂时，都会运行成功。
+
+#### 性能影响
+
+可序列化性给lambda增加了一些额外的性能损失，因为lambda对象需要携带足够多的状态信息来有效地重建元工厂的静态和动态参数列表。这可能意味着实现类中额外的字段，额外的构造函数初始化工作，以及对翻译策略的约束(例如，我们不能使用方法句柄代理，因为其生成对象不会实现必须的`writeReplace`方法)。因此，更好的方案是把可序列化的lambda分离出来，而不是让所有lambda都可序列化致使这些性能损失增加到所有lambda上。
 
 ## 其他方面
 
@@ -358,7 +502,7 @@ interface B extends A<String> { void m(String s); }
 
 #### toString
 
-通常情况下，lambda对象的`toString`方法继承自`Object`。但是，对于方法引用的共有非合成方法，我们可能会希望根据此方法实现中的类名或方法名来实现`toString`。例如，将`String::size`转换为`IntFn`时，我们可能需要`toString`返回字符串：**String::size()**、**java.lang.String::size()**、**String::size() as IntFn**，等等。
+通常情况下，lambda对象的`toString`方法继承自`Object`。但是，对于方法引用的公有非合成方法，我们可能会希望根据此方法实现中的类名或方法名来实现`toString`。例如，将`String::size`转换为`IntFn`时，我们可能需要`toString`返回字符串：**String::size()**、**java.lang.String::size()**、**String::size() as IntFn**，等等。
 
 **TODO**: 如果我们支持命名式lambda(_named lambda_)的概念，当需要将名称以某种方式传递给`metafactory`时，我们可能会希望`toString`方法能够根据名称得出返回结果。
 
@@ -386,4 +530,5 @@ interface B extends A<String> { void m(String s); }
 [^5]: _effectively final_，指没有_final_修饰的变量或参数，如果在初始化之后，其值就不会改变，就是_effectively fianl_。在JavaSE8之前局部类仅能访问声明为_final_的局部变量，JavaSE8后局部类就可访问外部语句块中的_final_或者_effectively final_的变量。[Accessing Members of an Enclosing Class](http://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#accessing-members-of-an-enclosing-class)
 [^6]: _快速路径_(_fast path_)，指在一个程序中比起一般路径有更短的指令路径长的路径。有效的快速路径会在处理最长出现的情形时比一般路径更有效率。
 [^7]: _厨房水槽_(_kitchen sink_)，用厨房水槽比喻，指杂七杂八，这里意思应该是，除了那两个版本中特定的情形外，此版本使用其他形式的lambda。
+[^8]: _边车_(_sidecar_)，了解一下边车的构造，大概就能意会边车类(sidecar class)是干嘛的-_-!!。[WIKI:边车](https://zh.wikipedia.org/wiki/%E9%82%8A%E8%BB%8A)。
 
