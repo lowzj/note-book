@@ -70,7 +70,7 @@ Collections.sort(strings, (String a, String b) -> -(a.compareTo(b)));
 * 去糖后的方法应该在什么类中？
 * 去糖后的方法应该具有什么可见性？
 * 去糖后的方法名是什么？
-* 如果需要一个适配过程去解决lambda函数体签名和函数式接口方法前面之间的差异(比如装箱、拆箱、基本类型的宽型和窄型转换、可变参数转换，等等)，那么去糖后方法采用的签名是lambda函数体的，还是函数式接口方法的，或者介于这两者之间？另外谁来负责这个适配过程？
+* 如果需要一个适配过程去解决lambda函数体签名和函数式接口方法前面之间的差异(比如装箱、拆箱、基本类型的宽型和窄型转换、变长参数转换，等等)，那么去糖后方法采用的签名是lambda函数体的，还是函数式接口方法的，或者介于这两者之间？另外谁来负责这个适配过程？
 * 如果lambda从外部作用域(enclosing scop)中捕获参数，那么在去糖后方法的签名中该如何表示他们？(可以把他们当成相互独立的参数添加到参数列表的最前面或者最后，或者编译器可以把他们集中到一个结构参数中)。
 
 一个将lambda函数体去糖的相关问题是，方法引用是否需要一个生成的适配器或者“桥接“方法。
@@ -150,19 +150,183 @@ class B {
 
 可替代的选项是，捕获的值可以被装箱到一个结构(frame)或者数组中；关键点是，在去糖后lambda表达式的签名中的额外参数类型，与他们在_lambda factory_(动态)参数中的类型，是一致的。因为编译器对这两者均有控制权，并且在同一时间生成它们，所以编译器在捕获和包装上具有一定的灵活性。
 
-## The Lambda Metafactory
+## Lambda元工厂
 
-#### Lambda Capture
+Lambda捕获由`invokedynamic`调用点实现，其静态参数描述了lambda函数体和lambda描述符的特征，其动态参数(如果有)即捕获值。当此调用点被调用时，它会返回一个lambda函数体和描述符相应的绑定了捕获值的lambda对象。此调用点的引导方法(bootstrap method)是一个规范化的平台方法，被称为**lambda元工厂**(_lambda metafactory_)。(我们可以让所有形式的lambda仅有一个单独的元工厂，或者对于普遍情况有专门的版本。) 虚拟机对于每个捕获点仅会调用一次元工厂；在此之后，虚拟机会链接此调用点并完成工作。因为调用点是被懒加载的，所以从未调用的工厂方法(factory site)永远不会被链接。基础的元工厂的静态参数列表如下所示：
 
-#### Static vs instance methods
+```java
+metaFactory(MethodHandles.Lookup caller, // provided by VM
+        String invokedName,          // provided by VM
+        MethodType invokedType,      // provided by VM
+        MethodHandle descriptor,     // lambda descriptor
+        MethodHandle impl)           // lambda body
+```
 
-#### Method reference capture
+* 头三个参数(`caller`，`invokedName`，`invokedType`)是由虚拟机在调用点链接期自动添加的。
+* 参数`descriptor`标识了lambda转换成的函数式接口方法。(通过方法句柄的反射API，元工厂可以取得函数式接口类的名称，和其基本方法的方法签名的名称。)
+* 参数`impl`标识了lambda方法，或是去糖后的lambda函数体，或是用方法引用命名的方法。
 
-#### Varargs
+函数式接口的方法和其实现类的方法的方法签名，也可能有一些不同之处。实现类可能会有一些与捕获参数相应的额外参数，其余的参数也可能不完全匹配；**适配器**(Adaptation)小节介绍了某些允许的适配器(自类型，装箱)。
 
-#### Adaptations
+#### Lambda捕获
 
-#### Metafactory variants
+我们现在准备好介绍将lambda表达式和方法引用转换为函数式接口的翻译过程。我们可以将例子`A`翻译如下：
+
+```java
+class A {
+    public void foo() {
+        List<String> list = ...;
+        list.forEach(indy((MH(metaFactory), MH(invokeVirtual Block.apply),
+                        MH(invokeStatic A.lambda$1))()));
+    }
+
+    private static void lambda$1(String s) {
+        System.out.println(s);
+    }
+}
+```
+
+因为`A`中的lambda是无状态的(stateless)，所以其lambda工厂方法的动态参数列表是空的。
+
+对于例子`B`，其动态参数列表是非空的，因为我们必须将`bottom`和`top`提供给_lambda factory_：
+
+```java
+class B {
+    public void foo() {
+        List<Person> list = ...;
+        final int bottom = ..., top = ...;
+        list.removeIf(indy((MH(metaFactory), MH(invokeVirtual Predicate.apply),
+                        MH(invokeStatic B.lambda$1))( bottom, top ))));
+    }
+
+    private static boolean lambda$1(int bottom, int top, Person p) {
+        return (p.size >= bottom && p.size <= top);
+    }
+}
+```
+
+#### 静态方法与实例方法
+
+Lambda表达式如上一节所说，可以被翻译为静态方法，因为其无论如何都不会使用外部对象实例(不引用`this`、`super`以及外部实例的成员)。总而言之，我们将使用`this`、`super`和捕获外部实例成员的lambda成为实例捕获型lambda(_instance-capturing lambda_)。
+
+非实例捕获型lambda(_non-instance-capturing lambda_)被翻译为私有静态方法，实例捕获型lambda则被翻译为私有实例方法。这样简化了实例捕获型lambda的去糖逻辑，lambda函数体中的名称即意味着去糖后方法中的名称，并且非常契合现有的实现技术(方法句柄绑定)。当捕获一个实例捕获型lambda时，接收者(`this`)被作为第一个动态参数。
+
+一个例子，考虑一个捕获了成员属性`minSize`的lambda：
+
+```java
+list.filter(e -> e.getSize() < minSize )
+```
+
+我们将这个lambda转化为一个实例方法，并把接收者当作第一个捕获参数：
+
+```java
+list.forEach(INDY((MH(metaFactory), MH(invokeVirtual Predicate.apply),
+                MH(invokeVirtual B.lambda$1))( this ))));
+
+private boolean lambda$1(Element e) {
+    return e.getSize() < minSize;
+}
+```
+
+因为lambda体被翻译为私有方法，所以当将行为方法句柄传递给元工厂时，捕获点应当加载一个常量方法句柄：对于实例方法，其(该常量方法句柄)引用种类(reference kind)为`REF_invokeSpecial`；对于静态方法，其引用种类为`REF_invokeStatic`。
+
+我们之所以可以转化成私有方法，是因为私有方法对捕获类是可见的，因而私有方法的方法句柄可被元工厂调用。如果元工厂用生成字节码来实现目标函数式接口，而不是直接调用方法句柄，那它将会通过免除可见性检查的`Unsafe.defineClass`来加载这些类。
+
+
+#### 方法引用捕获
+
+方法引用(method reference)有多种形式，与lambda类似，可以分为实力型捕获和非实例捕获。
+
+非实例捕获型方法引用包括：
+* 静态方法引用(static method reference)，如`Integer::parseInt`，使用引用种类`invokeStatic`捕获。
+* 未绑定实例方法引用(unbound instance method reference)，如`String::length`，使用引用种类`invokeVirtual`捕获。
+* 顶层构造方法应用(top-level constructor reference)，如`Foo::new`，使用引用种类`invokeNewSpecial`捕获。
+
+当捕获一个非实力型捕获型方法引用时，其捕获参数列表总为空，如：
+
+```java
+list.filter(String::isEmpty)
+```
+
+被翻译为：
+
+```java
+list.filter(indy((MH(metaFactory), MH(invokeVirtual Predicate.apply),
+            MH(invokeVirtual String.isEmpty))()))
+```
+
+实例捕获型方法引用包括：
+* 绑定方法引用(bound instance methed reference)，如`s::length`，使用引用种类`invokeVirtual`捕获。
+* 父类方法引用(super method reference)，如`super::foo`，使用引用种类`invokeSpecial`捕获。
+* 内部类构造方法引用(inner class constructor reference)，如`Inner::new`，使用引用种类`invokeNewSpecial`捕获。
+
+当捕获一个实例捕获型方法引用时，捕获参数列表总有一个单一的参数：对于父类或内部类构造方法引用时是`this`，对于绑定实例方法引用则是指定的接收者。
+
+#### 变长参数
+
+如果一个变长参数方法的方法引用被转换成一个非变长参数方法的函数式接口，编译器必须生成桥接方法，并且捕获此桥接方法的方法句柄而不是目标方法的方法句柄。此桥接方法必须处理任何需要的参数类型的适配，以及从变长参数到非变长参数的转换。例如：
+
+```java
+interface IIS {
+    void foo(Integer a1, Integer a2, String a3);
+}
+
+class Foo {
+    static void m(Number a1, Object... rest) { ... }
+}
+
+class Bar {
+    void bar() {
+        SIS x = Foo::m;
+    }
+}
+```
+
+这里，编译器需要生成一个桥接方法去执行下面的适配逻辑：将第一个参数类型从`Number`适配到`Integer`，剩余的参数汇集到一个`Object`数组中。
+
+```java
+class Bar {
+    void bar() {
+        SIS x = indy((MH(metafactory), MH(invokeVirtual IIS.foo),
+                    MH(invokeStatic m$bridge))( ));
+    }
+
+    static private void m$bridge(Integer a1, Integer a2, String a3) {
+        Foo.m(a1, a2, a3);
+    }
+}
+```
+
+#### 适配
+
+去糖后的lambda方法有参数列表和返回类型：`(A1..An) -> Ra`(如果去糖后的方法是一个实例方法，则接收者被作为第一个参数)。类似的，函数式接口方法也有参数列表和返回类型：`(F1..Fm) -> Rf`(无接收者这一参数)。工厂方法的动态参数列表有参数类型：`(D1..Dk)`。如果是实例捕获型lambda，则其第一个动态参数必须是此接收者。
+
+这些参数长度之和如下：`k+m == n`。就是说，lambda体的参数列表的长度，应该和动态参数列表与函数式接口参数列表的长度之和一样。
+
+我们将lambda体的参数列表`(A1..An)`划为`(D1..Dk H1..Hm)`，其中`D`对应“额外”(动态)参数，`H`对应函数式接口参数。
+
+要求参数`Hi`适配`Fi`，`i`从`1`到`m`；类似的，要求返回值`Ra`适配`Rf`。对于类型`T`与类型`U`，若：
+* `T` == `U`
+* `T`是基本类型，`U`是引用类型，且通过装箱转换可以将`T`转换为`U`
+* `T`是引用类型，`U`是基本烈性，且通过拆箱转换可以将`T`转换为`U`
+* `T`和`U`均是基本类型，且通过基本类型窄型转换可以将`T`转换为`U`
+* `T`和`U`均是引用类型，且`T`可强制转换为`U`
+
+则类型`T`适配于类型`U`。
+
+适配由元工厂在链接期检查，在捕获期执行。
+
+#### 元工厂变种
+
+对所有形式的lambda都仅有一个单一的元工厂是实用的。但是，将元工厂划分为不止一种，似乎更好些：
+
+* _快速路径_(_fast path_)[^6]版，支持非序列化lambda和非序列化的静态或非绑定实例方法引用。
+* _序列化_版，支持所有种类的序列化lambda和方法引用。
+* 如若必要，还有一个_厨房水槽_(_kitchen sink_)[^7]版，支持转换功能的任意组合。
+
+厨房水槽版需要一个额外的标志参数`flags`来选择选项，可能也需要其他特定选项的参数。序列化版则可能需要一个额外的与序列化相关的参数。
+
+由于元工厂不是由用户直接调用的，所以没有因为用多种方式做同一件事情而引起困惑。通过删除不必要的参数，使得类文件变得更小。快速路径选项减少了虚拟机内置lambda转换操作的障碍，使其可被视为装箱操作，同时使拆箱优化更容易。
 
 ## Serialization
 
@@ -218,4 +382,6 @@ interface B extends A<String> { void m(String s); }
 [^3]: SAM，全称Single Abstract Method。指仅有一个方法的接口，即函数式接口(functional interface)。
 [^4]: 原文_Lambda Body Desugaring_，这里将`Desugaring`直接译为`去糖`，可以参考这里: https://zh.wikipedia.org/wiki/语法糖
 [^5]: _effectively final_，指没有_final_修饰的变量或参数，如果在初始化之后，其值就不会改变，就是_effectively fianl_。在JavaSE8之前局部类仅能访问声明为_final_的局部变量，JavaSE8后局部类就可访问外部语句块中的_final_或者_effectively final_的变量。[Accessing Members of an Enclosing Class](http://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#accessing-members-of-an-enclosing-class)
+[^6]: _快速路径_(_fast path_)，指在一个程序中比起一般路径有更短的指令路径长的路径。有效的快速路径会在处理最长出现的情形时比一般路径更有效率。
+[^7]: _厨房水槽_(_kitchen sink_)，用厨房水槽比喻，指杂七杂八，这里意思应该是，除了那两个版本中特定的情形外，此版本使用其他形式的lambda。
 
