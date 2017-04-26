@@ -1,5 +1,7 @@
 # Lambda表达式的翻译原理
 
+_2017-04-25_
+
 > 本篇文章翻译自: [Translation of Lambda Expressions](http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html)
 >
 > 为什么要翻译此文:
@@ -310,7 +312,7 @@ class Bar {
 要求参数`Hi`适配`Fi`，`i`从`1`到`m`；类似的，要求返回值`Ra`适配`Rf`。对于类型`T`与类型`U`，若：
 * `T` == `U`
 * `T`是基本类型，`U`是引用类型，且通过装箱转换可以将`T`转换为`U`
-* `T`是引用类型，`U`是基本烈性，且通过拆箱转换可以将`T`转换为`U`
+* `T`是引用类型，`U`是基本类型，且通过拆箱转换可以将`T`转换为`U`
 * `T`和`U`均是基本类型，且通过基本类型窄型转换可以将`T`转换为`U`
 * `T`和`U`均是引用类型，且`T`可强制转换为`U`
 
