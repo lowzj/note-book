@@ -228,7 +228,7 @@ _2017-05-10_
 
 需要注意几点：
 * 类型为`error`(53行)。
-* 进入条件为：`RequestContext`中有异常，并且该filter从未执行过(65, 665)。异常对象是在`ZuulServlet#error(ZuulException)`方法中设置的。
+* 进入条件为：`RequestContext`中有异常，并且该filter从未执行过(65, 66)。异常对象是在`ZuulServlet#error(ZuulException)`方法中设置的。
 * `run()`方法中提取错误信息不再是从`RequestContext`的三个`key`(`error.status_code`, `error.message`, `error.exception`)中获取；而是直接从`ZuulException`对象中获取(73~82)。
 * 如何取得`ZuulException`对象(100~118)，最重要的一点是从`ZuulRuntimeException`中提取`ZuulException`对象(101~103)，而`ZuulRuntimeException`继承`RuntimeException`。
 * 注意101行代码，是判断`throwable.getCause()`是否为`ZuulRuntimeException`，这是因为所有非`ZuulException`的异常在`FilterProcessor#processZuulFilter()`(227行)中会被转化为`ZuulException`。
@@ -251,6 +251,6 @@ public Object run() {
 }
 ```
 
-如果想自定义返回的异常信息的response body的格式，可以仿照`SendErrorFilter`重写一个`error` filter，转发到我们自定义的api上，重新组织错误信息然后返回；或者仿照`SendResponseFilter`重写一个`error` filter，将错误信息重新组织，写入到response body中，直接返回。
+如果想自定义返回的异常信息的response body的格式，最简单的方法是仿照`BasicErrorController`重写一下`/error`接口。
 
 
