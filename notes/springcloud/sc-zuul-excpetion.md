@@ -2,7 +2,7 @@
 
 _2017-05-10_
 
-最近看到了一个[GitHub issue](https://github.com/spring-cloud/spring-cloud-netflix/issues/1874)在讨论如何在`post`类型的zuul filter中设置response body，实际上提问者是想在异常情况下，如何返回一个自定义的response body。正好我在升级spring-cloud，也想弄清楚，spring-cloud-zuul是如何处理异常情况的，所以就仔细看了看这部分的实现细节，现在做个笔记记录下来。
+最近看到了一个[GitHub issue](https://github.com/spring-cloud/spring-cloud-netflix/issues/1874)在讨论如何在`post`类型的zuul filter中设置response body，其中涉及到异常情况下，如何返回一个自定义的response body。正好我在升级spring-cloud，也想弄清楚，spring-cloud-zuul是如何处理异常情况的，所以就仔细看了看这部分的实现细节，现在做个笔记记录下来。
 
 关于zuul是如何工作的，这里不再介绍，具体可以参看[这里](https://github.com/Netflix/zuul/wiki/How-it-Works)。官方给了一个zull请求的生命周期图：
 
