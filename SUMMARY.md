@@ -6,7 +6,7 @@
   * [Share](notes/microservices/share.md)
 * [SpringCloud](notes/springcloud/spring-cloud-practice.md)
   * [SpringCloudConfig](notes/springcloud/spring-cloud-config.md)
-  * [Zuul异常处理](notes/springcloud/sc-zuul-excpetion.md)
+  * [SpringCloud-Zuul异常处理](notes/springcloud/sc-zuul-excpetion.md)
   * [SpringCloud问题整理](notes/springcloud/sc-issues.md)
 * [Serverless](notes/serverless.md)
 * [consul](notes/consul.md)
