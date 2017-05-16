@@ -68,3 +68,15 @@ curl -s -i -XPOST "localhost:8500/v1/agent/service/deregister/${serviceId}"
 URL: `/management/health`
 Response: 正常返回status code 200
 ```
+
+# Readings
+
+* [gh-issue: Unable to deregister a service](https://github.com/hashicorp/consul/issues/1188)
+* [gh: consul-api for java](https://github.com/Ecwid/consul-api)
+* [gh: python-consul](https://github.com/cablehead/python-consul)
+* [Consul Architechture](https://www.consul.io/docs/internals/architecture.html)
+* [Consul: Consensus Protocol](https://www.consul.io/docs/internals/consensus.html)
+* [Consul Confiugration](https://www.consul.io/docs/agent/options.html)
+* [Consul: service definition](https://www.consul.io/docs/agent/services.html)
+* [Consul: check definition](https://www.consul.io/docs/agent/checks.html)
+* [Consul REST API](https://www.consul.io/api/catalog.html)
