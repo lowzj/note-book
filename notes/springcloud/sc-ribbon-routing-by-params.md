@@ -9,7 +9,7 @@ _2017-05-22_
 
 以上，最终都归结于一个点，就是要根据请求中的某些信息，将该请求路由到特定的服务实例上。
 
-`Ribbon`从设计上是支持按请求路由请求的，这点从`IRule#choose(Object)`这个接口设计就能看得出来。但是在实际运行时却发现，传给`IRule#choose(Object)`的参数一直是`null`，这就坑爹了，有必要弄清楚到底是怎么回事。
+`Ribbon`从设计上是支持按参数路由请求的，这点从`IRule#choose(Object)`这个接口设计就能看得出来，这个方法里的参数称为`LoadBalancerKey`。但是在实际运行时却发现，传给`IRule#choose(Object)`的这个`loadBalancerKey`一直是`null`，这就坑爹了，有必要弄清楚到底是怎么回事。
 
 ## IRule
 
