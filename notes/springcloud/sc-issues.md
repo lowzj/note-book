@@ -25,3 +25,11 @@ hystrix.command.<hystrixCommandName>.execution.isolation.thread.timeoutInMillise
 
 其中`hystrixCommandName`为`FeignClassName#methodSignature`，由此可以做到方法级别的隔离；`feignClientName`为注解`FeignClient`中属性`name`的值。
 
+
+#### 使用Archaius动态调整运行时配置
+
+添加以下JVM参数：
+
+```ini
+-Darchaius.dynamicPropertyFactory.registerConfigWithJMX=true
+```
