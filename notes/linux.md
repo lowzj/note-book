@@ -24,6 +24,21 @@ https://{username}:{password}@github.com/lowzj/github-auto-ops
 
 这里有个例子: https://github.com/lowzj/github-auto-ops
 
+### Linux下root删除文件提示: Operation not permitted
+* 现象：使用root账户删除文件提示权限不够；linux下受保护文件即使用root也不能修改。
+* 解决：http://blog.csdn.net/gxdvip/article/details/50808157
+* 命令
+
+```sh
+# 检查文件是否受保护，带 i 标志即为受保护
+$ lsattr a.txt
+---i---------- a.txt
+# 使用 chattr 解除保护
+$ chattr -i a.txt
+# 使用 chattr 增加保护
+$ chattr +i a.txt
+```
+
 
 ### shell 求两个文件的差集
 
