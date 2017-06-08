@@ -52,5 +52,7 @@
 * [Serverless Architectures](https://martinfowler.com/articles/serverless.html)
 * [Understanding Container Reuse in AWS Lambda](https://aws.amazon.com/cn/blogs/compute/container-reuse-in-lambda/)
 * [OpenWhisk](http://openwhisk.org/)
+	* [What Is OpenWhisk](http://openwhisk.org/about)
+	* [How OpenWhisk Works](https://github.com/apache/incubator-openwhisk/blob/master/docs/about.md)
 * [Wiki: IFTTT](https://en.wikipedia.org/wiki/IFTTT#cite_note-wtf-18)
 * [Zapier](https://zapier.com/developer/documentation/v2/)
