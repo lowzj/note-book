@@ -29,3 +29,4 @@
 * [mesos](notes/mesos.md)
 * [OSX](notes/OSX_skills.md)
 * [Raft](notes/raft.md)
+* [Readings](notes/readings.md)
