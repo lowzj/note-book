@@ -156,6 +156,8 @@ ribbon.ReadTimeout=3000
 
 支持服务级别的配置：`<serviceId>.ribbon.<property>=<value>`
 
+动态修改配置参考**_使用Archaius动态调整运行时配置_**
+
 其他参数配置参考：[zuul 参数调优](http://www.jianshu.com/p/d401452fe76e)
 
 
