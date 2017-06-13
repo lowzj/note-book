@@ -1,6 +1,6 @@
 # SpringCloud问题整理
 
-#### 使用Feign, Hystrix进行服务间调用时，第一次调用总是超时
+### 使用Feign, Hystrix进行服务间调用时，第一次调用总是超时
 
 ##### GitHub Issues
 * https://github.com/spring-cloud/spring-cloud-netflix/issues/1864
@@ -28,17 +28,76 @@ hystrix.command.<hystrixCommandName>.execution.isolation.thread.timeoutInMillise
 
 ---
 
-#### 使用Archaius动态调整运行时配置
+### 使用Archaius动态调整运行时配置
 
-添加以下JVM参数：
+* pom依赖，集成`archaius`和`actuator`(提供管理接口)
 
-```ini
+    ```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-actuator</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-archaius</artifactId>
+</dependency>
+    ```
+
+* 代码集成，可以参考[这里](http://cloud.spring.io/spring-cloud-static/spring-cloud.html#_external_configuration_archaius)
+
+	```java
+class ArchaiusTest {
+	DynamicStringProperty myprop = DynamicPropertyFactory.getInstance()
+		.getStringProperty("my.prop");
+
+	void doSomething() {
+		OtherClass.someMethod(myprop.get());
+	}
+}
+	```
+
+* 启动服务时，添加以下JVM参数：
+
+    ```ini
 -Darchaius.dynamicPropertyFactory.registerConfigWithJMX=true
-```
+    ```
+
+* 使用，请求`actuator`提供的接口`jolokia`，调用`archaius`注册的JMX操作。
+  
+    参数格式如下:
+    ```json
+{
+	"operation": <method signature>,
+	"type": "exec",
+	"arguments": [<method arguments list>],
+	"mbean": "Config-com.netflix.config.jmx:class=BaseConfigMBean"
+}
+    ```
+
+    例如，获取所有配置项: 
+
+	```sh
+curl -s -XPOST 'http://127.0.0.1:8080/jolokia' \
+    -H 'Content-type: application/json' \
+    -d '{"operation": "clearProperty()", "type": "exec", "arguments": [], "mbean": "Config-com.netflix.config.jmx:class=BaseConfigMBean"}'
+	```
+
+
+* 支持的操作如下：
+
+operation | arguments | 描述
+--------- | --------- | ----
+clearProperty(java.lang.String) | ["prop"] | 清除某项
+getProperty(java.lang.String) | ["prop"] | 获取某项配置的值
+updateProperty(java.lang.String,java.lang.String) | ["prop","value"] | 更新某项配置的值
+addProperty(java.lang.String,java.lang.String) | ["prop","value"] | 新增配置项
+obtainProperties() | [] | 获取所有配置项
+
+
 
 ---
 
-#### Zuul中如何在pre-filter中拒绝一个请求
+### Zuul中如何在pre-filter中拒绝一个请求
 
 比如，一个请求进入zuul，如果没有认证，则我们想直接返回401，附带一句`not authenticated`，那该怎么做呢？
 
@@ -83,4 +142,24 @@ if (!auth) {
 ```
 
 其中删除`serviceId`的原因是，后续的`route` filter: `RibbonRoutingFilter`是根据是否存在`serviceId`来决定是否执行；删除了就不会执行。但是这对于`SimpleHostRoutingFilter`, `SendForwardFilter`等一些filter不起作用。
+
+---
+
+### Zuul中如何限制API的超时时间
+
+如果启用`@EnableZuulProxy`，并且路由配置为服务名，则使用ribbon进行路由，超时由ribbon参数控制。如下：
+
+```ini
+ribbon.ConnectTimeout=3000
+ribbon.ReadTimeout=3000
+```
+
+支持服务级别的配置：`<serviceId>.ribbon.<property>=<value>`
+
+其他参数配置参考：[zuul 参数调优](http://www.jianshu.com/p/d401452fe76e)
+
+
+
+---
+
 未完待续...
