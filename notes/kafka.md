@@ -71,3 +71,26 @@ nohup $CONFLUENT_DIR/bin/schema-registry-start $CONFLUENT_DIR/etc/schema-registr
 
 支持Java，C/C++，Python，Go。
 
+
+# Readings
+
+* [官方文档](https://kafka.apache.org/)
+  * [Kafka简介](https://kafka.apache.org/intro)
+  * [Kafka设计](https://kafka.apache.org/documentation/#design)
+* [Kafka深度解析](http://www.jasongj.com/2015/01/02/Kafka深度解析)
+  * [Kafka设计解析（一）- Kafka背景及架构介绍](http://www.jasongj.com/2015/03/10/KafkaColumn1/)
+  * [Kafka设计解析（二）- Kafka High Availability （上）](http://www.jasongj.com/2015/04/24/KafkaColumn2/)
+  * [Kafka设计解析（三）- Kafka High Availability （下）](http://www.jasongj.com/2015/06/08/KafkaColumn3/)
+  * [Kafka设计解析（四）- Kafka Consumer设计解析](http://www.jasongj.com/2015/08/09/KafkaColumn4/)
+* [翻译: KafkaStream简介](http://www.cnblogs.com/devos/p/5616086.html)
+* [Kafka原理与特性v0.8x](http://shift-alt-ctrl.iteye.com/blog/1930345)
+* [Kafka Failover 机制详解](http://www.cnblogs.com/fxjwind/p/4972244.html)
+* [Kafka数据可靠性深度解读](https://mp.weixin.qq.com/s/ExzSzf0ue7d-_Qv8q6p9bw)
+* [Putting Apache Kafka To Use: Building Streaming Platform - 1](https://www.confluent.io/blog/stream-data-platform-1/)
+* [Putting Apache Kafka To Use: Building Streaming Platform - 2](https://www.confluent.io/blog/stream-data-platform-1/)
+* [PacificA: Replication in Log-Based Distributed Storage Systems](https://www.microsoft.com/en-us/research/publication/pacifica-replication-in-log-based-distributed-storage-systems/)
+* Kafka调优
+  * [Kafka 系统调优](http://www.jianshu.com/p/8d57ca1415e3)
+  * [Kafka Broker调优](http://itindex.net/detail/53965-kafka-%E4%BC%98%E5%8C%96)
+  * [http://kaimingwan.com/post/kafka/kafka-producerxing-neng-diao-you](http://kaimingwan.com/post/kafka/kafka-producerxing-neng-diao-you)
+
