@@ -10,6 +10,7 @@
   * [Ribbon: 按参数路由请求](notes/springcloud/sc-ribbon-routing-by-params.md)
   * [SpringCloud问题整理](notes/springcloud/sc-issues.md)
 * [Serverless](notes/serverless.md)
+* [StackStorm](notes/stack-storm.md)
 * [consul](notes/consul.md)
 * [Blue Green Deployment](notes/blue-green-deployment.md)
 * [Java](notes/java/java.md)
