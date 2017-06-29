@@ -20,3 +20,4 @@
 * [WIKI: Token bucket](https://en.wikipedia.org/wiki/Token_bucket)
 * [Google AdWords速率限制](https://developers.google.com/adwords/api/docs/guides/rate-limits?hl=zh-cn)
 * [聊聊高并发系统之限流特技](http://jinnianshilongnian.iteye.com/blog/2305117)
+* [Scaling your API with rate limiters](https://stripe.com/blog/rate-limiters)
