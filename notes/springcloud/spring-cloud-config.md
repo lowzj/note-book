@@ -313,4 +313,5 @@ READINGS
 * [Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)
 * [Profiles](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html)
 * [GitHub Issue: How to use local properties in config client to override remote source](https://github.com/spring-cloud/spring-cloud-config/issues/651)
+* [聊聊Spring Cloud Config](https://blog.coding.net/blog/spring-cloud-config)
 
