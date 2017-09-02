@@ -41,7 +41,36 @@
 \\(R\_i=\frac{P\_{i\_{0}}-P\_{i\_{m}}}{\sum\_{i=0}^{n}(P\_{i\_{0}}-P\_{i\_{m}})}\\)
 ```
 
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-效果跟方法一差不多, 不过是文字不是图片, 同时右击还有选项卡: \\(R\_i=\frac{P\_{i\_{0}}-P\_{i\_{m}}}{\sum\_{i=0}^{n}(P\_{i\_{0}}-P\_{i\_{m}})}\\)
+效果跟方法一差不多, 不过是文字不是图片, 同时右击还有选项卡, 效果同方法三.
 
-**NOTE**: 在GitHub上看不出效果, 可以到[点这](https://lowzj.com/notes/math-formula.html#二-mathjax插件).
+### 三. Install GitBook-KaTex Plugin
+
+修改`book.json`, 在`plugins`字段添加`katex`插件:
+
+```json
+{
+    "plugins": ["katex"]
+}
+```
+
+然后安装一下:
+
+```sh
+gitbook install .
+```
+
+这时候会多出来一个`node_modules`目录, 在`.gitignore`里忽略掉. 使用`{% math %} {% endmath %}`表示行内, 或者是公式两边各加两个`$`分割, 还是上面的例子, 这种方法的公式为:
+
+```
+$$R_i=\frac{P_{i_{0}}-P_{i_{m}}}{\sum_{i=0}^{n}(P_{i_{0}}-P_{i_{m}})}$$
+```
+
+效果: $$R_i=\frac{P_{i_{0}}-P_{i_{m}}}{\sum_{i=0}^{n}(P_{i_{0}}-P_{i_{m}})}$$
+
+也可以安装`mathjax`插件, 不过加载速度略慢.
+
+**NOTE**:
+
+* 在GitHub上看不出效果, 可以到[点这](https://lowzj.com/notes/math-formula.html#三-install-gitbook-katex-plugin).
+* vim支持LaTex语法, 可以下载[vim-syntax-markdonw](https://github.com/drmingdrmer/vim-syntax-markdown/blob/master/syntax/markdown.vim)到你的`./vim/syntax/`目录下. [GitHub地址](https://github.com/drmingdrmer/vim-syntax-markdown)
+
