@@ -30,4 +30,5 @@
 * [mesos](notes/mesos.md)
 * [OSX](notes/OSX_skills.md)
 * [Raft](notes/raft.md)
+* [Markdown里输入数学公式](notes/math-formula.md)
 * [Readings](notes/readings.md)
