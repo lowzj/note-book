@@ -20,7 +20,7 @@ _2017-05-10_
 
 调试一下，就可以看到请求进入zuul之后的整个调用链，简单来说如下：`ZuulServlet#service` -> `FilterProcessor#processZuulFilter` -> `ZuulFilter#runFilter` -> `[Concret]ZuulFilter#run`。
 
-### ZuulServlet#service
+## ZuulServlet#service
 
 首先找到请求进入zuul filters的入口：[ZuulServlet#service(ServletRequest, ServletResponse)](https://github.com/Netflix/zuul/blob/1.x/zuul-core/src/main/java/com/netflix/zuul/http/ZuulServlet.java#L64)。
 
@@ -79,7 +79,7 @@ _2017-05-10_
 ![sc-ZuulServlet](../../img/springcloud/sc-ZuulServlet.jpeg)
 
 
-### FilterProcessor#processZuulFilter
+## FilterProcessor#processZuulFilter
 
 [FilterPreocessor#processZuulFilter](https://github.com/Netflix/zuul/blob/1.x/zuul-core/src/main/java/com/netflix/zuul/FilterProcessor.java#L173)，这个函数调用ZuulFilter，并且会将异常重新抛出，如果是非`ZuulException`的异常，则转为状态码为500的`ZuulException`。
 
@@ -114,7 +114,7 @@ _2017-05-10_
 
 看到这里，基本确认的一点是，ZuulFilter中抛出的任何形式的异常，最终都会转化为`ZuulException`抛给上层调用者，即`ZuulServlet#service`。但是这里并不是通过`try...catch`来捕获ZuulFilter执行中抛出的异常，而是从返回结果ZuulFilterResult中直接获取的，这是怎么一回事，需要再看下`ZuulFilter#runFilter`的实现逻辑。
 
-### ZuulFilter#runFilter
+## ZuulFilter#runFilter
 
 下面是从[ZuulFilter#runFilter()](https://github.com/Netflix/zuul/blob/1.x/zuul-core/src/main/java/com/netflix/zuul/ZuulFilter.java#L110)抽取出来的核心代码：
 
@@ -138,7 +138,7 @@ _2017-05-10_
 
 ![sc-ZuulServlet-simple](../../img/springcloud/sc-ZuulServlet-simple.jpeg)
 
-### SpringCloud中的SendErrorFilter
+## SpringCloud中的SendErrorFilter
 
 在`Dalston.RELEASE`之前，spring-cloud-netflix中并不包含`error`类型的Filter；而处理错误情况的filter为`SendErrorFilter`，其类型为`post`，`order`为0，比`SendResponseFilter`优先级高(1000)，即更早调用。先来分析一下`Dalston.RELEASE`之前版本的[SendErrorFilter](https://github.com/spring-cloud/spring-cloud-netflix/blob/v1.2.7.RELEASE/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/zuul/filters/post/SendErrorFilter.java#L34)，下面的代码片段摘自`spring-cloud-netflix 1.2.7.RELEASE`：
 

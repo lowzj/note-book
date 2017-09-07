@@ -1,3 +1,25 @@
 {
-    "plugins": ["katex"]
+    "title": "Note Book",
+    "plugins": ["katex", "github", "anchor-navigation-ex", "github-buttons", "tbfed-pagefooter"],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/lowzj/note-book"
+        },
+        "github-buttons": {
+            "repo": "lowzj/note-book",
+            "types": [
+                "star"
+            ],
+            "size": "small"
+        },
+        "anchor-navigation-ex": {
+            "isRewritePageTitle": false,
+            "showLevel": false
+        },
+        "tbfed-pagefooter": {
+            "copyright":"Copyright &copy lowzj 2017",
+            "modify_label": "Modified: ",
+            "modify_format": "YYYY-MM-DD HH:mm"
+        }
+    }
 }
