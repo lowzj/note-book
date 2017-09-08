@@ -1,6 +1,6 @@
 {
     "title": "Note Book",
-    "plugins": ["katex", "github", "anchor-navigation-ex", "github-buttons", "tbfed-pagefooter", "donate"],
+    "plugins": ["katex", "github", "anchor-navigation-ex", "github-buttons", "tbfed-pagefooter", "donate", "toggle-chapters"],
     "pluginsConfig": {
         "github": {
             "url": "https://github.com/lowzj/note-book"
