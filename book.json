@@ -16,17 +16,17 @@
             "isRewritePageTitle": false,
             "showLevel": false
         },
+        "donate": {
+            "wechat": "./img/donate-wechat.png",
+            "alipay": "./img/donate-alipay.png",
+            "button": "赏",
+            "alipayText": "Alipay ¥1",
+            "wechatText": "Wechat ¥1"
+        },
         "tbfed-pagefooter": {
             "copyright":"Copyright &copy lowzj 2017",
             "modify_label": "Modified: ",
             "modify_format": "YYYY-MM-DD HH:mm"
-        },
-        "donate": {
-            "wechat": "./img/donate-wechat.png",
-            "alipay": "./img/donate-alipay.png",
-            "button": "Donate",
-            "alipayText": "支付宝打赏1元",
-            "wechatText": "微信打赏1元"
         }
     }
 }
