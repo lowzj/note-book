@@ -17,8 +17,8 @@
             "showLevel": false
         },
         "donate": {
-            "wechat": "./img/donate-wechat.png",
-            "alipay": "./img/donate-alipay.png",
+            "wechat": "/img/donate-wechat.png",
+            "alipay": "/img/donate-alipay.png",
             "button": "赏",
             "alipayText": "Alipay ¥1",
             "wechatText": "Wechat ¥1"
