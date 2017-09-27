@@ -18,3 +18,17 @@ export ALL_PROXY=socks5://127.0.0.1:1080
 # 清除代理
 unset ALL_PROXY
 ```
+
+### ItelliJ IDEA debug java服务时总是卡顿
+
+> 解决方法: https://youtrack.jetbrains.com/issue/IDEA-157303
+
+在`/etc/hosts`中设置: 
+
+```
+127.0.0.1 localhost <hostname>
+```
+
+其中`hostname`可以通过命令行获取
+
+
