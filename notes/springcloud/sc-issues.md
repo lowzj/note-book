@@ -147,6 +147,11 @@ if (!auth) {
 
 ### Zuul中如何限制API的超时时间
 
+##### GitHub Issues
+* https://github.com/spring-cloud/spring-cloud-netflix/issues?utf8=%E2%9C%93&q=is%3Aissue+ribbon+timeout
+* https://github.com/spring-cloud/spring-cloud-netflix/issues/2606
+* https://github.com/spring-cloud/spring-cloud-netflix/pull/2645
+
 如果启用`@EnableZuulProxy`，并且路由配置为服务名，则使用ribbon进行路由，超时由ribbon参数控制。如下：
 
 ```ini
