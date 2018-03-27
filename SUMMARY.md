@@ -22,6 +22,8 @@
     * [String Concatenation](notes/java/string-concatenation.md)
     * [Java Regx](notes/java/java-regx.md)
     * [java-retrying:简单灵活的java重试模块](notes/java/java-retrying.md)
+* [Go]()
+  * [Go语言学习](notes/go/learning-go.md)
 * [Python](notes/python.md)
 * [Kong](notes/kong.md)
 * [mysql](notes/mysql.md)
