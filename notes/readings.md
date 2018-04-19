@@ -7,3 +7,4 @@
 	* [Kubernetes vs Mesos](https://platform9.com/blog/compare-kubernetes-vs-mesos/)
 * 2018-04
     * [The BitTorrent Protocol Specification](http://www.bittorrent.org/beps/bep_0003.html)
+    * [NAT 穿透原理浅浅说](https://cloud.tencent.com/developer/article/1005974)
