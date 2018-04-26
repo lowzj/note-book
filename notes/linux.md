@@ -1,5 +1,18 @@
 # 小命令
 
+### unix和dos文件格式转换
+
+* dos -> unix: 使用`vim -e $fileNmae`并输入以下命令
+  ```
+  set fileformat=unix
+  wq
+  ```
+* unix -> dos: 使用`vim -e $fileNmae`并输入以下命令
+  ```
+  set fileformat=dos
+  wq
+  ```
+
 ### git 远程仓库强制覆盖本地修改
 
 ```sh
