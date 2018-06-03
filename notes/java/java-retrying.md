@@ -21,6 +21,16 @@ java-retrying | 大于等于8 | 无 | Y | Y
 
 使用起来非常简单灵活, 可以配置各种`WaitStategy`, `StopStategy`, 以及配置各种重试条件(根据结果, 异常类型等等).
 
+依赖:
+
+```xml
+<dependency>
+    <groupId>com.github.lowzj</groupId>
+    <artifactId>java-retrying</artifactId>
+    <version>1.2</version>
+</dependency>
+```
+
 举两个例子最直观:
 
 * 同步重试
