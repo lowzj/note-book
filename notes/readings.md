@@ -10,3 +10,6 @@
     * [NAT 穿透原理浅浅说](https://cloud.tencent.com/developer/article/1005974)
 * 2018-05
     * [Java开源项目发布到maven中央仓库](https://blog.csdn.net/shelldon/article/details/54291474)
+* 2018-06
+    * [译: Go文件操作大全](http://colobu.com/2016/10/12/go-file-operations)
+    * [Working with Files in Go](https://www.devdungeon.com/content/working-files-go#write_bytes)
