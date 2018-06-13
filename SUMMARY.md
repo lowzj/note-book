@@ -22,6 +22,7 @@
     * [String Concatenation](notes/java/string-concatenation.md)
     * [Java Regx](notes/java/java-regx.md)
     * [java-retrying:简单灵活的java重试模块](notes/java/java-retrying.md)
+    * [Java进程CPU使用率排查](notes/java/java-thread-high-cpu-troubleshoot.md)
 * [Go]()
   * [Go语言学习](notes/go/learning-go.md)
 * [Python](notes/python.md)
