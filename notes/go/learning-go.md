@@ -12,6 +12,8 @@
 * Slides:
     * [Advanced Go Concurrency Patterns](https://talks.golang.org/2013/advconc.slide)
     * [Go Concurrency Patterns](https://talks.golang.org/2012/concurrency.slide)
+* 多线程编程
+    * [Go Commons Pool发布以及Golang多线程编程问题总结](http://jolestar.com/go-commons-pool-and-go-concurrent/)
 * 其他
     * [Go语言中文网](https://studygolang.com/)
     * [Why 'iota'](https://groups.google.com/forum/#!topic/golang-nuts/ku6rvTmLM4o)
