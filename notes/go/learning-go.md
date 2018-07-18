@@ -22,3 +22,4 @@
     * [深入理解panic and recover](https://ieevee.com/tech/2017/11/23/go-panic.html)
     * [GoLang之使用Flag和Pflag](https://o-my-chenjian.com/2017/09/20/Using-Flag-And-Pflag-With-Golang/)
     * [GoLang格式化输出](https://www.cnblogs.com/yinzhengjie/p/7680829.html)
+    * [How to test os.exit scenarios in Go](https://stackoverflow.com/questions/26225513/how-to-test-os-exit-scenarios-in-go)
