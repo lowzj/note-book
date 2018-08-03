@@ -1,5 +1,12 @@
 # Go语言学习
 
+## 开源项目
+
+### 日志框架
+* logrus: https://github.com/sirupsen/logrus
+
+### HTTP框架
+* fasthttp: https://github.com/valyala/fasthttp
 
 ## 链接
 
