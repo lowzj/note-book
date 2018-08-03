@@ -14,3 +14,5 @@
     * [译: Go文件操作大全](http://colobu.com/2016/10/12/go-file-operations)
     * [Working with Files in Go](https://www.devdungeon.com/content/working-files-go#write_bytes)
     * [Signing commits with GPG](https://help.github.com/articles/signing-commits-with-gpg/)
+* 2018-08
+    * [Kubernetes Handbook](https://jimmysong.io/kubernetes-handbook/)
