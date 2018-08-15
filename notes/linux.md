@@ -1,5 +1,9 @@
 # 小命令
 
+### tcpdump查看数据包内容
+
+例子: `tcpdump -X -i lo port 8888`
+
 ### unix和dos文件格式转换
 
 * dos -> unix: 使用`vim -e $fileNmae`并输入以下命令
