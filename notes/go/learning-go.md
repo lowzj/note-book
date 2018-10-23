@@ -30,3 +30,5 @@
     * [GoLang之使用Flag和Pflag](https://o-my-chenjian.com/2017/09/20/Using-Flag-And-Pflag-With-Golang/)
     * [GoLang格式化输出](https://www.cnblogs.com/yinzhengjie/p/7680829.html)
     * [How to test os.exit scenarios in Go](https://stackoverflow.com/questions/26225513/how-to-test-os-exit-scenarios-in-go)
+    * [Go's Declaration Syntax](https://blog.golang.org/gos-declaration-syntax)
+    * [【译】Go语言之声明语法](https://studygolang.com/articles/11812)
