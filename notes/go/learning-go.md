@@ -16,11 +16,16 @@
 * [The Go Programming Language - 中文版](https://yar999.gitbooks.io/gopl-zh/content/)
 * [深入解析Go](https://tiancaiamao.gitbooks.io/go-internals/content/zh/)
 * [Go语言标准库](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/)
+* [Effective Go](https://golang.org/doc/effective_go.html)
 * Slides:
     * [Advanced Go Concurrency Patterns](https://talks.golang.org/2013/advconc.slide)
     * [Go Concurrency Patterns](https://talks.golang.org/2012/concurrency.slide)
 * 多线程编程
     * [Go Commons Pool发布以及Golang多线程编程问题总结](http://jolestar.com/go-commons-pool-and-go-concurrent/)
+    * [BUFFERED CHANNELS IN GO: TIPS & TRICKS](https://www.rapidloop.com/blog/golang-channels-tips-tricks.html)
+    * [Go Concurrency Patterns: Pipelines and cancellation](https://blog.golang.org/pipelines)
+    * [Share Memory By Communicating](https://blog.golang.org/share-memory-by-communicating)
+    * [Cond with Timeout](https://gist.github.com/zviadm/c234426882bfc8acba88f3503edaaa36#file-cond2-go)
 * 其他
     * [Go语言中文网](https://studygolang.com/)
     * [Why 'iota'](https://groups.google.com/forum/#!topic/golang-nuts/ku6rvTmLM4o)
