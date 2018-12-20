@@ -1,0 +1,1096 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SpringCloudConfig · Note Book</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sc-zuul-excpetion.html" />
+    
+    
+    <link rel="prev" href="spring-cloud-practice.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"lowzj/note-book","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook-custom-domain.html">
+            
+                <a href="../gitbook-custom-domain.html">
+            
+                    
+                    GitBook自定义域名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../microservices/">
+            
+                <a href="../microservices/">
+            
+                    
+                    Microservice
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../microservices/notes.html">
+            
+                <a href="../microservices/notes.html">
+            
+                    
+                    Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../microservices/service-discovery.html">
+            
+                <a href="../microservices/service-discovery.html">
+            
+                    
+                    ServiceDiscovery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../microservices/hmac.html">
+            
+                <a href="../microservices/hmac.html">
+            
+                    
+                    HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../microservices/share.html">
+            
+                <a href="../microservices/share.html">
+            
+                    
+                    Share
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="spring-cloud-practice.html">
+            
+                <a href="spring-cloud-practice.html">
+            
+                    
+                    SpringCloud
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="spring-cloud-config.html">
+            
+                <a href="spring-cloud-config.html">
+            
+                    
+                    SpringCloudConfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="sc-zuul-excpetion.html">
+            
+                <a href="sc-zuul-excpetion.html">
+            
+                    
+                    SpringCloud-Zuul异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="sc-ribbon-routing-by-params.html">
+            
+                <a href="sc-ribbon-routing-by-params.html">
+            
+                    
+                    Ribbon: 按参数路由请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="sc-issues.html">
+            
+                <a href="sc-issues.html">
+            
+                    
+                    SpringCloud问题整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../serverless.html">
+            
+                <a href="../serverless.html">
+            
+                    
+                    Serverless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../stack-storm.html">
+            
+                <a href="../stack-storm.html">
+            
+                    
+                    StackStorm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../consul.html">
+            
+                <a href="../consul.html">
+            
+                    
+                    consul
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../blue-green-deployment.html">
+            
+                <a href="../blue-green-deployment.html">
+            
+                    
+                    Blue Green Deployment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../java/java.html">
+            
+                <a href="../java/java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../java/java-lambda.html">
+            
+                <a href="../java/java-lambda.html">
+            
+                    
+                    Java8 Lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../java/translation-of-lambda-expressions.html">
+            
+                <a href="../java/translation-of-lambda-expressions.html">
+            
+                    
+                    Lambda表达式的翻译原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../java/java-thread-lock.html">
+            
+                <a href="../java/java-thread-lock.html">
+            
+                    
+                    Java Threads and Locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../java/maven.html">
+            
+                <a href="../java/maven.html">
+            
+                    
+                    Maven
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../java/spring.html">
+            
+                <a href="../java/spring.html">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../java/string-concatenation.html">
+            
+                <a href="../java/string-concatenation.html">
+            
+                    
+                    String Concatenation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../java/java-regx.html">
+            
+                <a href="../java/java-regx.html">
+            
+                    
+                    Java Regx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../java/java-retrying.html">
+            
+                <a href="../java/java-retrying.html">
+            
+                    
+                    java-retrying:简单灵活的java重试模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../java/java-thread-high-cpu-troubleshoot.html">
+            
+                <a href="../java/java-thread-high-cpu-troubleshoot.html">
+            
+                    
+                    Java进程CPU使用率排查
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    Go
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../go/learning-go.html">
+            
+                <a href="../go/learning-go.html">
+            
+                    
+                    Go语言学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../python.html">
+            
+                <a href="../python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../kong.html">
+            
+                <a href="../kong.html">
+            
+                    
+                    Kong
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../mysql.html">
+            
+                <a href="../mysql.html">
+            
+                    
+                    mysql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../zookeeper.html">
+            
+                <a href="../zookeeper.html">
+            
+                    
+                    zookeeper
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../kafka.html">
+            
+                <a href="../kafka.html">
+            
+                    
+                    Kafka
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../linux.html">
+            
+                <a href="../linux.html">
+            
+                    
+                    linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../mesos.html">
+            
+                <a href="../mesos.html">
+            
+                    
+                    mesos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../OSX_skills.html">
+            
+                <a href="../OSX_skills.html">
+            
+                    
+                    OSX
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../raft.html">
+            
+                <a href="../raft.html">
+            
+                    
+                    Raft
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../math-formula.html">
+            
+                <a href="../math-formula.html">
+            
+                    
+                    Markdown里输入数学公式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../readings.html">
+            
+                <a href="../readings.html">
+            
+                    
+                    Readings
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >SpringCloudConfig</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#spring-cloud-config"><b></b>Spring Cloud Config</a></li><li><span class="title-icon "></span><a href="#configserver"><b></b>ConfigServer</a></li><li><span class="title-icon "></span><a href="#configclient"><b></b>ConfigClient</a></li><li><span class="title-icon "></span><a href="#github-repo-&#x76EE;&#x5F55;&#x7ED3;&#x6784;"><b></b>GitHub Repo &#x76EE;&#x5F55;&#x7ED3;&#x6784;</a></li><li><span class="title-icon "></span><a href="#spring-configuration-profile"><b></b>Spring Configuration Profile</a></li><li><span class="title-icon "></span><a href="#readings"><b></b>READINGS</a></li></ul></div><a href="#spring-cloud-config" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="spring-cloud-config"><a name="spring-cloud-config" class="anchor-navigation-ex-anchor" href="#spring-cloud-config"><i class="fa fa-link" aria-hidden="true"></i></a>Spring Cloud Config</h1>
+<blockquote>
+<p>&#x7EDF;&#x4E00;&#x7684;&#x914D;&#x7F6E;&#x7BA1;&#x7406;&#x670D;&#x52A1;&#xFF0C;&#x57FA;&#x4E8E;<a href="https://github.com/spring-cloud/spring-cloud-config" target="_blank">spring-cloud-config</a>&#x3002;</p>
+<p>&#x76EE;&#x7684;&#x662F;&#x5C06;&#x7A0B;&#x5E8F;&#x4E0E;&#x914D;&#x7F6E;&#x5B8C;&#x5168;&#x5206;&#x79BB;&#xFF0C;&#x65B9;&#x4FBF;&#x67E5;&#x770B;&#x66F4;&#x6539;&#xFF0C;&#x4FBF;&#x4E8E;&#x5B9A;&#x4F4D;&#x7531;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5BFC;&#x81F4;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x540C;&#x65F6;&#x6709;&#x5229;&#x4E8E;&#x670D;&#x52A1;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x90E8;&#x7F72;&#x3002;</p>
+<p>spring-cloud-config&#x9879;&#x76EE;&#x4E2D;&#x5305;&#x542B;&#x4E24;&#x4E2A;&#x6838;&#x5FC3;&#x7684;&#x90E8;&#x5206;&#xFF1A;<code>spring-cloud-config-server</code>&#x53CA;<code>spring-cloud-config-client</code>&#x3002;&#x5E94;&#x7528;&#x670D;&#x52A1;&#x96C6;&#x6210;ConfigClient&#xFF0C;&#x5728;&#x542F;&#x52A8;&#x65F6;&#xFF0C;&#x5411;ConfigServer&#x8BF7;&#x6C42;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;ConfigServer&#x4ECE;&#x914D;&#x7F6E;&#x4ED3;&#x5E93;&#x4E2D;&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x4EE5;JSON&#x683C;&#x5F0F;&#x8FD4;&#x56DE;&#x7ED9;ConfigCient&#x3002;</p>
+</blockquote>
+<p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x7ED3;&#x5408;spring-cloud-config, git&#x4EE5;&#x53CA;spring configuration profile&#x6765;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x4E2D;&#x5FC3;&#x3002;</p>
+<ul>
+<li><a href="#configserver">ConfigServer</a></li>
+<li><a href="#configclient">ConfigClient</a></li>
+<li><a href="#github-repo-&#x76EE;&#x5F55;&#x7ED3;&#x6784;">GitHub Repo &#x76EE;&#x5F55;&#x7ED3;&#x6784;</a></li>
+<li><a href="#spring-configuration-profile">Spring Configuration Profile</a></li>
+</ul>
+<h1 id="configserver"><a name="configserver" class="anchor-navigation-ex-anchor" href="#configserver"><i class="fa fa-link" aria-hidden="true"></i></a>ConfigServer</h1>
+<ul>
+<li><p>&#x914D;&#x7F6E;ConfigServer -- &#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x6A21;&#x5F0F;</p>
+<pre><code class="lang-ini">  spring.application.name=ConfigServer
+  management.context-path=/management
+  health.config.enabled=false
+
+  spring.cloud.config.server.health.enabled=false
+  spring.cloud.config.server.git.timeout=120
+  spring.cloud.config.server.git.cloneOnStart=true
+  spring.cloud.config.server.git.searchPaths=**
+  spring.cloud.config.server.git.uri=https://github.com/lowzj/config-server-test.git
+  spring.cloud.config.server.git.username=xxx
+  spring.cloud.config.server.git.password=yyy
+</code></pre>
+<blockquote>
+<p><strong>NOTE</strong></p>
+<ul>
+<li><code>spring.cloud.config.server.git.searchPaths=**</code>&#x3002; ConfigServer&#x9012;&#x5F52;&#x641C;&#x7D22;&#x8BE5;repo&#x4E0B;&#x7684;&#x6240;&#x6709;&#x5B50;&#x76EE;&#x5F55;&#x6765;&#x5BFB;&#x627E;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;</li>
+<li><code>health.config.enabled=false</code>&#x3002; &#x7981;&#x6B62;&#x5065;&#x5EB7;&#x68C0;&#x6D4B;&#xFF0C;&#x5F00;&#x542F;&#x7684;&#x8BDD;&#x4F1A;&#x8BF7;&#x6C42;GitHub&#xFF0C;&#x975E;&#x5E38;&#x8017;&#x65F6;&#x3002;</li>
+</ul>
+</blockquote>
+</li>
+<li><p>&#x914D;&#x7F6E;ConfigServer -- &#x672C;&#x5730;&#x4ED3;&#x5E93;&#x6A21;&#x5F0F;</p>
+<pre><code class="lang-ini">  spring.application.name=ConfigServer
+  management.context-path=/management
+  health.config.enabled=false
+
+  spring.cloud.config.server.health.enabled=false
+  spring.cloud.config.server.git.searchPaths=**
+  spring.cloud.config.server.git.uri=file:///tmp/config-server-test/
+</code></pre>
+<blockquote>
+<p><strong>NOTE</strong></p>
+<ul>
+<li><code>spring.cloud.config.server.git.uri=/tmp/config-server-test/</code> &#x4E3A;&#x672C;&#x5730;&#x7684;git repository&#x76EE;&#x5F55;, &#x5E76;&#x4E14;&#x5C06;remote&#x4FE1;&#x606F;&#x5220;&#x9664;&#xFF0C;&#x8FD9;&#x6837;ConfigServer&#x4E0D;&#x4F1A;&#x8BF7;&#x6C42;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x3002;<pre><code>git remote remove [remote_name]
+</code></pre></li>
+</ul>
+</blockquote>
+</li>
+<li><p>&#x67E5;&#x770B; ConfigServer &#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<ul>
+<li>&#x4F8B;&#x5982;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5728; git &#x4ED3;&#x5E93;&#x4E2D;&#x7684;&#x540D;&#x5B57;&#x4E3A; application-dev.properties</li>
+<li>&#x53EF;&#x4F7F;&#x7528; <a href="http://${server.ip}:${server.port}/application/dev" target="_blank">http://${server.ip}:${server.port}/application/dev</a> &#x6765;&#x67E5;&#x770B;&#x5C5E;&#x6027;</li>
+<li><p>URL&#x62FC;&#x63A5;&#x89C4;&#x5219;</p>
+<pre><code>  /{name}/{profile}[/{label}]
+  /{name}-{profile}.yml
+  /{label}/{name}-{profile}.yml
+  /{name}-{profile}.properties
+  /{label}/{name}-{profile}.properties
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>NOTE</strong></p>
+</blockquote>
+<p>&#x56FD;&#x5185;&#x8BBF;&#x95EE;GitHub&#x5F88;&#x6162;&#xFF0C;&#x7528;&#x4E8E;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x5F88;&#x4E0D;&#x5408;&#x9002;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5185;&#x7F51;&#x81EA;&#x5EFA;GitLab&#x6765;&#x4EE3;&#x66FF;&#x3002;&#x5982;&#x679C;&#x60F3;&#x8981;&#x57FA;&#x4E8E;GitHub&#x5DE5;&#x4F5C;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528;GitHub&#x63D0;&#x4F9B;&#x7684;Webhook&#x529F;&#x80FD;&#x5C06;GitHub&#x4E0A;&#x7684;&#x66F4;&#x6539;&#x540C;&#x6B65;&#x5230;&#x81EA;&#x5EFA;&#x7684;GitLab&#x4E0A;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;<a href="https://github.com/lowzj/gitlab-mirror-webhook" target="_blank">https://github.com/lowzj/gitlab-mirror-webhook</a></p>
+<h1 id="configclient"><a name="configclient" class="anchor-navigation-ex-anchor" href="#configclient"><i class="fa fa-link" aria-hidden="true"></i></a>ConfigClient</h1>
+<blockquote>
+<p>ConfigClient&#x4F1A;&#x8FDE;&#x63A5;&#x5230;ConfigServer&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x5176;&#x4F5C;&#x4E3A;&#x8FD0;&#x884C;&#x914D;&#x7F6E;&#x52A0;&#x8F7D;</p>
+</blockquote>
+<ul>
+<li><p>&#x5E94;&#x7528;&#x670D;&#x52A1;&#x96C6;&#x6210;ConfigClient&#xFF0C;&#x6DFB;&#x52A0;ConfigClient&#x4F9D;&#x8D56;</p>
+<pre><code class="lang-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-config-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>&#x914D;&#x7F6E; ConfigClient</p>
+<ul>
+<li><p>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x65B9;&#x5F0F;</p>
+<pre><code class="lang-ini">  spring.cloud.config.uri=http://localhost:8888
+  spring.cloud.config.name=Kefu
+  spring.cloud.config.profile=AdminServer-1.3
+  spring.cloud.config.label=sandbox
+</code></pre>
+</li>
+<li><p>&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x65B9;&#x5F0F;</p>
+<pre><code class="lang-sh">  <span class="hljs-built_in">export</span> SPRING_CLOUD_CONFIG_URI=http://localhost:8888
+  <span class="hljs-built_in">export</span> SPRING_CLOUD_CONFIG_NAME=Kefu
+  <span class="hljs-built_in">export</span> SPRING_CLOUD_CONFIG_PROFILE=AdminServer-1.3
+  <span class="hljs-built_in">export</span> SPRING_CLOUD_CONFIG_LABEL=sandbox
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p><strong>NOTE</strong></p>
+<ul>
+<li><code>spring.cloud.config.profile=AdminServer-1.3</code> &#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x591A;&#x4E2A;&#xFF0C;&#x591A;&#x4E2A;<code>profile</code>&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;<code>spring.cloud.config.profile=AdminServer-common,AdminServer-1.3</code>&#x3002;</li>
+<li>&#x6307;&#x5B9A;&#x591A;&#x4E2A;<code>profile</code>&#xFF0C;&#x4F4D;&#x7F6E;&#x8D8A;&#x9760;&#x540E;&#x4F18;&#x5148;&#x7EA7;&#x8D8A;&#x9AD8;&#xFF0C;&#x5373;&#x540E;&#x9762;<code>profile</code>&#x91CC;&#x7684;&#x914D;&#x7F6E;&#x9879;&#x4F1A;&#x8986;&#x76D6;&#x6389;&#x524D;&#x9762;<code>profile</code>&#x4E2D;&#x76F8;&#x540C;&#x914D;&#x7F6E;&#x9879;&#x3002;</li>
+</ul>
+</blockquote>
+</li>
+<li><p>&#x670D;&#x52A1;&#x4E2D;&#x7684; ConfigClient &#x62FC;&#x63A5;URL&#x8BBF;&#x95EE; ConfigServer &#x6765;&#x52A0;&#x8F7D;&#x914D;&#x7F6E;&#x6587;&#x4EF6;:</p>
+<pre><code class="lang-sh">  curl -XGET <span class="hljs-string">&quot;http://localhost:8888/Kefu/AdminServer-1.3/sandbox&quot;</span>
+</code></pre>
+<p>ConfigServer &#x6700;&#x7EC8;&#x627E;&#x5230;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5728; github &#x4E0A;&#x7684;&#x5730;&#x5740;:</p>
+<pre><code class="lang-sh">  https://github.com/lowzj/config-server-test/blob/sandbox/AdminServer/Kefu-AdminServer-1.3.properties
+</code></pre>
+<blockquote>
+<p><strong>NOTE</strong>: &#x63A8;&#x8350;&#x4F7F;&#x7528;<code>jq</code>&#xFF0C;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x7684;JSON&#x5904;&#x7406;&#x5DE5;&#x5177;&#x3002;</p>
+<pre><code class="lang-sh">curl -XGET <span class="hljs-string">&quot;http://localhost:8888/Kefu/AdminServer-1.3/sandbox&quot;</span> | jq .
+</code></pre>
+</blockquote>
+</li>
+<li><p>&#x670D;&#x52A1;&#x542F;&#x52A8;&#x65F6;&#x8F93;&#x51FA;&#x65E5;&#x5FD7;&#xFF0C;&#x7528;&#x4E8E;&#x68C0;&#x67E5;&#x670D;&#x52A1;&#x662F;&#x5426;&#x62FF;&#x5230;&#x6B63;&#x786E;&#x914D;&#x7F6E;&#x3002;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>  1: o.s.c.c.c.ConfigServicePropertySourceLocator - Fetching config from server at: http://localhost:8888
+  2: o.s.c.c.c.ConfigServicePropertySourceLocator - Located environment: name=Kefu, profiles=[AdminServer-1.3], label=sandbox, version=2971e66b6b68eaefd9d9e574936cef0ba0894bf5
+  3: o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: CompositePropertySource [name=&apos;configService&apos;, propertySources=[MapPropertySource [name=&apos;file:///tmp/config-server-test/AdminServer/Kefu-Adminerver-1.3.properties&apos;], MapPropertySource [name=&apos;file:///tmp/config-server-test/common/Kefu-bootstrap.properties&apos;], MapPropertySource [name=&apos;file:///tmp/config-server-test/common/Kefu-management.properties&apos;], MapPropertySource [name=&apos;file:///tmp/config-server-test/common/Kefu.properties&apos;]]]
+</code></pre><ol>
+<li>&#x7B2C;&#x4E00;&#x884C;&#xFF0C;&#x663E;&#x793A;ConfigServer&#x5730;&#x5740;&#x3002;</li>
+<li>&#x7B2C;&#x4E8C;&#x884C;&#xFF0C;ConfigClient&#x5411;ConfigServer&#x8BF7;&#x6C42;&#x7684;&#x53C2;&#x6570;&#x3002;&#x7528;&#x4E8E;&#x68C0;&#x67E5;ConfigClient&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x662F;&#x5426;&#x6B63;&#x786E;&#x3002;</li>
+<li>&#x7B2C;&#x4E09;&#x884C;&#xFF0C;ConfigServer&#x8FD4;&#x56DE;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x7531;&#x9AD8;&#x5230;&#x4F4E;&#x6392;&#x5217;&#x3002;&#x7531;&#x5176;&#x4E2D;<code>proertySource</code>&#x7684;<code>name=file:///...</code>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;ConfigServer&#x662F;&#x4EE5;&#x672C;&#x5730;&#x6A21;&#x5F0F;&#x542F;&#x52A8;&#x7684;&#x3002;</li>
+</ol>
+</li>
+</ul>
+<h1 id="github-repo-&#x76EE;&#x5F55;&#x7ED3;&#x6784;"><a name="github-repo-&#x76EE;&#x5F55;&#x7ED3;&#x6784;" class="anchor-navigation-ex-anchor" href="#github-repo-&#x76EE;&#x5F55;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>GitHub Repo &#x76EE;&#x5F55;&#x7ED3;&#x6784;</h1>
+<p>&#x6240;&#x6709;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x90FD;&#x653E;&#x5728;&#x4E86;github&#x4E0A;&#xFF0C;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x7BA1;&#x7406;&#xFF0C;&#x7EDF;&#x4E00;&#x7684;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-sh">.
+&#x251C;&#x2500;&#x2500; AdminServer
+&#x2502;   &#x2514;&#x2500;&#x2500; Kefu-AdminServer-1.3.properties
+&#x251C;&#x2500;&#x2500; Webapp
+&#x2502;   &#x251C;&#x2500;&#x2500; Kefu-Webapp-43.1.properties
+&#x2502;   &#x2514;&#x2500;&#x2500; Kefu-Webapp-43.2.properties
+&#x2514;&#x2500;&#x2500; common
+    &#x251C;&#x2500;&#x2500; Kefu-bootstrap.properties
+    &#x251C;&#x2500;&#x2500; Kefu-management.properties
+    &#x2514;&#x2500;&#x2500; Kefu.properties
+</code></pre>
+<p>&#x5B50;&#x76EE;&#x5F55;&#x4E3A;&#x670D;&#x52A1;&#x540D;&#x79F0;&#xFF0C;&#x6BD4;&#x5982;<code>AdminServer</code>&#x3002;&#x5176;&#x4E2D;<code>common</code>&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x662F;&#x901A;&#x7528;&#x914D;&#x7F6E;&#x3002;
+&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x5FC5;&#x987B;&#x662F;&#x5168;&#x5C40;&#x552F;&#x4E00;&#x7684;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x5B50;&#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
+<p>&#x4F7F;ConfigServer&#x652F;&#x6301;&#x5B50;&#x76EE;&#x5F55;&#xFF0C;&#x987B;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x914D;&#x7F6E;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#xFF1A;</p>
+<pre><code class="lang-ini"># &#x652F;&#x6301;&#x4E00;&#x7EA7;&#x5B50;&#x76EE;&#x5F55;
+spring.cloud.config.server.git.searchPaths=*
+# &#x652F;&#x6301;&#x591A;&#x7EA7;&#x5B50;&#x76EE;&#x5F55;
+spring.cloud.config.server.git.searchPaths=**
+</code></pre>
+<h1 id="spring-configuration-profile"><a name="spring-configuration-profile" class="anchor-navigation-ex-anchor" href="#spring-configuration-profile"><i class="fa fa-link" aria-hidden="true"></i></a>Spring Configuration Profile</h1>
+<p>&#x4EE5;AdminServer&#x670D;&#x52A1;&#x7684;&#x914D;&#x7F6E;&#x4E3A;&#x4F8B;&#x5B50;&#x3002;</p>
+<h4 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x547D;&#x540D;&#x89C4;&#x5219;properties&#x683C;&#x5F0F;"><a name="&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x547D;&#x540D;&#x89C4;&#x5219;properties&#x683C;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x547D;&#x540D;&#x89C4;&#x5219;properties&#x683C;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a><a>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x547D;&#x540D;&#x89C4;&#x5219;(properties&#x683C;&#x5F0F;)</a></h4>
+<ul>
+<li>&#x5168;&#x79F0;: <code>{spring.config.name}[-{spring.config.profile}].properties</code></li>
+<li><code>spring.config.name</code>. &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;<code>application</code>&#x3002;<ul>
+<li>&#x5BF9;&#x5E94;&#x5230;ConfigClient&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x4E3A;: <code>spring.cloud.config.name</code> &#x6216;&#x8005; <code>SPRING_CLOUD_CONFIG_NAME</code>&#x3002;</li>
+<li>&#x4EE5;&#x4E0B;&#x5168;&#x90E8;&#x7B80;&#x79F0;<strong>name</strong></li>
+</ul>
+</li>
+<li><code>spring.config.profile</code>. &#x53EF;&#x9009;&#x7684;&#xFF0C;&#x6CA1;&#x6709;&#x5219;&#x4E3A;&#x7A7A;&#xFF0C;&#x90A3;&#x4E48;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5C31;&#x662F;: <code>{spring.config.name}.properties</code>&#x3002;<ul>
+<li><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html" target="_blank">profile</a></li>
+<li>&#x5BF9;&#x5E94;&#x5230;ConfigClient&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x4E3A;: <code>spring.cloud.config.profile</code> &#x6216;&#x8005; <code>SPRING_CLOUD_CONFIG_PROFILE</code>&#x3002;</li>
+<li>&#x4EE5;&#x4E0B;&#x5168;&#x90E8;&#x7B80;&#x79F0;<strong>profile</strong></li>
+</ul>
+</li>
+</ul>
+<p>&#x4E3E;&#x51E0;&#x4E2A;&#x4F8B;&#x5B50;</p>
+<table>
+<thead>
+<tr>
+<th><strong>Full Name</strong></th>
+<th><strong>name</strong></th>
+<th><strong>profile</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>application.properties</td>
+<td>application</td>
+<td>-</td>
+</tr>
+<tr>
+<td>application-dev.properties</td>
+<td>application</td>
+<td>dev</td>
+</tr>
+<tr>
+<td>Kefu.properties</td>
+<td>Kefu</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Kefu-AdminServer-1.3.properties</td>
+<td>Kefu</td>
+<td>AdminServer-1.3</td>
+</tr>
+<tr>
+<td>AdminServer-1.3.properties</td>
+<td>AdminServer</td>
+<td>1.3</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>NOTE</strong></p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;<strong>name</strong>&#x5B9A;&#x4E49;&#x6210;&#x4E00;&#x4E2A;&#x7EC4;&#x540D;&#xFF0C;&#x8FD9;&#x4E2A;&#x7EC4;&#x4E0B;&#x7684;&#x670D;&#x52A1;&#x7528;<strong>profile</strong>&#x5B9A;&#x4E49;&#x3002;&#x5E76;&#x4E14;<strong>profile</strong>&#x4E2D;&#x5305;&#x542B;&#x670D;&#x52A1;&#x540D;&#x4EE5;&#x53CA;&#x914D;&#x7F6E;&#x7248;&#x672C;&#x53F7;&#xFF0C;&#x683C;&#x5F0F;&#x4E3A;<strong>{server name}-{version}</strong>&#x3002;
+&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>spring.profiles.include</code>&#x914D;&#x7F6E;&#xFF0C;&#x7528;&#x6765;&#x6FC0;&#x6D3B;&#x8BE5;&#x7EC4;&#x670D;&#x52A1;&#x6240;&#x9700;&#x7684;&#x901A;&#x7528;&#x914D;&#x7F6E;&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x4E2D;&#x7EC4;&#x540D;<strong>name</strong>&#x4E3A;<code>Kefu</code>&#xFF0C;<strong>profile</strong>&#x6307;&#x5B9A;&#x4E86;&#x670D;&#x52A1;&#x914D;&#x7F6E;<code>AdminServer-1.3</code>&#x3002;</p>
+</blockquote>
+<h4 id="&#x914D;&#x7F6E;&#x7684;&#x6765;&#x6E90;"><a name="&#x914D;&#x7F6E;&#x7684;&#x6765;&#x6E90;" class="anchor-navigation-ex-anchor" href="#&#x914D;&#x7F6E;&#x7684;&#x6765;&#x6E90;"><i class="fa fa-link" aria-hidden="true"></i></a><a>&#x914D;&#x7F6E;&#x7684;&#x6765;&#x6E90;</a></h4>
+<p>&#x6211;&#x4EEC;&#x670D;&#x52A1;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x6765;&#x6E90;&#x4E3B;&#x8981;&#x6709;4&#x4E2A;&#x65B9;&#x9762;</p>
+<ol>
+<li>&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;</li>
+<li>&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x53D8;&#x91CF;</li>
+<li>ConfigServer</li>
+<li>JAR&#x5305;&#x4E2D;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;</li>
+</ol>
+<p>&#x4EE5;&#x4E0A;&#x6309;&#x914D;&#x7F6E;&#x751F;&#x6548;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x6392;&#x5E8F;(&#x7531;&#x9AD8;&#x5230;&#x4F4E;)&#x3002;&#x8BE6;&#x7EC6;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x8BF7;&#x53C2;&#x8003;: <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config" target="_blank">Externalized Configuration</a></p>
+<p>&#x4E0B;&#x9762;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E0B;&#x5404;&#x4E2A;&#x6765;&#x6E90;&#x7684;&#x914D;&#x7F6E;&#x4F5C;&#x7528;</p>
+<h5 id="&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;"><a name="&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;</h5>
+<ul>
+<li>JVM &#x53C2;&#x6570;</li>
+<li>server.port</li>
+<li>logging.config</li>
+<li>spring.config.location. &#x6B64;&#x914D;&#x7F6E;&#x53EA;&#x80FD;&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5916;&#x6307;&#x5B9A;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;ConfigClient&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;</li>
+<li>&#x81EA;&#x5B9A;&#x4E49;&#x53C2;&#x6570;</li>
+</ul>
+<h5 id="&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><a name="&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x53D8;&#x91CF;" class="anchor-navigation-ex-anchor" href="#&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h5>
+<ul>
+<li><p>ConfigCient &#x76F8;&#x5173;&#x914D;&#x7F6E;&#x3002;&#x7528;&#x4E8E;&#x4ECE;ConfigServer&#x4E2D;&#x83B7;&#x53D6;&#x8BE5;&#x670D;&#x52A1;&#x6240;&#x9700;&#x914D;&#x7F6E;&#x3002;</p>
+<pre><code class="lang-sh">  <span class="hljs-built_in">export</span> SPRING_CLOUD_CONFIG_URI=http://localhost:8888
+  <span class="hljs-built_in">export</span> SPRING_CLOUD_CONFIG_NAME=Kefu
+  <span class="hljs-built_in">export</span> SPRING_CLOUD_CONFIG_PROFILE=AdminServer-1.3
+  <span class="hljs-built_in">export</span> SPRING_CLOUD_CONFIG_LABEL=sandbox
+</code></pre>
+</li>
+<li><p>JAR&#x5305;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x3002;groupId, artifactId, version&#x7B49;&#xFF0C;&#x7528;&#x4E8E;&#x4E0B;&#x8F7D;JAR&#x5305;&#x3002;</p>
+<pre><code class="lang-sh">  <span class="hljs-built_in">export</span> PKG_GROUP=io.github.lowzj.example
+  <span class="hljs-built_in">export</span> PKG_NAME=spring-boot-admin
+  <span class="hljs-built_in">export</span> PKG_VERSION=1.3.4
+  <span class="hljs-built_in">export</span> PKG_REPOSITORY=release
+</code></pre>
+</li>
+</ul>
+<p>&#x4EE5;&#x4E0A;&#x5C31;&#x53EF;&#x5C06;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x548C;&#x670D;&#x52A1;&#x542F;&#x52A8;&#x5305;&#x5206;&#x79BB;&#x5F00;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5199;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;&#x542F;&#x505C;&#x811A;&#x672C;&#x6216;&#x5236;&#x4F5C;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;docker&#x955C;&#x50CF;&#xFF0C;&#x8F93;&#x5165;&#x53C2;&#x6570;(&#x73AF;&#x5883;&#x53D8;&#x91CF;)&#x5373;&#x4EE5;&#x4E0A;8&#x6761;&#x3002;&#x518D;&#x7ED3;&#x5408;marathon&#x6216;&#x8005;kubernetes&#x7B49;&#x5B9E;&#x73B0;&#x81EA;&#x52A8;&#x5316;&#x90E8;&#x7F72;&#x3002;&#x6B65;&#x9AA4;&#x5927;&#x81F4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x4ECE;nexus&#x7B49;&#x5305;&#x7BA1;&#x7406;&#x4ED3;&#x5E93;&#x4E2D;&#x4E0B;&#x8F7D;&#x542F;&#x52A8;&#x5305;&#x3002;</li>
+<li>&#x8BBE;&#x7F6E;&#x597D;ConfigClient&#x76F8;&#x5173;&#x914D;&#x7F6E;&#xFF0C;&#x6307;&#x5B9A;<code>spring.config.location</code>&#x3002;</li>
+<li>&#x670D;&#x52A1;&#x542F;&#x52A8;&#x65F6;&#x4ECE;ConfigServer&#x4E2D;&#x83B7;&#x53D6;&#x5230;&#x6240;&#x9700;&#x914D;&#x7F6E;&#xFF0C;&#x5B8C;&#x6210;&#x542F;&#x52A8;&#x3002;</li>
+</ul>
+<p>&#x53E6;&#x5916;&#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x989D;&#x5916;&#x914D;&#x7F6E;&#x9879;&#xFF0C;&#x7528;&#x4E8E;&#x81EA;&#x5B9A;&#x4E49;JVM&#x53C2;&#x6570;&#x548C;&#x7A0B;&#x5E8F;&#x53C2;&#x6570;&#x3002;</p>
+<p><code>IMPORTANT</code> &#x9ED8;&#x8BA4;&#x7684;&#xFF0C;&#x6765;&#x81EA;ConfigServer&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x4F1A;&#x9AD8;&#x4E8E;&#x7CFB;&#x7EDF;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5B58;&#x50A8;&#x4E8E;ConfigServer&#x7AEF;(git)&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x52A0;&#x5165;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x914D;&#x7F6E;&#x9879;&#xFF1A;</p>
+<pre><code class="lang-ini"># &#x9ED8;&#x8BA4;&#x4E3A;true
+spring.cloud.config.overrideSystemProperties=false
+</code></pre>
+<h5 id="configserver_1"><a name="configserver_1" class="anchor-navigation-ex-anchor" href="#configserver_1"><i class="fa fa-link" aria-hidden="true"></i></a>ConfigServer</h5>
+<p>&#x6240;&#x6709;ConfigServer&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x90FD;&#x662F;&#x4EE5;<strong>Kefu</strong>&#x4E3A;<strong>name</strong>&#xFF0C;<strong>profile</strong>&#x6307;&#x5B9A;&#x5177;&#x4F53;&#x7684;&#x670D;&#x52A1;&#x53CA;&#x914D;&#x7F6E;&#x7248;&#x672C;&#x3002;
+&#x6240;&#x6709;&#x670D;&#x52A1;&#x5411;ConfigServer&#x8BF7;&#x6C42;&#x914D;&#x7F6E;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5217;&#x8868;&#x5982;&#x4E0B;:</p>
+<ul>
+<li><p>Kefu.properties&#x3002;&#x7531;<code>SPRING_CLOUD_CONFIG_NAME=Kefu</code>&#x6307;&#x5B9A;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;&#x7528;&#x4E8E;&#x5F15;&#x5165;&#x6240;&#x6709;&#x670D;&#x52A1;&#x7684;&#x901A;&#x7528;&#x914D;&#x7F6E;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>  spring.profiles.include=management,bootstrap
+</code></pre></li>
+<li><p>&#x7531;&#x73AF;&#x5883;&#x53D8;&#x91CF;<code>SPRING_CLOUD_CONFIG_PROFILE=AdminServer-1.3</code>&#x6307;&#x5B9A;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<ul>
+<li>Kefu-AdminServer-1.3.properties. &#x670D;&#x52A1;&#x672C;&#x8EAB;&#x6240;&#x9700;&#x7684;&#x6240;&#x6709;&#x914D;&#x7F6E;&#x9879;&#x3002;</li>
+</ul>
+</li>
+<li><p>Kefu.properties&#x6587;&#x4EF6;&#x4E2D;&#x7531; <code>spring.profiles.include</code> &#x6307;&#x5B9A;&#x7684; <strong>profile</strong> &#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<ul>
+<li>Kefu-management.properties. spring management &#x76F8;&#x5173;&#x914D;&#x7F6E;&#x3002;</li>
+<li>Kefu-bootstrap.properties. &#x542F;&#x7528;&#x670D;&#x52A1;&#x6CE8;&#x518C;&#x673A;&#x5236;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>ConfigServer&#x4EE5;JSON&#x683C;&#x5F0F;&#x8FD4;&#x56DE;&#x7ED9;&#x670D;&#x52A1;&#xFF0C;&#x6700;&#x7EC8;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x914D;&#x7F6E;:</p>
+<ul>
+<li>Kefu-AdminServer-1.3.properties</li>
+<li>Kefu-bootstrap.properties</li>
+<li>Kefu-management.properties</li>
+<li>Kefu.properties</li>
+</ul>
+<p>&#x4F18;&#x5148;&#x7EA7;&#x4ECE;&#x9AD8;&#x5230;&#x4F4E;&#x6392;&#x5E8F;&#xFF0C;&#x5176;&#x4E2D;&#x4EE5; <code>Kefu-AdminServer-1.3.properties</code> &#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x4F18;&#x5148;&#x7EA7;&#x6700;&#x9AD8;&#xFF0C;&#x53EF;&#x4EE5;&#x8986;&#x76D6;&#x6389;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x914D;&#x7F6E;&#x9879;&#x3002;
+&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x7684;&#x670D;&#x52A1;&#x672C;&#x8EAB;&#x7684;&#x914D;&#x7F6E;&#x5373;: <code>Kefu-AdminServer-1.3.properties</code> &#x91CC;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<ul>
+<li>&#x4E00;&#x4E2A;profile&#x6587;&#x4EF6;&#x91CC;&#x4F7F;&#x7528;<code>spring.profiles.include</code>&#x5F15;&#x5165;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x6BD4;&#x672C;&#x6587;&#x4EF6;&#x5185;&#x7684;&#x914D;&#x7F6E;&#x9AD8;</li>
+<li>&#x591A;&#x4E2A;profile&#xFF0C;&#x8D8A;&#x9760;&#x540E;&#x5F15;&#x5165;&#x4F18;&#x5148;&#x7EA7;&#x8D8A;&#x9AD8;</li>
+</ul>
+<blockquote>
+<p><strong>NOTE</strong>: &#x901A;&#x8FC7;HTTP API&#x4ECE;ConfigServer&#x4E2D;&#x83B7;&#x53D6;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-sh">curl <span class="hljs-_">-s</span> -XGET <span class="hljs-string">&apos;http://{config-server-address}/{name}/{profile}/{label}&apos;</span> | jq .
+</code></pre>
+<p>&#x5176;&#x4E2D;<code>label</code>&#xFF0C;&#x4E3A;git repo&#x5206;&#x652F;&#x540D;&#xFF0C;&#x7528;&#x4E8E;&#x533A;&#x5206;&#x90E8;&#x7F72;&#x73AF;&#x5883;&#x3002;</p>
+</blockquote>
+<h5 id="jar&#x5305;&#x4E2D;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;"><a name="jar&#x5305;&#x4E2D;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#jar&#x5305;&#x4E2D;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>JAR&#x5305;&#x4E2D;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;</h5>
+<p>&#x6700;&#x597D;&#x662F;&#x79FB;&#x9664;&#x6389;&#xFF0C;&#x5168;&#x90E8;&#x4ECE;ConfigServer&#x4E2D;&#x83B7;&#x53D6;&#x3002;</p>
+<h1 id="readings"><a name="readings" class="anchor-navigation-ex-anchor" href="#readings"><i class="fa fa-link" aria-hidden="true"></i></a>READINGS</h1>
+<ul>
+<li><a href="http://cloud.spring.io/spring-cloud-static/spring-cloud.html#_spring_cloud_config" target="_blank">Spring Cloud Config</a></li>
+<li><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html" target="_blank">Externalized Configuration</a></li>
+<li><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html" target="_blank">Profiles</a></li>
+<li><a href="https://github.com/spring-cloud/spring-cloud-config/issues/651" target="_blank">GitHub Issue: How to use local properties in config client to override remote source</a></li>
+<li><a href="https://blog.coding.net/blog/spring-cloud-config" target="_blank">&#x804A;&#x804A;Spring Cloud Config</a></li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; lowzj 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Modified: 
+2017-09-02 10:38
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="spring-cloud-practice.html" class="navigation navigation-prev " aria-label="Previous page: SpringCloud">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="sc-zuul-excpetion.html" class="navigation navigation-next " aria-label="Next page: SpringCloud-Zuul异常处理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SpringCloudConfig","level":"1.4.1","depth":2,"next":{"title":"SpringCloud-Zuul异常处理","level":"1.4.2","depth":2,"path":"notes/springcloud/sc-zuul-excpetion.md","ref":"notes/springcloud/sc-zuul-excpetion.md","articles":[]},"previous":{"title":"SpringCloud","level":"1.4","depth":1,"path":"notes/springcloud/spring-cloud-practice.md","ref":"notes/springcloud/spring-cloud-practice.md","articles":[{"title":"SpringCloudConfig","level":"1.4.1","depth":2,"path":"notes/springcloud/spring-cloud-config.md","ref":"notes/springcloud/spring-cloud-config.md","articles":[]},{"title":"SpringCloud-Zuul异常处理","level":"1.4.2","depth":2,"path":"notes/springcloud/sc-zuul-excpetion.md","ref":"notes/springcloud/sc-zuul-excpetion.md","articles":[]},{"title":"Ribbon: 按参数路由请求","level":"1.4.3","depth":2,"path":"notes/springcloud/sc-ribbon-routing-by-params.md","ref":"notes/springcloud/sc-ribbon-routing-by-params.md","articles":[]},{"title":"SpringCloud问题整理","level":"1.4.4","depth":2,"path":"notes/springcloud/sc-issues.md","ref":"notes/springcloud/sc-issues.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["katex","github","anchor-navigation-ex","github-buttons","tbfed-pagefooter","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy lowzj 2017","modify_label":"Modified: ","modify_format":"YYYY-MM-DD HH:mm"},"github":{"url":"https://github.com/lowzj/note-book"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"/img/donate-alipay.png","alipayText":"Alipay ¥1","button":"赏","title":"","wechat":"/img/donate-wechat.png","wechatText":"Wechat ¥1"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":false,"isRewritePageTitle":false},"github-buttons":{"repo":"lowzj/note-book","types":["star"],"size":"small"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Note Book","gitbook":"*"},"file":{"path":"notes/springcloud/spring-cloud-config.md","mtime":"2017-09-02T02:38:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-20T11:47:43.636Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

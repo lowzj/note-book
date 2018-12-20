@@ -1,0 +1,1004 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SpringCloud-Zuul异常处理 · Note Book</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sc-ribbon-routing-by-params.html" />
+    
+    
+    <link rel="prev" href="spring-cloud-config.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"lowzj/note-book","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook-custom-domain.html">
+            
+                <a href="../gitbook-custom-domain.html">
+            
+                    
+                    GitBook自定义域名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../microservices/">
+            
+                <a href="../microservices/">
+            
+                    
+                    Microservice
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../microservices/notes.html">
+            
+                <a href="../microservices/notes.html">
+            
+                    
+                    Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../microservices/service-discovery.html">
+            
+                <a href="../microservices/service-discovery.html">
+            
+                    
+                    ServiceDiscovery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../microservices/hmac.html">
+            
+                <a href="../microservices/hmac.html">
+            
+                    
+                    HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../microservices/share.html">
+            
+                <a href="../microservices/share.html">
+            
+                    
+                    Share
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="spring-cloud-practice.html">
+            
+                <a href="spring-cloud-practice.html">
+            
+                    
+                    SpringCloud
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="spring-cloud-config.html">
+            
+                <a href="spring-cloud-config.html">
+            
+                    
+                    SpringCloudConfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="sc-zuul-excpetion.html">
+            
+                <a href="sc-zuul-excpetion.html">
+            
+                    
+                    SpringCloud-Zuul异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="sc-ribbon-routing-by-params.html">
+            
+                <a href="sc-ribbon-routing-by-params.html">
+            
+                    
+                    Ribbon: 按参数路由请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="sc-issues.html">
+            
+                <a href="sc-issues.html">
+            
+                    
+                    SpringCloud问题整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../serverless.html">
+            
+                <a href="../serverless.html">
+            
+                    
+                    Serverless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../stack-storm.html">
+            
+                <a href="../stack-storm.html">
+            
+                    
+                    StackStorm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../consul.html">
+            
+                <a href="../consul.html">
+            
+                    
+                    consul
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../blue-green-deployment.html">
+            
+                <a href="../blue-green-deployment.html">
+            
+                    
+                    Blue Green Deployment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../java/java.html">
+            
+                <a href="../java/java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../java/java-lambda.html">
+            
+                <a href="../java/java-lambda.html">
+            
+                    
+                    Java8 Lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../java/translation-of-lambda-expressions.html">
+            
+                <a href="../java/translation-of-lambda-expressions.html">
+            
+                    
+                    Lambda表达式的翻译原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../java/java-thread-lock.html">
+            
+                <a href="../java/java-thread-lock.html">
+            
+                    
+                    Java Threads and Locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../java/maven.html">
+            
+                <a href="../java/maven.html">
+            
+                    
+                    Maven
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../java/spring.html">
+            
+                <a href="../java/spring.html">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../java/string-concatenation.html">
+            
+                <a href="../java/string-concatenation.html">
+            
+                    
+                    String Concatenation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../java/java-regx.html">
+            
+                <a href="../java/java-regx.html">
+            
+                    
+                    Java Regx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../java/java-retrying.html">
+            
+                <a href="../java/java-retrying.html">
+            
+                    
+                    java-retrying:简单灵活的java重试模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../java/java-thread-high-cpu-troubleshoot.html">
+            
+                <a href="../java/java-thread-high-cpu-troubleshoot.html">
+            
+                    
+                    Java进程CPU使用率排查
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    Go
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../go/learning-go.html">
+            
+                <a href="../go/learning-go.html">
+            
+                    
+                    Go语言学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../python.html">
+            
+                <a href="../python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../kong.html">
+            
+                <a href="../kong.html">
+            
+                    
+                    Kong
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../mysql.html">
+            
+                <a href="../mysql.html">
+            
+                    
+                    mysql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../zookeeper.html">
+            
+                <a href="../zookeeper.html">
+            
+                    
+                    zookeeper
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../kafka.html">
+            
+                <a href="../kafka.html">
+            
+                    
+                    Kafka
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../linux.html">
+            
+                <a href="../linux.html">
+            
+                    
+                    linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../mesos.html">
+            
+                <a href="../mesos.html">
+            
+                    
+                    mesos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../OSX_skills.html">
+            
+                <a href="../OSX_skills.html">
+            
+                    
+                    OSX
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../raft.html">
+            
+                <a href="../raft.html">
+            
+                    
+                    Raft
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../math-formula.html">
+            
+                <a href="../math-formula.html">
+            
+                    
+                    Markdown里输入数学公式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../readings.html">
+            
+                <a href="../readings.html">
+            
+                    
+                    Readings
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >SpringCloud-Zuul异常处理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#springcloud-zuul-&#x5F02;&#x5E38;&#x5904;&#x7406;"><b></b>SpringCloud-Zuul &#x5F02;&#x5E38;&#x5904;&#x7406;</a></li><ul><li><span class="title-icon "></span><a href="#zuulservletservice"><b></b>ZuulServlet#service</a></li><li><span class="title-icon "></span><a href="#filterprocessorprocesszuulfilter"><b></b>FilterProcessor#processZuulFilter</a></li><li><span class="title-icon "></span><a href="#zuulfilterrunfilter"><b></b>ZuulFilter#runFilter</a></li><li><span class="title-icon "></span><a href="#springcloud&#x4E2D;&#x7684;senderrorfilter"><b></b>SpringCloud&#x4E2D;&#x7684;SendErrorFilter</a></li></ul></ul></div><a href="#springcloud-zuul-&#x5F02;&#x5E38;&#x5904;&#x7406;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="springcloud-zuul-&#x5F02;&#x5E38;&#x5904;&#x7406;"><a name="springcloud-zuul-&#x5F02;&#x5E38;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#springcloud-zuul-&#x5F02;&#x5E38;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>SpringCloud-Zuul &#x5F02;&#x5E38;&#x5904;&#x7406;</h1>
+<p><em>2017-05-10</em></p>
+<p>&#x6700;&#x8FD1;&#x770B;&#x5230;&#x4E86;&#x4E00;&#x4E2A;<a href="https://github.com/spring-cloud/spring-cloud-netflix/issues/1874" target="_blank">GitHub issue</a>&#x5728;&#x8BA8;&#x8BBA;&#x5982;&#x4F55;&#x5728;<code>post</code>&#x7C7B;&#x578B;&#x7684;zuul filter&#x4E2D;&#x8BBE;&#x7F6E;response body&#xFF0C;&#x5176;&#x4E2D;&#x6D89;&#x53CA;&#x5230;&#x5F02;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5982;&#x4F55;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;response body&#x3002;&#x6B63;&#x597D;&#x6211;&#x5728;&#x5347;&#x7EA7;spring-cloud&#xFF0C;&#x4E5F;&#x60F3;&#x5F04;&#x6E05;&#x695A;&#xFF0C;spring-cloud-zuul&#x662F;&#x5982;&#x4F55;&#x5904;&#x7406;&#x5F02;&#x5E38;&#x60C5;&#x51B5;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x4ED4;&#x7EC6;&#x770B;&#x4E86;&#x770B;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#xFF0C;&#x73B0;&#x5728;&#x505A;&#x4E2A;&#x7B14;&#x8BB0;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#x3002;</p>
+<p>&#x5173;&#x4E8E;zuul&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x518D;&#x4ECB;&#x7ECD;&#xFF0C;&#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x53C2;&#x770B;<a href="https://github.com/Netflix/zuul/wiki/How-it-Works" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002;&#x5B98;&#x65B9;&#x7ED9;&#x4E86;&#x4E00;&#x4E2A;zull&#x8BF7;&#x6C42;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x56FE;&#xFF1A;</p>
+<p><img src="https://camo.githubusercontent.com/4eb7754152028cdebd5c09d1c6f5acc7683f0094/687474703a2f2f6e6574666c69782e6769746875622e696f2f7a75756c2f696d616765732f7a75756c2d726571756573742d6c6966656379636c652e706e67" alt="zuul-request-lifecycle"></p>
+<p>&#x4E0A;&#x56FE;&#x4E2D;&#xFF0C;&#x5B9E;&#x7EBF;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x5FC5;&#x7136;&#x7ECF;&#x8FC7;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x800C;&#x865A;&#x7EBF;&#x8868;&#x793A;&#x53EF;&#x80FD;&#x7ECF;&#x8FC7;&#x7684;&#x8DEF;&#x5F84;&#xFF1B;&#x4ECE;&#x8FD9;&#x5F20;&#x56FE;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF1A;</p>
+<ul>
+<li>&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x90FD;&#x5FC5;&#x7136;&#x6309;&#x7167;<code>pre</code>-&gt; <code>route</code> -&gt; <code>post</code>&#x7684;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x3002;</li>
+<li><code>post</code>&#x8FD4;&#x56DE;response&#x3002;</li>
+<li>&#x5982;&#x679C;<code>pre</code>&#x4E2D;&#x6709;&#x81EA;&#x5B9A;&#x4E49;filter&#xFF0C;&#x5219;&#x6267;&#x884C;&#x81EA;&#x5B9A;&#x4E49;filter&#x3002;</li>
+<li>&#x5982;&#x679C;<code>pre</code>,<code>route</code>,<code>post</code>&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x5219;&#x6267;&#x884C;<code>error</code>&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6267;&#x884C;<code>post</code>&#x3002;</li>
+</ul>
+<p>&#x8FD9;&#x5F20;&#x56FE;&#x5FFD;&#x7565;&#x4E86;&#x5F88;&#x591A;&#x7EC6;&#x8282;&#xFF1B;&#x6700;&#x660E;&#x663E;&#x7684;&#x5C31;&#x662F;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;filter&#x53EF;&#x4EE5;&#x662F;<code>pre</code>,<code>route</code>,<code>post</code>,<code>error</code>&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x79CD;&#xFF1B;&#x5176;&#x6B21;&#x5047;&#x5982;<code>post</code>&#x4E2D;&#x53D1;&#x751F;&#x4E86;&#x5F02;&#x5E38;&#xFF0C;&#x6267;&#x884C;&#x6D41;&#x7A0B;&#x4EA4;&#x7ED9;<code>error</code>&#x5904;&#x7406;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;&#x53C8;&#x91CD;&#x65B0;&#x56DE;&#x5230;<code>post</code>&#x4E2D;&#xFF0C;&#x4F1A;&#x4E0D;&#x4F1A;&#x53C8;&#x6709;&#x95EE;&#x9898;&#xFF1F;</p>
+<p>&#x6240;&#x4EE5;&#x8FD8;&#x662F;&#x770B;&#x770B;&#x4EE3;&#x7801;&#x6BD4;&#x8F83;&#x9760;&#x8C31;&#x3002;&#x4EE5;&#x4E0B;&#x57FA;&#x4E8E;spring-cloud Dalston.RELEASE&#x505A;&#x4EE3;&#x7801;&#x5206;&#x6790;&#x3002;</p>
+<p>&#x8C03;&#x8BD5;&#x4E00;&#x4E0B;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8BF7;&#x6C42;&#x8FDB;&#x5165;zuul&#x4E4B;&#x540E;&#x7684;&#x6574;&#x4E2A;&#x8C03;&#x7528;&#x94FE;&#xFF0C;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#x5982;&#x4E0B;&#xFF1A;<code>ZuulServlet#service</code> -&gt; <code>FilterProcessor#processZuulFilter</code> -&gt; <code>ZuulFilter#runFilter</code> -&gt; <code>[Concret]ZuulFilter#run</code>&#x3002;</p>
+<h2 id="zuulservletservice"><a name="zuulservletservice" class="anchor-navigation-ex-anchor" href="#zuulservletservice"><i class="fa fa-link" aria-hidden="true"></i></a>ZuulServlet#service</h2>
+<p>&#x9996;&#x5148;&#x627E;&#x5230;&#x8BF7;&#x6C42;&#x8FDB;&#x5165;zuul filters&#x7684;&#x5165;&#x53E3;&#xFF1A;<a href="https://github.com/Netflix/zuul/blob/1.x/zuul-core/src/main/java/com/netflix/zuul/http/ZuulServlet.java#L64" target="_blank">ZuulServlet#service(ServletRequest, ServletResponse)</a>&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x62BD;&#x51FA;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x4E3B;&#x5E72;&#xFF1A;</p>
+<pre><code class="lang-java"> <span class="hljs-number">65</span>         <span class="hljs-keyword">try</span> {
+            ...
+ <span class="hljs-number">73</span>             <span class="hljs-keyword">try</span> {
+ <span class="hljs-number">74</span>                 preRoute();
+ <span class="hljs-number">75</span>             } <span class="hljs-keyword">catch</span> (ZuulException e) {
+ <span class="hljs-number">76</span>                 error(e);
+ <span class="hljs-number">77</span>                 postRoute();
+ <span class="hljs-number">78</span>                 <span class="hljs-keyword">return</span>;
+ <span class="hljs-number">79</span>             }
+ <span class="hljs-number">80</span>             <span class="hljs-keyword">try</span> {
+ <span class="hljs-number">81</span>                 route();
+ <span class="hljs-number">82</span>             } <span class="hljs-keyword">catch</span> (ZuulException e) {
+ <span class="hljs-number">83</span>                 error(e);
+ <span class="hljs-number">84</span>                 postRoute();
+ <span class="hljs-number">85</span>                 <span class="hljs-keyword">return</span>;
+ <span class="hljs-number">86</span>             }
+ <span class="hljs-number">87</span>             <span class="hljs-keyword">try</span> {
+ <span class="hljs-number">88</span>                 postRoute();
+ <span class="hljs-number">89</span>             } <span class="hljs-keyword">catch</span> (ZuulException e) {
+ <span class="hljs-number">90</span>                 error(e);
+ <span class="hljs-number">91</span>                 <span class="hljs-keyword">return</span>;
+ <span class="hljs-number">92</span>             }
+ <span class="hljs-number">93</span>
+ <span class="hljs-number">94</span>         } <span class="hljs-keyword">catch</span> (Throwable e) {
+ <span class="hljs-number">95</span>             error(<span class="hljs-keyword">new</span> ZuulException(e, <span class="hljs-number">500</span>, <span class="hljs-string">&quot;UNHANDLED_EXCEPTION_&quot;</span> + e.getClass().getName()));
+ <span class="hljs-number">96</span>         }
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x57FA;&#x672C;&#x9075;&#x4ECE;&#x4F46;&#x4E0D;&#x5B8C;&#x5168;&#x7B26;&#x5408;&#x5B98;&#x7F51;&#x7ED9;&#x51FA;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x56FE;&#xFF1A;</p>
+<ul>
+<li>&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BF7;&#x6C42;&#x53EA;&#x7ECF;&#x8FC7;<code>pre</code> -&gt; <code>route</code> -&gt; <code>post</code>&#x3002;</li>
+<li>&#x4E24;&#x5C42;<code>try...catch</code>&#xFF0C;&#x5185;&#x5C42;&#x53EA;&#x6355;&#x83B7;<code>ZuulException</code>&#xFF0C;&#x800C;&#x5176;&#x4ED6;&#x5F02;&#x5E38;&#x7531;&#x5916;&#x5C42;&#x6355;&#x83B7;&#x3002;</li>
+<li>&#x5185;&#x5C42;3&#x4E2A;<code>try...catch</code>&#x8BED;&#x53E5;&#xFF0C;&#x53EA;&#x6709;<code>pre</code>,<code>route</code>&#x629B;&#x51FA;<code>ZuulException</code>&#x65F6;&#xFF0C;&#x624D;&#x4F1A;&#x6267;&#x884C;<code>errror</code>&#xFF0C;&#x518D;&#x6267;&#x884C;<code>post</code>&#x3002;&#x800C;&#x5F53;<code>post</code>(88&#x884C;)&#x629B;&#x51FA;<code>ZuulException</code>&#x540E;&#xFF0C;&#x53EA;&#x4F1A;&#x6267;&#x884C;<code>error</code>&#x3002;</li>
+<li>&#x5916;&#x5C42;&#x6355;&#x83B7;&#x5176;&#x4ED6;&#x5F02;&#x5E38;(&#x5185;&#x5C42;<code>try</code>&#x8BED;&#x53E5;&#x5757;&#x4E2D;&#x629B;&#x51FA;&#x7684;&#x975E;<code>ZuulException</code>&#x5F02;&#x5E38;&#x4EE5;&#x53CA;&#x5185;&#x5C42;<code>catch</code>&#x8BED;&#x53E5;&#x4E2D;&#x629B;&#x51FA;&#x7684;&#x6240;&#x6709;&#x5F02;&#x5E38;)&#x540E;&#xFF0C;&#x5C06;HTTP&#x72B6;&#x6001;&#x7801;&#x8BBE;&#x7F6E;&#x4E3A;500&#xFF0C;&#x540C;&#x65F6;&#x4EA4;&#x7ED9;<code>error</code>&#x5904;&#x7406;&#x3002;</li>
+<li>&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x7684;&#x7EC8;&#x70B9;&#x6709;&#x4E24;&#x4E2A;&#xFF1A;<code>post</code>&#x53CA;<code>error</code>&#xFF1B;&#x800C;&#x975E;&#x53EA;&#x6709;<code>post</code>&#x4E00;&#x4E2A;&#x3002;</li>
+</ul>
+<p>&#x53E6;&#x5916;&#x770B;&#x4E00;&#x4E0B;<code>error(ZuulException)</code>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5230;&#x5E95;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-number">143</span>     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">error</span><span class="hljs-params">(ZuulException e)</span> </span>{
+<span class="hljs-number">144</span>         RequestContext.getCurrentContext().setThrowable(e);
+<span class="hljs-number">145</span>         zuulRunner.error();
+<span class="hljs-number">146</span>     }
+</code></pre>
+<p>&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#x662F;&#x5728;&#x8FD9;&#x91CC;&#x88AB;&#x52A0;&#x5165;&#x5230;<code>RequestContext</code>&#x4E2D;&#x7684;&#xFF0C;&#x4EE5;&#x4F9B;&#x540E;&#x7EED;&#x7684;filter&#x4F7F;&#x7528;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;<code>error</code> filters&#x3002;</p>
+<p>&#x81F3;&#x6B64;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x6D41;&#x7A0B;&#x56FE;(&#x611F;&#x89C9;&#x8FD8;&#x4E0D;&#x5982;&#x4EE3;&#x7801;&#x770B;&#x5F97;&#x6E05;&#x6670;<strong>-_-</strong>!!)&#xFF1A;</p>
+<p><img src="../../img/springcloud/sc-ZuulServlet.jpeg" alt="sc-ZuulServlet"></p>
+<h2 id="filterprocessorprocesszuulfilter"><a name="filterprocessorprocesszuulfilter" class="anchor-navigation-ex-anchor" href="#filterprocessorprocesszuulfilter"><i class="fa fa-link" aria-hidden="true"></i></a>FilterProcessor#processZuulFilter</h2>
+<p><a href="https://github.com/Netflix/zuul/blob/1.x/zuul-core/src/main/java/com/netflix/zuul/FilterProcessor.java#L173" target="_blank">FilterPreocessor#processZuulFilter</a>&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;ZuulFilter&#xFF0C;&#x5E76;&#x4E14;&#x4F1A;&#x5C06;&#x5F02;&#x5E38;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x975E;<code>ZuulException</code>&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x5219;&#x8F6C;&#x4E3A;&#x72B6;&#x6001;&#x7801;&#x4E3A;500&#x7684;<code>ZuulException</code>&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-number">180</span>         <span class="hljs-keyword">try</span> {
+    ...
+<span class="hljs-number">186</span>             Throwable t = <span class="hljs-keyword">null</span>;
+    ...
+<span class="hljs-number">193</span>             ZuulFilterResult result = filter.runFilter();
+<span class="hljs-number">194</span>             ExecutionStatus s = result.getStatus();
+    ...
+<span class="hljs-number">197</span>             <span class="hljs-keyword">switch</span> (s) {
+<span class="hljs-number">198</span>                 <span class="hljs-keyword">case</span> FAILED:
+<span class="hljs-number">199</span>                     t = result.getException();
+<span class="hljs-number">201</span>                     <span class="hljs-keyword">break</span>;
+    ...
+<span class="hljs-number">212</span>             }
+<span class="hljs-number">213</span>
+<span class="hljs-number">214</span>             <span class="hljs-keyword">if</span> (t != <span class="hljs-keyword">null</span>) <span class="hljs-keyword">throw</span> t;
+<span class="hljs-number">219</span>         } <span class="hljs-keyword">catch</span> (Throwable e) {
+    ...
+<span class="hljs-number">224</span>             <span class="hljs-keyword">if</span> (e <span class="hljs-keyword">instanceof</span> ZuulException) {
+<span class="hljs-number">225</span>                 <span class="hljs-keyword">throw</span> (ZuulException) e;
+<span class="hljs-number">226</span>             } <span class="hljs-keyword">else</span> {
+<span class="hljs-number">227</span>                 ZuulException ex = <span class="hljs-keyword">new</span> ZuulException(e, <span class="hljs-string">&quot;Filter threw Exception&quot;</span>, <span class="hljs-number">500</span>, filter.filterType() + <span class="hljs-string">&quot;:&quot;</span> + filterName);
+<span class="hljs-number">229</span>                 <span class="hljs-keyword">throw</span> ex;
+<span class="hljs-number">230</span>             }
+<span class="hljs-number">231</span>         }
+</code></pre>
+<p>&#x5982;&#x679C;ZuulFilter&#x6267;&#x884C;&#x5931;&#x8D25;&#xFF0C;&#x5373;&#x7ED3;&#x679C;&#x72B6;&#x6001;&#x4E3A;<code>FAILED</code>&#xFF0C;&#x5219;&#x4ECE;ZuulFilter&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;ZuulFilterResult&#x4E2D;&#x63D0;&#x53D6;&#x51FA;&#x5F02;&#x5E38;&#x4FE1;&#x606F;(199&#x884C;)&#xFF0C;&#x7136;&#x540E;&#x629B;&#x51FA;(214)&#xFF1B;&#x5728;<code>catch</code>&#x8BED;&#x53E5;&#x5757;&#x4E2D;&#xFF0C;&#x6355;&#x83B7;&#x521A;&#x624D;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;<code>ZuulException</code>&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5219;&#x76F4;&#x63A5;&#x629B;&#x51FA;&#xFF0C;&#x5426;&#x5219;&#x8F6C;&#x5316;&#x4E3A;&#x72B6;&#x6001;&#x4E3A;500&#x7684;<code>ZuulException</code>&#x518D;&#x629B;&#x51FA;&#x3002;</p>
+<p>&#x770B;&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x57FA;&#x672C;&#x786E;&#x8BA4;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF0C;ZuulFilter&#x4E2D;&#x629B;&#x51FA;&#x7684;&#x4EFB;&#x4F55;&#x5F62;&#x5F0F;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x6700;&#x7EC8;&#x90FD;&#x4F1A;&#x8F6C;&#x5316;&#x4E3A;<code>ZuulException</code>&#x629B;&#x7ED9;&#x4E0A;&#x5C42;&#x8C03;&#x7528;&#x8005;&#xFF0C;&#x5373;<code>ZuulServlet#service</code>&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x91CC;&#x5E76;&#x4E0D;&#x662F;&#x901A;&#x8FC7;<code>try...catch</code>&#x6765;&#x6355;&#x83B7;ZuulFilter&#x6267;&#x884C;&#x4E2D;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x800C;&#x662F;&#x4ECE;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;ZuulFilterResult&#x4E2D;&#x76F4;&#x63A5;&#x83B7;&#x53D6;&#x7684;&#xFF0C;&#x8FD9;&#x662F;&#x600E;&#x4E48;&#x4E00;&#x56DE;&#x4E8B;&#xFF0C;&#x9700;&#x8981;&#x518D;&#x770B;&#x4E0B;<code>ZuulFilter#runFilter</code>&#x7684;&#x5B9E;&#x73B0;&#x903B;&#x8F91;&#x3002;</p>
+<h2 id="zuulfilterrunfilter"><a name="zuulfilterrunfilter" class="anchor-navigation-ex-anchor" href="#zuulfilterrunfilter"><i class="fa fa-link" aria-hidden="true"></i></a>ZuulFilter#runFilter</h2>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4ECE;<a href="https://github.com/Netflix/zuul/blob/1.x/zuul-core/src/main/java/com/netflix/zuul/ZuulFilter.java#L110" target="_blank">ZuulFilter#runFilter()</a>&#x62BD;&#x53D6;&#x51FA;&#x6765;&#x7684;&#x6838;&#x5FC3;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-number">111</span>         ZuulFilterResult zr = <span class="hljs-keyword">new</span> ZuulFilterResult();
+    ...
+<span class="hljs-number">115</span>                 <span class="hljs-keyword">try</span> {
+<span class="hljs-number">116</span>                     Object res = run();
+<span class="hljs-number">117</span>                     zr = <span class="hljs-keyword">new</span> ZuulFilterResult(res, ExecutionStatus.SUCCESS);
+<span class="hljs-number">118</span>                 } <span class="hljs-keyword">catch</span> (Throwable e) {
+<span class="hljs-number">120</span>                     zr = <span class="hljs-keyword">new</span> ZuulFilterResult(ExecutionStatus.FAILED);
+<span class="hljs-number">121</span>                     zr.setException(e);
+<span class="hljs-number">122</span>                 }
+    ...
+<span class="hljs-number">129</span>         <span class="hljs-keyword">return</span> zr;
+</code></pre>
+<p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4F1A;&#x8C03;&#x7528;&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x7684;ZuulFilter&#x5B9E;&#x73B0;&#x7684;<code>run</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x72B6;&#x6001;&#x4E3A;<code>ExecutionStatus.SUCCESS</code>&#x7684;ZuulFilterResult(117&#x884C;)&#xFF1B;&#x82E5;&#x6709;&#x4EFB;&#x4F55;&#x5F02;&#x5E38;&#xFF0C;&#x5219;&#x5C06;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x72B6;&#x6001;&#x8BBE;&#x7F6E;&#x4E3A;<code>ExecutionStatus.FAILED</code>(120)&#xFF0C;&#x540C;&#x65F6;&#x5C06;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#x8BBE;&#x7F6E;&#x5230;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E2D;(121)&#x3002;&#x5373;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;ZuulFilter&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x5219;&#x4F1A;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6210;&#x529F;&#x7684;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x4F1A;&#x88AB;&#x5F53;&#x4F5C;&#x5931;&#x8D25;&#x7684;&#x3002;</p>
+<p>&#x7ED3;&#x5408;&#x4E0A;&#x9762;&#x4E24;&#x8282;&#x7684;&#x4EE3;&#x7801;&#x5206;&#x6790;&#xFF0C;ZuulFilter&#x4E2D;&#x4E00;&#x65E6;&#x6709;&#x5F02;&#x5E38;&#x629B;&#x51FA;&#xFF0C;&#x5FC5;&#x7136;&#x662F;(&#x6216;&#x88AB;&#x8F6C;&#x5316;&#x4E3A;)<code>ZuulException</code>&#xFF0C;&#x7136;&#x540E;&#x5FC5;&#x7136;&#x8FDB;&#x5165;&#x5230;<code>error</code> filters&#x4E2D;&#x5904;&#x7406;&#x3002;&#x7531;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x7B80;&#x5316;&#x4E00;&#x4E0B;&#x4E0A;&#x9762;&#x7684;&#x6D41;&#x7A0B;&#x56FE;&#xFF1A;</p>
+<p><img src="../../img/springcloud/sc-ZuulServlet-simple.jpeg" alt="sc-ZuulServlet-simple"></p>
+<h2 id="springcloud&#x4E2D;&#x7684;senderrorfilter"><a name="springcloud&#x4E2D;&#x7684;senderrorfilter" class="anchor-navigation-ex-anchor" href="#springcloud&#x4E2D;&#x7684;senderrorfilter"><i class="fa fa-link" aria-hidden="true"></i></a>SpringCloud&#x4E2D;&#x7684;SendErrorFilter</h2>
+<p>&#x5728;<code>Dalston.RELEASE</code>&#x4E4B;&#x524D;&#xFF0C;spring-cloud-netflix&#x4E2D;&#x5E76;&#x4E0D;&#x5305;&#x542B;<code>error</code>&#x7C7B;&#x578B;&#x7684;Filter&#xFF1B;&#x800C;&#x5904;&#x7406;&#x9519;&#x8BEF;&#x60C5;&#x51B5;&#x7684;filter&#x4E3A;<code>SendErrorFilter</code>&#xFF0C;&#x5176;&#x7C7B;&#x578B;&#x4E3A;<code>post</code>&#xFF0C;<code>order</code>&#x4E3A;0&#xFF0C;&#x6BD4;<code>SendResponseFilter</code>&#x4F18;&#x5148;&#x7EA7;&#x9AD8;(1000)&#xFF0C;&#x5373;&#x66F4;&#x65E9;&#x8C03;&#x7528;&#x3002;&#x5148;&#x6765;&#x5206;&#x6790;&#x4E00;&#x4E0B;<code>Dalston.RELEASE</code>&#x4E4B;&#x524D;&#x7248;&#x672C;&#x7684;<a href="https://github.com/spring-cloud/spring-cloud-netflix/blob/v1.2.7.RELEASE/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/zuul/filters/post/SendErrorFilter.java#L34" target="_blank">SendErrorFilter</a>&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#x6458;&#x81EA;<code>spring-cloud-netflix 1.2.7.RELEASE</code>&#xFF1A;</p>
+<pre><code class="lang-java"> <span class="hljs-number">38</span>     <span class="hljs-meta">@Value</span>(<span class="hljs-string">&quot;${error.path:/error}&quot;</span>)
+ <span class="hljs-number">39</span>     <span class="hljs-keyword">private</span> String errorPath;
+    ...
+ <span class="hljs-number">51</span>     <span class="hljs-meta">@Override</span>
+ <span class="hljs-number">52</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">shouldFilter</span><span class="hljs-params">()</span> </span>{
+ <span class="hljs-number">53</span>         RequestContext ctx = RequestContext.getCurrentContext();
+ <span class="hljs-number">54</span>         <span class="hljs-comment">// only forward to errorPath if it hasn&apos;t been forwarded to already</span>
+ <span class="hljs-number">55</span>         <span class="hljs-keyword">return</span> ctx.containsKey(<span class="hljs-string">&quot;error.status_code&quot;</span>)
+ <span class="hljs-number">56</span>                 &amp;&amp; !ctx.getBoolean(SEND_ERROR_FILTER_RAN, <span class="hljs-keyword">false</span>);
+ <span class="hljs-number">57</span>     }
+ <span class="hljs-number">58</span>
+ <span class="hljs-number">59</span>     <span class="hljs-meta">@Override</span>
+ <span class="hljs-number">60</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+    ...
+ <span class="hljs-number">65</span>             <span class="hljs-keyword">int</span> statusCode = (Integer) ctx.get(<span class="hljs-string">&quot;error.status_code&quot;</span>);
+ <span class="hljs-number">66</span>             request.setAttribute(<span class="hljs-string">&quot;javax.servlet.error.status_code&quot;</span>, statusCode);
+    ...
+ <span class="hljs-number">69</span>             Object e = ctx.get(<span class="hljs-string">&quot;error.exception&quot;</span>);
+ <span class="hljs-number">71</span>             request.setAttribute(<span class="hljs-string">&quot;javax.servlet.error.exception&quot;</span>, e);
+    ...
+ <span class="hljs-number">75</span>             String message = (String) ctx.get(<span class="hljs-string">&quot;error.message&quot;</span>);
+ <span class="hljs-number">76</span>             request.setAttribute(<span class="hljs-string">&quot;javax.servlet.error.message&quot;</span>, message);
+    ...
+ <span class="hljs-number">79</span>             RequestDispatcher dispatcher = request.getRequestDispatcher(
+ <span class="hljs-number">80</span>                     <span class="hljs-keyword">this</span>.errorPath);
+    ...
+ <span class="hljs-number">84</span>             dispatcher.forward(request, ctx.getResponse());
+    ...
+ <span class="hljs-number">92</span>     }
+</code></pre>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x53EF;&#x4EE5;&#x5F97;&#x51FA;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<ul>
+<li><code>SendErrorFilter</code>&#x7684;&#x8FDB;&#x5165;&#x6761;&#x4EF6;&#x662F;&#xFF1A;<code>RequestContext</code>&#x4E2D;&#x5305;&#x542B;<code>error.status_code</code>&#xFF0C;&#x4E14;&#x4E4B;&#x524D;&#x4ECE;&#x672A;&#x6267;&#x884C;&#x8FC7;&#x8BE5;filter&#x3002;(55, 56)</li>
+<li>&#x4F1A;&#x5C06;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x8F6C;&#x53D1;&#x7ED9;<code>errorPath</code>&#x6267;&#x884C;&#xFF1B;<code>errorPath</code>&#x53EF;&#x7531;&#x914D;&#x7F6E;&#x9879;<code>error.paht</code>&#x6307;&#x5B9A;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;<code>/error</code>&#x3002;(38, 79, 84)</li>
+<li>&#x8F6C;&#x53D1;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x662F;&#x4ECE;<code>RequestContext</code>&#x4E2D;&#x7684;&#x4E09;&#x4E2A;<code>key</code>&#x5F97;&#x5230;&#xFF1A;<code>error.status_code</code>, <code>error.exception</code>, <code>error.message</code>&#x3002;(65~76)</li>
+</ul>
+<p>&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;<code>SendErrorFilter</code>&#xFF0C;&#x5219;&#x6211;&#x4EEC;&#x5728;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;ZuulFilter&#x505A;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF1A;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x662F;<code>pre</code>, <code>route</code>&#x7C7B;&#x578B;&#x7684;filter&#xFF0C;&#x5219;&#x6355;&#x83B7;&#x6240;&#x6709;&#x5185;&#x90E8;&#x5F02;&#x5E38;&#xFF0C;&#x5C06;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#x8BBE;&#x7F6E;&#x5230;<code>error.message</code>&#x4E2D;&#xFF0C;&#x8BBE;&#x7F6E;&#x6240;&#x9700;&#x8FD4;&#x56DE;&#x7684;HTTP&#x72B6;&#x6001;&#x7801;&#x5230;<code>error.status_code</code>&#x4E2D;&#xFF1B;&#x7136;&#x540E;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x3002;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x662F;&#x4E3A;&#x4E86;&#x5C06;&#x6267;&#x884C;&#x6D41;&#x7A0B;&#x4EA4;&#x7ED9;<code>error-&gt;post</code>&#x8FD9;&#x4E2A;&#x6267;&#x884C;&#x5206;&#x652F;&#xFF1B;&#x5426;&#x5219;&#xFF0C;&#x5F53;&#x524D;filter&#x4F1A;&#x88AB;&#x8BA4;&#x4E3A;&#x6267;&#x884C;&#x6210;&#x529F;&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x540E;&#x7EED;&#x7684;filter&#x3002;<code>run()</code>&#x65B9;&#x6CD5;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x9700;&#x662F;(&#x6216;&#x7EE7;&#x627F;)<code>RuntimeException</code>&#xFF0C;&#x56E0;&#x4E3A;<code>IZuulFilter#run()</code>&#x63A5;&#x53E3;&#x6CA1;&#x6709;&#x663E;&#x793A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x662F;<code>post</code>&#x7C7B;&#x578B;&#xFF1A;<ul>
+<li>&#x8BBE;&#x7F6E;&#x8BE5;filter&#x7684;<code>order</code>&#xFF0C;&#x5C0F;&#x4E8E;0(&#x8FD9;&#x662F;<code>SendErrorFilter</code>)&#x3002;</li>
+<li>&#x4ED4;&#x7EC6;&#x8003;&#x8651;<code>shouldFilter()</code>&#x7684;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#xFF0C;&#x56E0;&#x4E3A;&#x5F02;&#x5E38;&#x6D41;&#x4E5F;&#x4F1A;&#x8FDB;&#x5165;<code>post</code> filters&#xFF0C;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x9700;&#x8981;&#x5904;&#x7406;&#x3002;</li>
+<li><code>run()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x6355;&#x83B7;&#x6240;&#x6709;&#x5F02;&#x5E38;&#xFF0C;&#x7136;&#x540E;&#x8BBE;&#x7F6E;<code>error.status_code</code>, <code>error.message</code>, <code>error.exception</code>&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x518D;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;&#x5426;&#x5219;&#x4F1A;&#x8FDB;&#x5165;<code>error</code> filters&#xFF0C;&#x4F46;&#x662F;&#x73B0;&#x5728;&#x6CA1;&#x6709;&#xFF0C;&#x7531;<code>SendErrorFilter</code>&#x66FF;&#x4EE3;&#xFF1B;&#x9664;&#x975E;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;<code>error</code> filter&#xFF0C;&#x7136;&#x540E;&#x7981;&#x6389;<code>SendErrorFilter</code>&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x8FD9;&#x4E2A;&#x7248;&#x672C;&#x4E2D;&#xFF0C;spring-cloud-netflix&#x63D0;&#x4F9B;&#x7684;&#x8FD9;&#x4E2A;<code>SendErrorFilter</code>&#x6709;&#x660E;&#x663E;&#x7684;&#x7F3A;&#x9677;&#xFF0C;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x7531;<code>post</code> filters&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x4E5F;&#x4E0D;&#x7B26;&#x5408;zuul&#x8BF7;&#x6C42;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x56FE;&#x3002;&#x6240;&#x4EE5;&#x5728;<code>Dalston.RELEASE</code>&#x4E4B;&#x540E;&#xFF0C;&#x5373;<code>spring-cloud-netflix 1.3.0.RELEASE</code>&#xFF0C;&#x5C06;<a href="https://github.com/spring-cloud/spring-cloud-netflix/blob/v1.3.0.RELEASE/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/zuul/filters/post/SendErrorFilter.java#L43" target="_blank">SendErrorFilter</a>&#x7684;&#x7C7B;&#x578B;&#x6539;&#x4E3A;&#x4E86;<code>error</code>&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#x6458;&#x81EA;<code>spring-cloud-netflix 1.3.0.RELEASE</code>&#x7684;<code>SendErrorFilter</code>&#x7C7B;:</p>
+<pre><code class="lang-java"> <span class="hljs-number">51</span>     <span class="hljs-meta">@Override</span>
+ <span class="hljs-number">52</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">filterType</span><span class="hljs-params">()</span> </span>{
+ <span class="hljs-number">53</span>         <span class="hljs-keyword">return</span> ERROR_TYPE;
+ <span class="hljs-number">54</span>     }
+    ...
+ <span class="hljs-number">61</span>     <span class="hljs-meta">@Override</span>
+ <span class="hljs-number">62</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">shouldFilter</span><span class="hljs-params">()</span> </span>{
+ <span class="hljs-number">63</span>         RequestContext ctx = RequestContext.getCurrentContext();
+ <span class="hljs-number">64</span>         <span class="hljs-comment">// only forward to errorPath if it hasn&apos;t been forwarded to already</span>
+ <span class="hljs-number">65</span>         <span class="hljs-keyword">return</span> ctx.getThrowable() != <span class="hljs-keyword">null</span>
+ <span class="hljs-number">66</span>                 &amp;&amp; !ctx.getBoolean(SEND_ERROR_FILTER_RAN, <span class="hljs-keyword">false</span>);
+ <span class="hljs-number">67</span>     }
+ <span class="hljs-number">68</span>
+ <span class="hljs-number">69</span>     <span class="hljs-meta">@Override</span>
+ <span class="hljs-number">70</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+    ...
+ <span class="hljs-number">73</span>             ZuulException exception = findZuulException(ctx.getThrowable());
+    ...
+ <span class="hljs-number">76</span>             request.setAttribute(<span class="hljs-string">&quot;javax.servlet.error.status_code&quot;</span>, exception.nStatusCode);
+ <span class="hljs-number">79</span>             request.setAttribute(<span class="hljs-string">&quot;javax.servlet.error.exception&quot;</span>, exception);
+ <span class="hljs-number">82</span>             request.setAttribute(<span class="hljs-string">&quot;javax.servlet.error.message&quot;</span>, exception.errorCause);
+    ...
+ <span class="hljs-number">98</span>     }
+ <span class="hljs-number">99</span>
+<span class="hljs-number">100</span>     <span class="hljs-function">ZuulException <span class="hljs-title">findZuulException</span><span class="hljs-params">(Throwable throwable)</span> </span>{
+<span class="hljs-number">101</span>         <span class="hljs-keyword">if</span> (throwable.getCause() <span class="hljs-keyword">instanceof</span> ZuulRuntimeException) {
+<span class="hljs-number">102</span>             <span class="hljs-comment">// this was a failure initiated by one of the local filters</span>
+<span class="hljs-number">103</span>             <span class="hljs-keyword">return</span> (ZuulException) throwable.getCause().getCause();
+<span class="hljs-number">104</span>         }
+    ...
+<span class="hljs-number">118</span>     }
+</code></pre>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x51E0;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x7C7B;&#x578B;&#x4E3A;<code>error</code>(53&#x884C;)&#x3002;</li>
+<li>&#x8FDB;&#x5165;&#x6761;&#x4EF6;&#x4E3A;&#xFF1A;<code>RequestContext</code>&#x4E2D;&#x6709;&#x5F02;&#x5E38;&#xFF0C;&#x5E76;&#x4E14;&#x8BE5;filter&#x4ECE;&#x672A;&#x6267;&#x884C;&#x8FC7;(65, 66)&#x3002;&#x5F02;&#x5E38;&#x5BF9;&#x8C61;&#x662F;&#x5728;<code>ZuulServlet#error(ZuulException)</code>&#x65B9;&#x6CD5;&#x4E2D;&#x8BBE;&#x7F6E;&#x7684;&#x3002;</li>
+<li><code>run()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x63D0;&#x53D6;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x4E0D;&#x518D;&#x662F;&#x4ECE;<code>RequestContext</code>&#x7684;&#x4E09;&#x4E2A;<code>key</code>(<code>error.status_code</code>, <code>error.message</code>, <code>error.exception</code>)&#x4E2D;&#x83B7;&#x53D6;&#xFF1B;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x4ECE;<code>ZuulException</code>&#x5BF9;&#x8C61;&#x4E2D;&#x83B7;&#x53D6;(73~82)&#x3002;</li>
+<li>&#x5982;&#x4F55;&#x53D6;&#x5F97;<code>ZuulException</code>&#x5BF9;&#x8C61;(100~118)&#xFF0C;&#x6700;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x70B9;&#x662F;&#x4ECE;<code>ZuulRuntimeException</code>&#x4E2D;&#x63D0;&#x53D6;<code>ZuulException</code>&#x5BF9;&#x8C61;(101~103)&#xFF0C;&#x800C;<code>ZuulRuntimeException</code>&#x7EE7;&#x627F;<code>RuntimeException</code>&#x3002;</li>
+<li>&#x6CE8;&#x610F;101&#x884C;&#x4EE3;&#x7801;&#xFF0C;&#x662F;&#x5224;&#x65AD;<code>throwable.getCause()</code>&#x662F;&#x5426;&#x4E3A;<code>ZuulRuntimeException</code>&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x6240;&#x6709;&#x975E;<code>ZuulException</code>&#x7684;&#x5F02;&#x5E38;&#x5728;<code>FilterProcessor#processZuulFilter()</code>(227&#x884C;)&#x4E2D;&#x4F1A;&#x88AB;&#x8F6C;&#x5316;&#x4E3A;<code>ZuulException</code>&#x3002;</li>
+<li><code>findZuulException</code>&#x6CA1;&#x6709;&#x8D34;&#x5168;&#xFF0C;&#x5176;&#x4F1A;&#x4F18;&#x5148;&#x4ECE;&#x81EA;&#x5B9A;&#x4E49;filter&#x4E2D;&#x629B;&#x51FA;&#x7684;<code>ZuulRuntimeException</code>&#x4E2D;&#x63D0;&#x53D6;<code>ZuulException</code>&#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x8FD4;&#x56DE;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x548C;HTTP&#x72B6;&#x6001;&#x7801;&#x3002;</li>
+</ul>
+<p>&#x90A3;&#x57FA;&#x4E8E;1.3.0.RELEASE&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x5199;&#x81EA;&#x5B9A;&#x4E49;filter&#x65F6;&#xFF0C;&#x5982;&#x4F55;&#x505A;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x5462;&#xFF1A;</p>
+<ul>
+<li>&#x5C06;filter&#x5185;&#x90E8;&#x5F02;&#x5E38;&#x8F6C;&#x5316;&#x4E3A;<code>ZuulException</code>&#xFF0C;&#x8BBE;&#x7F6E;&#x81EA;&#x5DF1;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x7684;HTTP&#x72B6;&#x6001;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x5305;&#x88C5;&#x4E3A;<code>ZuulRuntimeException</code>&#x629B;&#x51FA;&#x3002;</li>
+<li>&#x5982;&#x82E5;&#x4E0D;&#x5C01;&#x88C5;&#x4E3A;<code>ZuulRuntimeException</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7684;HTTP&#x72B6;&#x6001;&#x7801;&#x4E3A;500&#x3002;</li>
+</ul>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-comment">// do something</span>
+    } <span class="hljs-keyword">catch</span> (Throwable t) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ZuulRuntimeException(<span class="hljs-keyword">new</span> ZuulException(t, HttpStatus.BAD_REQUEST.value(), t.getMessage()));
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x60F3;&#x81EA;&#x5B9A;&#x4E49;&#x8FD4;&#x56DE;&#x7684;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#x7684;response body&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4EFF;&#x7167;<code>BasicErrorController</code>&#x91CD;&#x5199;&#x4E00;&#x4E0B;<code>/error</code>&#x63A5;&#x53E3;&#x3002;</p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; lowzj 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Modified: 
+2017-09-07 17:58
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="spring-cloud-config.html" class="navigation navigation-prev " aria-label="Previous page: SpringCloudConfig">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="sc-ribbon-routing-by-params.html" class="navigation navigation-next " aria-label="Next page: Ribbon: 按参数路由请求">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SpringCloud-Zuul异常处理","level":"1.4.2","depth":2,"next":{"title":"Ribbon: 按参数路由请求","level":"1.4.3","depth":2,"path":"notes/springcloud/sc-ribbon-routing-by-params.md","ref":"notes/springcloud/sc-ribbon-routing-by-params.md","articles":[]},"previous":{"title":"SpringCloudConfig","level":"1.4.1","depth":2,"path":"notes/springcloud/spring-cloud-config.md","ref":"notes/springcloud/spring-cloud-config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","github","anchor-navigation-ex","github-buttons","tbfed-pagefooter","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy lowzj 2017","modify_label":"Modified: ","modify_format":"YYYY-MM-DD HH:mm"},"github":{"url":"https://github.com/lowzj/note-book"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"/img/donate-alipay.png","alipayText":"Alipay ¥1","button":"赏","title":"","wechat":"/img/donate-wechat.png","wechatText":"Wechat ¥1"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":false,"isRewritePageTitle":false},"github-buttons":{"repo":"lowzj/note-book","types":["star"],"size":"small"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Note Book","gitbook":"*"},"file":{"path":"notes/springcloud/sc-zuul-excpetion.md","mtime":"2017-09-07T09:58:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-20T11:47:43.636Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,796 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>HMAC · Note Book</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="share.html" />
+    
+    
+    <link rel="prev" href="service-discovery.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"lowzj/note-book","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook-custom-domain.html">
+            
+                <a href="../gitbook-custom-domain.html">
+            
+                    
+                    GitBook自定义域名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Microservice
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="notes.html">
+            
+                <a href="notes.html">
+            
+                    
+                    Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="service-discovery.html">
+            
+                <a href="service-discovery.html">
+            
+                    
+                    ServiceDiscovery
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="hmac.html">
+            
+                <a href="hmac.html">
+            
+                    
+                    HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="share.html">
+            
+                <a href="share.html">
+            
+                    
+                    Share
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../springcloud/spring-cloud-practice.html">
+            
+                <a href="../springcloud/spring-cloud-practice.html">
+            
+                    
+                    SpringCloud
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../springcloud/spring-cloud-config.html">
+            
+                <a href="../springcloud/spring-cloud-config.html">
+            
+                    
+                    SpringCloudConfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../springcloud/sc-zuul-excpetion.html">
+            
+                <a href="../springcloud/sc-zuul-excpetion.html">
+            
+                    
+                    SpringCloud-Zuul异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../springcloud/sc-ribbon-routing-by-params.html">
+            
+                <a href="../springcloud/sc-ribbon-routing-by-params.html">
+            
+                    
+                    Ribbon: 按参数路由请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../springcloud/sc-issues.html">
+            
+                <a href="../springcloud/sc-issues.html">
+            
+                    
+                    SpringCloud问题整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../serverless.html">
+            
+                <a href="../serverless.html">
+            
+                    
+                    Serverless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../stack-storm.html">
+            
+                <a href="../stack-storm.html">
+            
+                    
+                    StackStorm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../consul.html">
+            
+                <a href="../consul.html">
+            
+                    
+                    consul
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../blue-green-deployment.html">
+            
+                <a href="../blue-green-deployment.html">
+            
+                    
+                    Blue Green Deployment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../java/java.html">
+            
+                <a href="../java/java.html">
+            
+                    
+                    Java
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../java/java-lambda.html">
+            
+                <a href="../java/java-lambda.html">
+            
+                    
+                    Java8 Lambda
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../java/translation-of-lambda-expressions.html">
+            
+                <a href="../java/translation-of-lambda-expressions.html">
+            
+                    
+                    Lambda表达式的翻译原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../java/java-thread-lock.html">
+            
+                <a href="../java/java-thread-lock.html">
+            
+                    
+                    Java Threads and Locks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../java/maven.html">
+            
+                <a href="../java/maven.html">
+            
+                    
+                    Maven
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../java/spring.html">
+            
+                <a href="../java/spring.html">
+            
+                    
+                    Spring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../java/string-concatenation.html">
+            
+                <a href="../java/string-concatenation.html">
+            
+                    
+                    String Concatenation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../java/java-regx.html">
+            
+                <a href="../java/java-regx.html">
+            
+                    
+                    Java Regx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../java/java-retrying.html">
+            
+                <a href="../java/java-retrying.html">
+            
+                    
+                    java-retrying:简单灵活的java重试模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../java/java-thread-high-cpu-troubleshoot.html">
+            
+                <a href="../java/java-thread-high-cpu-troubleshoot.html">
+            
+                    
+                    Java进程CPU使用率排查
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    Go
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../go/learning-go.html">
+            
+                <a href="../go/learning-go.html">
+            
+                    
+                    Go语言学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../python.html">
+            
+                <a href="../python.html">
+            
+                    
+                    Python
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../kong.html">
+            
+                <a href="../kong.html">
+            
+                    
+                    Kong
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../mysql.html">
+            
+                <a href="../mysql.html">
+            
+                    
+                    mysql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../zookeeper.html">
+            
+                <a href="../zookeeper.html">
+            
+                    
+                    zookeeper
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../kafka.html">
+            
+                <a href="../kafka.html">
+            
+                    
+                    Kafka
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../linux.html">
+            
+                <a href="../linux.html">
+            
+                    
+                    linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../mesos.html">
+            
+                <a href="../mesos.html">
+            
+                    
+                    mesos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../OSX_skills.html">
+            
+                <a href="../OSX_skills.html">
+            
+                    
+                    OSX
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../raft.html">
+            
+                <a href="../raft.html">
+            
+                    
+                    Raft
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../math-formula.html">
+            
+                <a href="../math-formula.html">
+            
+                    
+                    Markdown里输入数学公式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../readings.html">
+            
+                <a href="../readings.html">
+            
+                    
+                    Readings
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >HMAC</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#hmac-hashed-message-authentication-code"><b></b>HMAC: Hashed Message Authentication Code</a></li><ul><li><span class="title-icon "></span><a href="#readings"><b></b>Readings</a></li></ul></ul></div><a href="#hmac-hashed-message-authentication-code" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="hmac-hashed-message-authentication-code"><a name="hmac-hashed-message-authentication-code" class="anchor-navigation-ex-anchor" href="#hmac-hashed-message-authentication-code"><i class="fa fa-link" aria-hidden="true"></i></a>HMAC: Hashed Message Authentication Code</h1>
+<h2 id="readings"><a name="readings" class="anchor-navigation-ex-anchor" href="#readings"><i class="fa fa-link" aria-hidden="true"></i></a>Readings</h2>
+<ul>
+<li><a href="https://www.wolfe.id.au/2012/10/20/what-is-hmac-authentication-and-why-is-it-useful/" target="_blank">What is HMAC Authentication and why is it useful</a></li>
+<li><a href="http://s3.amazonaws.com/doc/s3-developer-guide/RESTAuthentication.html" target="_blank">AWS REST Authentication</a></li>
+<li><a href="https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages" target="_blank">Examples of creating base64 hashes using HMAC SHA256 in different languages</a></li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; lowzj 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Modified: 
+2017-09-02 10:38
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="service-discovery.html" class="navigation navigation-prev " aria-label="Previous page: ServiceDiscovery">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="share.html" class="navigation navigation-next " aria-label="Next page: Share">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"HMAC","level":"1.3.3","depth":2,"next":{"title":"Share","level":"1.3.4","depth":2,"path":"notes/microservices/share.md","ref":"notes/microservices/share.md","articles":[]},"previous":{"title":"ServiceDiscovery","level":"1.3.2","depth":2,"path":"notes/microservices/service-discovery.md","ref":"notes/microservices/service-discovery.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","github","anchor-navigation-ex","github-buttons","tbfed-pagefooter","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy lowzj 2017","modify_label":"Modified: ","modify_format":"YYYY-MM-DD HH:mm"},"github":{"url":"https://github.com/lowzj/note-book"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"/img/donate-alipay.png","alipayText":"Alipay ¥1","button":"赏","title":"","wechat":"/img/donate-wechat.png","wechatText":"Wechat ¥1"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":false,"isRewritePageTitle":false},"github-buttons":{"repo":"lowzj/note-book","types":["star"],"size":"small"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Note Book","gitbook":"*"},"file":{"path":"notes/microservices/hmac.md","mtime":"2017-09-02T02:38:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-20T11:47:43.636Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
