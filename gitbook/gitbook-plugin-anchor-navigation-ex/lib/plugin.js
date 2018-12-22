@@ -10,9 +10,10 @@ var Config = require('./config.js');
  * @param page
  * @returns {Array} 返回处理好的tocs合集
  */
-function handlerTocs($, page) {
+function handlerTocs($, page, modifyHeader) {
     var config = Config.config;
     var tocs = [];
+
     var count = {
         h1: 0,
         h2: 0,
@@ -27,13 +28,13 @@ function handlerTocs($, page) {
         if (id) {
             switch (elem.tagName) {
                 case "h1":
-                    handlerH1Toc(config, count, header, tocs, page.level);
+                    handlerH1Toc(config, count, header, tocs, page.level, modifyHeader);
                     break;
                 case "h2":
-                    handlerH2Toc(config, count, header, tocs, page.level);
+                    handlerH2Toc(config, count, header, tocs, page.level, modifyHeader);
                     break;
                 case "h3":
-                    handlerH3Toc(config, count, header, tocs, page.level);
+                    handlerH3Toc(config, count, header, tocs, page.level, modifyHeader);
                     break;
                 default:
                     titleAddAnchor(header, id);
@@ -82,24 +83,27 @@ function titleAddAnchor(header, id) {
  * @param header
  * @param tocs 根节点
  */
-function handlerH1Toc(config, count, header, tocs, pageLevel) {
+function handlerH1Toc(config, count, header, tocs, pageLevel, modifyHeader) {
     var title = header.text();
     var id = header.attr('id');
     var level = ''; //层级
 
     if (config.showLevel) {
-        //层级显示仅在需要的时候处理 
+        //层级显示仅在需要的时候处理
         count.h1 += 1;
         count.h2 = 0;
         count.h3 = 0;
-        if(config.multipleH1){
+        if (config.multipleH1) {
             level = count.h1 + '. ';
-        }else{
+        } else {
             level = ' ';
         }
         // 是否与官网默认主题层级序号相关联
         if (config.associatedWithSummary && config.themeDefault.showLevel) {
             level = pageLevel + '.' + level;
+        }
+        if (!modifyHeader) {
+            level  = '';
         }
         header.text(level + title); //重写标题
     }
@@ -111,12 +115,13 @@ function handlerH1Toc(config, count, header, tocs, pageLevel) {
         children: []
     });
 }
+
 /**
  * 处理h2
  * @param count 计数器
  * @param header
  */
-function handlerH2Toc(config, count, header, tocs, pageLevel) {
+function handlerH2Toc(config, count, header, tocs, pageLevel, modifyHeader) {
     var title = header.text();
     var id = header.attr('id');
     var level = ''; //层级
@@ -131,13 +136,16 @@ function handlerH2Toc(config, count, header, tocs, pageLevel) {
     if (config.showLevel) {
         count.h2 += 1;
         count.h3 = 0;
-        if(config.multipleH1){
+        if (config.multipleH1) {
             level = (count.h1 + '.' + count.h2 + '. ');
-        }else{
+        } else {
             level = (count.h2 + '. ');
         }
         if (config.associatedWithSummary && config.themeDefault.showLevel) {
             level = pageLevel + '.' + level;
+        }
+        if (!modifyHeader) {
+            level  = '';
         }
         header.text(level + title); //重写标题
     }
@@ -149,12 +157,13 @@ function handlerH2Toc(config, count, header, tocs, pageLevel) {
         children: []
     });
 }
+
 /**
  * 处理h3
  * @param count 计数器
  * @param header
  */
-function handlerH3Toc(config, count, header, tocs, pageLevel) {
+function handlerH3Toc(config, count, header, tocs, pageLevel, modifyHeader) {
     var title = header.text();
     var id = header.attr('id');
     var level = ''; //层级
@@ -174,13 +183,16 @@ function handlerH3Toc(config, count, header, tocs, pageLevel) {
 
     if (config.showLevel) {
         count.h3 += 1;
-        if(config.multipleH1){
+        if (config.multipleH1) {
             level = (count.h1 + '.' + count.h2 + '.' + count.h3 + '. ');
-        }else{
+        } else {
             level = (count.h2 + '.' + count.h3 + '. ');
         }
         if (config.associatedWithSummary && config.themeDefault.showLevel) {
             level = pageLevel + "." + level;
+        }
+        if (!modifyHeader) {
+            level  = '';
         }
         header.text(level + title); //重写标题
     }
@@ -195,13 +207,13 @@ function handlerH3Toc(config, count, header, tocs, pageLevel) {
 
 /**
  * 处理浮动导航：拼接锚点导航html，并添加到html末尾，利用css 悬浮
- * @param option
  * @param tocs
- * @param page
+ * @returns {string}
  */
-function handlerFloatNavbar($, tocs, page) {
+function handlerFloatNavbar($, tocs) {
     var config = Config.config;
     var float = config.float;
+    var floatIcon = float.floatIcon;
     var level1Icon = '';
     var level2Icon = '';
     var level3Icon = '';
@@ -211,7 +223,7 @@ function handlerFloatNavbar($, tocs, page) {
         level3Icon = float.level3Icon;
     }
 
-    var html = "<div id='anchor-navigation-ex-navbar'><i class='fa fa-anchor'></i><ul>";
+    var html = "<div id='anchor-navigation-ex-navbar'><i class='" + floatIcon + "'></i><ul>";
     for (var i = 0; i < tocs.length; i++) {
         var h1Toc = tocs[i];
         html += "<li><span class='title-icon " + level1Icon + "'></span><a href='#" + h1Toc.url + "'><b>" + h1Toc.level + "</b>" + h1Toc.name + "</a></li>";
@@ -232,19 +244,15 @@ function handlerFloatNavbar($, tocs, page) {
             html += "</ul>"
         }
     }
-
-    html += "</ul></div><a href='#" + tocs[0].url + "' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>";
-
-    page.content = html + $.html();
+    html += "</ul></div>";
+    return html;
 }
 
-function handlerPageTopNavbar($, tocs, page) {
-    var html = buildTopNavbar($, tocs, page);
-    html += "<a href='#" + tocs[0].url + "' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>";
-    page.content = html + $.html();
+function handlerPageTopNavbar($, tocs) {
+    return buildTopNavbar($, tocs)
 }
 
-function buildTopNavbar($, tocs, page) {
+function buildTopNavbar($, tocs) {
     var config = Config.config;
     var pageTop = config.pageTop;
     var level1Icon = '';
@@ -283,26 +291,44 @@ function buildTopNavbar($, tocs, page) {
     return html;
 }
 
+/**
+ * 添加返回顶部按钮
+ * @param tocs
+ * @returns {string}
+ */
+function buildGoTop(tocs) {
+    var config = Config.config;
+    var html = "";
+    if (config.showGoTop && tocs && tocs.length > 0) {
+        html = "<a href='#" + tocs[0].url + "' id='anchorNavigationExGoTop'><i class='fa fa-arrow-up'></i></a>";
+    }
+    return html;
+}
+
 function start(bookIns, page) {
     var $ = cheerio.load(page.content);
+    var modifyHeader = !/<!--[ \t]*ex_nolevel[ \t]*-->/.test(page.content)
+
     // 处理toc相关，同时处理标题和id
-    var tocs = handlerTocs($, page);
+    var tocs = handlerTocs($, page, modifyHeader);
 
     // 设置处理之后的内容
     if (tocs.length == 0) {
         page.content = $.html();
         return;
     }
-    if(!/<!--[ \t]*ex_nonav[ \t]*-->/.test(page.content)){
+    var html = "";
+    if (!/<!--[ \t]*ex_nonav[ \t]*-->/.test(page.content)) {
         var config = Config.config;
         var mode = config.mode;
         if (mode == 'float') {
-            handlerFloatNavbar($, tocs, page);
+            html = handlerFloatNavbar($, tocs);
         } else if (mode == 'pageTop') {
-            handlerPageTopNavbar($, tocs, page);
+            html = handlerPageTopNavbar($, tocs);
         }
     }
-
+    html += buildGoTop(tocs);
+    page.content = html + $.html();
     var $x = cheerio.load(page.content);
     $x('extoc').replaceWith($x(buildTopNavbar($, tocs, page)));
     page.content = $x.html();
