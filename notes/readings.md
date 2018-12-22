@@ -20,3 +20,5 @@
     * [大量SYN_RECV连接导致业务短暂不可用的解决方法](http://blog.51cto.com/kc1985/771976)
 * 2018-10
     * [Docker最佳实践: 构建最小镜像](https://zhuanlan.zhihu.com/p/38552260)
+* 2018-12
+    * [GitBook Plugins](https://gitbook.zhangjikai.com/plugins.html)
