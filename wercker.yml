@@ -18,8 +18,7 @@ deploy:
     steps:
         - install-packages:
             packages: git ssh-client
-        - add-ssh-key:
-            host: github.com
+        - leipert/add-ssh-key-gh-bb:
             keyname: GH_PAGES_DEPLOY_SSHKEY
         - add-to-known_hosts:
             hostname: github.com
