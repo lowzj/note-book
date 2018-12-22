@@ -18,11 +18,11 @@ deploy:
     steps:
         - install-packages:
             packages: git ssh-client
-        - leipert/add-ssh-key-gh-bb:
-            keyname: GIT_PAGES_DEPLOY_SSHKEY
+        - add-ssh-key-gh-bb:
+            keyname: GH_PAGES_DEPLOY_SSHKEY
         - add-to-known_hosts:
             hostname: github.com
-            fingerprint: 6f:5d:da:93:73:ce:c6:3c:f7:b0:46:5e:a9:e8:c4:8c
+            fingerprint: 23:0d:c8:00:ff:bd:b8:77:1b:ac:48:09:68:72:69:27
         - gsserge/git-push@0.7.19:
             gh_pages: true
             gh_pages_domain: lowzj.com
