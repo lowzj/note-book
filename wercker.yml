@@ -1,0 +1,32 @@
+box: node
+build:
+    steps:
+        - npm-install
+        - script:
+            name: gitbook install
+            code: |
+                echo "node version $(node -v) running"
+                echo "npm version $(npm -v) running"
+                npm i gitbook-cli
+                gitbook install
+                node_modules/gitbook-cli/bin/gitbook.js install .
+                node_modules/gitbook-cli/bin/gitbook.js build .
+
+                echo 'node_modules/' > .gitignore
+                echo 'npm-debug.log' >> .gitignore
+
+deploy:
+    steps:
+        - install-packages:
+            packages: git ssh-client
+        - leipert/add-ssh-key-gh-bb:
+            keyname: GIT_PAGES_DEPLOY_SSHKEY
+        - add-to-known_hosts:
+            hostname: github.com
+            fingerprint: 6f:5d:da:93:73:ce:c6:3c:f7:b0:46:5e:a9:e8:c4:8c
+        - gsserge/git-push@0.7.19:
+            gh_pages: true
+            gh_pages_domain: lowzj.com
+            basedir: _book
+
+
