@@ -8,7 +8,6 @@ build:
                 echo "node version $(node -v) running"
                 echo "npm version $(npm -v) running"
                 npm i gitbook-cli
-                gitbook install
                 node_modules/gitbook-cli/bin/gitbook.js install .
                 node_modules/gitbook-cli/bin/gitbook.js build .
 
