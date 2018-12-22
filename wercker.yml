@@ -26,8 +26,8 @@ deploy:
             type: rsa
         - gsserge/git-push@0.7.19:
             host: github.com
-            gh_pages: true
-            gh_pages_domain: lowzj.com
+            repo: lowzj/note-book
+            branch: gh-pages
             basedir: _book
 
 
