@@ -17,13 +17,14 @@ build:
 deploy:
     steps:
         - install-packages:
-            packages: git ssh-client
+            packages: git ssh-client ssh-keyscan
         - add-ssh-key:
             host: github.com
             keyname: GH_PAGES_DEPLOY_SSHKEY
         - add-to-known_hosts:
             hostname: github.com
             fingerprint: 23:0d:c8:00:ff:bd:b8:77:1b:ac:48:09:68:72:69:27
+            type: rsa
         - gsserge/git-push@0.7.19:
             host: github.com
             gh_pages: true
