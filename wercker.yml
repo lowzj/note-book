@@ -24,6 +24,7 @@ deploy:
             hostname: github.com
             fingerprint: 23:0d:c8:00:ff:bd:b8:77:1b:ac:48:09:68:72:69:27
         - gsserge/git-push@0.7.19:
+            host: github.com
             gh_pages: true
             gh_pages_domain: lowzj.com
             basedir: _book
