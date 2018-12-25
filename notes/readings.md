@@ -22,3 +22,4 @@
     * [Docker最佳实践: 构建最小镜像](https://zhuanlan.zhihu.com/p/38552260)
 * 2018-12
     * [GitBook Plugins](https://gitbook.zhangjikai.com/plugins.html)
+    * [如何向Docker容器传递参数](https://yanbin.blog/pass-arguments-to-docker-container/#more-8608)
