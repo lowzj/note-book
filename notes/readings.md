@@ -30,6 +30,7 @@
 
 * 2019-01
     * [跟我一起写Makefile-变量](https://blog.csdn.net/u012421852/article/details/52138924)
+    * [在Makefile中设置环境变量](https://segmentfault.com/a/1190000008535305)
 
 ### 2018
 
