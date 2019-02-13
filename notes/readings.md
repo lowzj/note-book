@@ -40,6 +40,9 @@
 
 ### 2019
 
+* 2019-02
+    * [HTTPS证书生成原理和部署细节](https://www.barretlee.com/blog/2015/10/05/how-to-build-a-https-server/)
+
 * 2019-01
     * [跟我一起写Makefile-变量](https://blog.csdn.net/u012421852/article/details/52138924)
     * [在Makefile中设置环境变量](https://segmentfault.com/a/1190000008535305)
