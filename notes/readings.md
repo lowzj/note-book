@@ -42,6 +42,7 @@
 
 * 2019-02
     * [HTTPS证书生成原理和部署细节](https://www.barretlee.com/blog/2015/10/05/how-to-build-a-https-server/)
+    * [Using openssl to get the certificate from a server](https://stackoverflow.com/questions/7885785/using-openssl-to-get-the-certificate-from-a-server)
 
 * 2019-01
     * [跟我一起写Makefile-变量](https://blog.csdn.net/u012421852/article/details/52138924)
