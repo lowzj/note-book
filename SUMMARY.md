@@ -1,4 +1,5 @@
 * [GitBook自定义域名](notes/gitbook-custom-domain.md)
+* [Readings](notes/readings.md)
 * [Microservice](notes/microservices/README.md)
   * [Notes](notes/microservices/notes.md)
   * [ServiceDiscovery](notes/microservices/service-discovery.md)
@@ -26,6 +27,8 @@
 * [Go]()
   * [Go语言学习](notes/go/learning-go.md)
 * [Python](notes/python.md)
+* Network
+    * [HTTPS Proxy 部署](notes/network/https_proxy.md)
 * [Kong](notes/kong.md)
 * [mysql](notes/mysql.md)
 * [zookeeper](notes/zookeeper.md)
@@ -35,4 +38,3 @@
 * [OSX](notes/OSX_skills.md)
 * [Raft](notes/raft.md)
 * [Markdown里输入数学公式](notes/math-formula.md)
-* [Readings](notes/readings.md)
