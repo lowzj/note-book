@@ -56,6 +56,12 @@ openssl req -new -key client.key -out client.csr
 openssl x509 -req -CA ca.crt -CAkey ca.key -CAcreateserial -in client.csr -out client.crt
 ```
 
+获取服务端签名, 即`server.crt`的内容:
+
+```bash
+openssl x509 -in <(openssl s_client -showcerts -servername dfdaemon.com -connect dfdaemon.com:65001 -prexit 2>/dev/null)
+```
+
 ## 七层 HTTPS Proxy
 
 ### 使用nginx做代理
