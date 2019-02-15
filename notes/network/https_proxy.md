@@ -95,7 +95,7 @@ openssl x509 -req -CA ca.crt -CAkey ca.key -CAcreateserial -in client.csr -out c
 
     ```bash
     # 例子1: 创建 https 服务
-    $GOPATH/bin/httpx-static 
+    $GOPATH/bin/httpx-static -ssc /tmp/ssl/server.crt -ssk /tmp/ssl/server.key -https 443
     
     # 例子2: https proxy
     $GOPATH/bin/httpx-static -ssc /tmp/ssl/server.crt -ssk /tmp/ssl/server.key -https 443 -proxy http://localhost:8080
