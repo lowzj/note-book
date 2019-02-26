@@ -145,7 +145,6 @@ stream {
 
 ```bash
 export https_proxy=https://localhost:443
-curl --proxy-cacert /tmp/ssl/server.crt 'https://
-
+curl --proxy-cacert /tmp/ssl/server.crt 'https://lowzj.com'
 ```
 
