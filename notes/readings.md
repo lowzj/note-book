@@ -8,6 +8,7 @@
 
 日期 | 书名 | 作者 | 译者
 ---- | ---- | ---- | ----
+03 | 计算: 一部历史 | 彼得.本特利 | 顾纹天
 02 | 遥远的地球之歌 | 阿瑟.克拉克 | -
 02 | 最璀璨的银河: 刘慈欣作品集 | 刘慈欣 | -
 02 | 球状闪电 | 刘慈欣 | -
@@ -41,6 +42,7 @@
 ### 2019
 
 * 2019-03
+    * [Ensuring Go interface satisfaction at compile-time](https://medium.com/stupid-gopher-tricks/ensuring-go-interface-satisfaction-at-compile-time-1ed158e8fa17)
     * [Simple GoLang HTTPS/TLS](https://gist.github.com/denji/12b3a568f092ab951456)
     * [Introducing Kraken, an Open Source Peer-to-Peer Docker Registry](https://eng.uber.com/introducing-kraken/)
     * [Hacker News: Kraken](https://news.ycombinator.com/item?id=19312028)
