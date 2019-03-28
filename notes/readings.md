@@ -42,6 +42,7 @@
 ### 2019
 
 * 2019-03
+    * [单反0基础简易易懂的入门教程](https://zhuanlan.zhihu.com/p/35869230)
     * [Ensuring Go interface satisfaction at compile-time](https://medium.com/stupid-gopher-tricks/ensuring-go-interface-satisfaction-at-compile-time-1ed158e8fa17)
     * [Simple GoLang HTTPS/TLS](https://gist.github.com/denji/12b3a568f092ab951456)
     * [Introducing Kraken, an Open Source Peer-to-Peer Docker Registry](https://eng.uber.com/introducing-kraken/)
