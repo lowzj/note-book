@@ -26,6 +26,7 @@
     * [Java进程CPU使用率排查](notes/java/java-thread-high-cpu-troubleshoot.md)
 * [Go]()
   * [Go语言学习](notes/go/learning-go.md)
+  * [问题总结](notes/go/faq.md)
 * [Python](notes/python.md)
 * Network
     * [HTTPS Proxy 部署](notes/network/https_proxy.md)
