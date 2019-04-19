@@ -26,6 +26,10 @@
     * [Go Concurrency Patterns: Pipelines and cancellation](https://blog.golang.org/pipelines)
     * [Share Memory By Communicating](https://blog.golang.org/share-memory-by-communicating)
     * [Cond with Timeout](https://gist.github.com/zviadm/c234426882bfc8acba88f3503edaaa36#file-cond2-go)
+* For & Range
+    * [官网For Statements](https://golang.org/ref/spec#For_statements)
+    * [Go语言性能优化- For Range 性能研究](https://www.flysnow.org/2018/10/20/golang-for-range-slice-map.html)
+    * [Go 语言 for 和 range 的实现](https://draveness.me/golang-for-range)
 * 其他
     * [Go语言中文网](https://studygolang.com/)
     * [Why 'iota'](https://groups.google.com/forum/#!topic/golang-nuts/ku6rvTmLM4o)

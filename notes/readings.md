@@ -41,6 +41,10 @@
 
 ### 2019
 
+* 2019-04
+    * [Go语言性能优化- For Range 性能研究](https://www.flysnow.org/2018/10/20/golang-for-range-slice-map.html)
+    * [Go 语言 for 和 range 的实现](https://draveness.me/golang-for-range)
+
 * 2019-03
     * [单反0基础简易易懂的入门教程](https://zhuanlan.zhihu.com/p/35869230)
     * [Ensuring Go interface satisfaction at compile-time](https://medium.com/stupid-gopher-tricks/ensuring-go-interface-satisfaction-at-compile-time-1ed158e8fa17)
