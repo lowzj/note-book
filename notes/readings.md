@@ -41,6 +41,8 @@
 ## Blogs
 
 ### 2019
+* 2019-05
+    * [Go: Curious Channels](https://dave.cheney.net/2013/04/30/curious-channels)
 
 * 2019-04
     * [Go语言性能优化- For Range 性能研究](https://www.flysnow.org/2018/10/20/golang-for-range-slice-map.html)
