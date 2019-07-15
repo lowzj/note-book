@@ -32,3 +32,14 @@ unset ALL_PROXY
 其中`hostname`可以通过命令行获取
 
 
+### 在OSX下使用sed替换字符串
+
+```bash
+os=`uname -s`
+if [ "${os}" == "Darwin" ]; then
+    # -i 后添加临时文件名称, 如果原地替换, 则为空, 不可省略
+    sed -i "" 's/<your_regx>/<replace_string>/' <file>
+else
+    sed -i 's/<your_regx>/<replace_string>/' <file>
+fi
+```

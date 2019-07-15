@@ -106,3 +106,11 @@ createrepo --update ./
 ### makefile:4: xxx missing separator. Stop
 
 参见: https://stackoverflow.com/questions/16931770/makefile4-missing-separator-stop
+
+### 判断操作系统
+
+```bash
+uname -s
+# Darwin
+# Linux
+```
