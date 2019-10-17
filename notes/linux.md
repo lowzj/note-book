@@ -114,3 +114,9 @@ uname -s
 # Darwin
 # Linux
 ```
+
+
+### 硬盘合并挂载
+
+https://o-my-chenjian.com/2017/05/10/Play-Disk-On-Linux/
+
