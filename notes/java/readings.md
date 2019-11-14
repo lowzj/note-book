@@ -5,3 +5,4 @@
 * [Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html)
 * [Nested Classes](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)
 * [How does 'object.new' work?](https://stackoverflow.com/questions/2863157/how-does-object-new-work-does-java-have-a-new-operator)
+* [JVM调优](https://hllvm-group.iteye.com/group/wiki/?category_id=301)
