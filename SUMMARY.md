@@ -15,6 +15,7 @@
 * [consul](notes/consul.md)
 * [Blue Green Deployment](notes/blue-green-deployment.md)
 * [Java](notes/java/java.md)
+    * [Readings](notes/java/readings.md)
     * [Java8 Lambda](notes/java/java-lambda.md)
     * [Lambda表达式的翻译原理](notes/java/translation-of-lambda-expressions.md)
     * [Java Threads and Locks](notes/java/java-thread-lock.md)
@@ -24,6 +25,8 @@
     * [Java Regx](notes/java/java-regx.md)
     * [java-retrying:简单灵活的java重试模块](notes/java/java-retrying.md)
     * [Java进程CPU使用率排查](notes/java/java-thread-high-cpu-troubleshoot.md)
+* Netty
+    * [Readings](notes/netty/readings.md)
 * [Go]()
   * [Go语言学习](notes/go/learning-go.md)
   * [问题总结](notes/go/faq.md)

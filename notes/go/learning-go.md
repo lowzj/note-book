@@ -41,3 +41,4 @@
     * [How to test os.exit scenarios in Go](https://stackoverflow.com/questions/26225513/how-to-test-os-exit-scenarios-in-go)
     * [Go's Declaration Syntax](https://blog.golang.org/gos-declaration-syntax)
     * [【译】Go语言之声明语法](https://studygolang.com/articles/11812)
+    * [Go服务GC停顿问题排查](https://mp.weixin.qq.com/s/H34xmtDIomaVSmZQO1JK-g)
