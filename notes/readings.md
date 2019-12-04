@@ -46,6 +46,7 @@
 ### 2019
 * 2019-11
     * [即时通讯IM技术领域提高篇](https://juejin.im/post/5a694f9a6fb9a01cb3165dad)
+    * [阿里巴巴大规模神龙裸金属 Kubernetes 集群运维实践](https://mp.weixin.qq.com/s/FHySuh_OExHi5aX9g4Goeg)
 * 2019-05
     * [Go: Curious Channels](https://dave.cheney.net/2013/04/30/curious-channels)
 
