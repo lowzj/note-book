@@ -8,6 +8,7 @@
 
 日期 | 书名 | 作者 | 译者
 ---- | ---- | ---- | ----
+12 | 断舍离 | 山下英子 | 吴倩
 11 | 如何成为一个有趣的人 | 王小圈 |
 11 | 圆圆的肥皂泡 | 刘慈欣 |
 10 | 以幽默的方式过一生 | 琢磨先生 |
@@ -44,6 +45,20 @@
 ## Blogs
 
 ### 2019
+* 2019-12
+    * [网络基本功系列](https://wizardforcel.gitbooks.io/network-basic/index.html)
+    * [Linux下查看和修改MTU](https://www.cnblogs.com/wjoyxt/p/6873714.html)
+    * [在Ubuntu上设置MTU](https://weiyangbo.gitee.io/2019/11/14/MTU-reset/)
+    * [如何设置MTU来提高网络转发效率](https://blog.yumc.pw/posts/Get-And-Set-MTU/)
+    * [在内核中修改TCP MSS](https://blog.csdn.net/force_eagle/article/details/4592271)
+    * [理解TCP协议MSS](https://blog.csdn.net/huangyimo/article/details/78064990)
+    * [Socket/TCP粘包/多包/少包/断包](https://www.cnblogs.com/Jeely/p/10983885.html)
+    * [SO: TCP包大小的最大限制](https://superuser.com/questions/1341012/practical-vs-theoretical-max-limit-of-tcp-packet-size/1341026#1341026)
+    * [SO: maximum packet size for a TCP connection](https://stackoverflow.com/a/3074427/7830306)
+    * [Linux丢包故障的解决](https://jermine.vdo.pub/linux/linux服务器丢包故障的解决/)
+    * [在Linux命令行中使用tcpdump抓包](https://linux.cn/article-10191-1.html)
+    * [MTU设置不当导致网络超时](https://www.bo56.com/一次由于mtu设置不当导致的网络访问超时/)
+    * [Linux-TCP收包内容总结](https://zhuanlan.zhihu.com/p/52397230)
 * 2019-11
     * [即时通讯IM技术领域提高篇](https://juejin.im/post/5a694f9a6fb9a01cb3165dad)
     * [阿里巴巴大规模神龙裸金属 Kubernetes 集群运维实践](https://mp.weixin.qq.com/s/FHySuh_OExHi5aX9g4Goeg)

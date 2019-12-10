@@ -2,7 +2,12 @@
 
 ### tcpdump查看数据包内容
 
-例子: `tcpdump -X -i lo port 8888`
+例子:
+
+```sh
+tcpdump -i bond0 -f port 80 and host 192.168.1.27 -n -vvv -A
+tcpdump -X -i lo port 8888
+```
 
 ### unix和dos文件格式转换
 
@@ -119,4 +124,8 @@ uname -s
 ### 硬盘合并挂载
 
 https://o-my-chenjian.com/2017/05/10/Play-Disk-On-Linux/
+
+### linux下查看和修改mtu
+
+https://www.cnblogs.com/wjoyxt/p/6873714.html
 
