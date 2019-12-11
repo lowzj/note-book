@@ -64,23 +64,19 @@
     * [阿里巴巴大规模神龙裸金属 Kubernetes 集群运维实践](https://mp.weixin.qq.com/s/FHySuh_OExHi5aX9g4Goeg)
 * 2019-05
     * [Go: Curious Channels](https://dave.cheney.net/2013/04/30/curious-channels)
-
 * 2019-04
     * [Go语言性能优化- For Range 性能研究](https://www.flysnow.org/2018/10/20/golang-for-range-slice-map.html)
     * [Go 语言 for 和 range 的实现](https://draveness.me/golang-for-range)
-
 * 2019-03
     * [单反0基础简易易懂的入门教程](https://zhuanlan.zhihu.com/p/35869230)
     * [Ensuring Go interface satisfaction at compile-time](https://medium.com/stupid-gopher-tricks/ensuring-go-interface-satisfaction-at-compile-time-1ed158e8fa17)
     * [Simple GoLang HTTPS/TLS](https://gist.github.com/denji/12b3a568f092ab951456)
     * [Introducing Kraken, an Open Source Peer-to-Peer Docker Registry](https://eng.uber.com/introducing-kraken/)
     * [Hacker News: Kraken](https://news.ycombinator.com/item?id=19312028)
-
 * 2019-02
     * [Golang 获取用户 home 目录路径](https://88250.b3log.org/golang-get-user-home-dir)
     * [HTTPS证书生成原理和部署细节](https://www.barretlee.com/blog/2015/10/05/how-to-build-a-https-server/)
     * [Using openssl to get the certificate from a server](https://stackoverflow.com/questions/7885785/using-openssl-to-get-the-certificate-from-a-server)
-
 * 2019-01
     * [跟我一起写Makefile-变量](https://blog.csdn.net/u012421852/article/details/52138924)
     * [在Makefile中设置环境变量](https://segmentfault.com/a/1190000008535305)
