@@ -46,6 +46,8 @@
 
 ### 2019
 * 2019-12
+    * [磁盘IO那些事](https://tech.meituan.com/2017/05/19/about-desk-io.html)
+    * [存储性能优化](https://www.cnblogs.com/yangmingxianshen/p/8197701.html)
     * [畅谈云原生](https://skyao.io/talk/201902-cloudnative-freely-talk2/)
 * 2019-12
     * [网络基本功系列](https://wizardforcel.gitbooks.io/network-basic/index.html)
