@@ -49,6 +49,7 @@
 
 ### 2019
 * 2019-12
+    * [Linux下使用mdadm创建RAID0](https://linux.cn/article-6087-1.html)
     * [深入理解TCP/IP](http://www.52im.net/thread-513-1-1.html)
     * [磁盘IO那些事](https://tech.meituan.com/2017/05/19/about-desk-io.html)
     * [存储性能优化](https://www.cnblogs.com/yangmingxianshen/p/8197701.html)
