@@ -33,6 +33,7 @@
 * [Python](notes/python.md)
 * Network
     * [HTTPS Proxy 部署](notes/network/https_proxy.md)
+* [存储](notes/storage.md)
 * [Kong](notes/kong.md)
 * [mysql](notes/mysql.md)
 * [zookeeper](notes/zookeeper.md)
