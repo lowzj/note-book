@@ -47,6 +47,11 @@
 
 ## Blogs
 
+### 2020
+
+* 2020-01
+    * [HTTP 协议中的 Transfer-Encoding](https://imququ.com/post/transfer-encoding-header-in-http.html#toc-2)
+
 ### 2019
 * 2019-12
     * [Linux下使用mdadm创建RAID0](https://linux.cn/article-6087-1.html)
