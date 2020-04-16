@@ -48,6 +48,8 @@
 ## Blogs
 
 ### 2020
+* 2020-04
+    * [How expensive is an operation on a CPU](https://streamhpc.com/blog/2012-07-16/how-expensive-is-an-operation-on-a-cpu/)
 
 * 2020-03
     * [SSH隧道](https://www.zsythink.net/archives/2450)
