@@ -50,6 +50,8 @@
 ### 2020
 * 2020-04
     * [How expensive is an operation on a CPU](https://streamhpc.com/blog/2012-07-16/how-expensive-is-an-operation-on-a-cpu/)
+    * [Why can I call methods on nil pointers](https://groups.google.com/forum/#!msg/golang-nuts/wcrZ3P1zeAk/WI88iQgFMvwJ)
+      * In Go, however, the function to be called by the Expression.Name() syntax is entirely determined by the type of Expression and not by the particular run-time value of that expression, including nil.
 
 * 2020-03
     * [SSH隧道](https://www.zsythink.net/archives/2450)
