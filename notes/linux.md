@@ -129,3 +129,9 @@ https://o-my-chenjian.com/2017/05/10/Play-Disk-On-Linux/
 
 https://www.cnblogs.com/wjoyxt/p/6873714.html
 
+
+### 获取本机ip地址
+
+```shell
+ip route get ${dstIP}
+```
