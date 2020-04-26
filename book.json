@@ -1,5 +1,5 @@
 {
-    "title": "Note Book",
+    "title": "KNOWLEDGE ABOUT IGNORANCE",
     "plugins": ["3-ba", "katex", "github", "anchor-navigation-ex", "github-buttons", "tbfed-pagefooter", "donate"],
     "pluginsConfig": {
         "3-ba": {
