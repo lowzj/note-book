@@ -48,6 +48,10 @@
 ## Blogs
 
 ### 2020
+* 2020-05
+    * IPFS: https://docs-beta.ipfs.io/concepts/what-is-ipfs/
+        * bitswap: https://github.com/ipfs/go-bitswap/blob/master/docs/how-bitswap-works.md
+    * Kademlia(a distributed hash table): https://en.wikipedia.org/wiki/Kademlia
 * 2020-04
     * [GoLang Map](http://yangxikun.github.io/golang/2019/10/07/golang-map.html)
     * [How expensive is an operation on a CPU](https://streamhpc.com/blog/2012-07-16/how-expensive-is-an-operation-on-a-cpu/)
