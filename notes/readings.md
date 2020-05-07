@@ -49,6 +49,7 @@
 
 ### 2020
 * 2020-05
+    * [Should I commit my 'go.sum' file as well as my 'go.mod' file?](https://github.com/golang/go/wiki/Modules#should-i-commit-my-gosum-file-as-well-as-my-gomod-file)
     * IPFS: https://docs-beta.ipfs.io/concepts/what-is-ipfs/
         * bitswap: https://github.com/ipfs/go-bitswap/blob/master/docs/how-bitswap-works.md
     * Kademlia(a distributed hash table): https://en.wikipedia.org/wiki/Kademlia
