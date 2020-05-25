@@ -49,6 +49,7 @@
 ---
 ## Readings
 
+* [Serverless/FaaS 的现状和未来](http://jolestar.com/serverless-faas-current-status-and-future/)
 * [Serverless Architectures](https://martinfowler.com/articles/serverless.html)
 * [Understanding Container Reuse in AWS Lambda](https://aws.amazon.com/cn/blogs/compute/container-reuse-in-lambda/)
 * [OpenWhisk](http://openwhisk.org/)
