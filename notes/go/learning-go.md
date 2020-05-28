@@ -31,6 +31,7 @@
     * [Go语言性能优化- For Range 性能研究](https://www.flysnow.org/2018/10/20/golang-for-range-slice-map.html)
     * [Go 语言 for 和 range 的实现](https://draveness.me/golang-for-range)
 * 其他
+    * [Golang Import Declarations](https://golang.org/ref/spec#Import_declarations)
     * [Go语言中文网](https://studygolang.com/)
     * [Why 'iota'](https://groups.google.com/forum/#!topic/golang-nuts/ku6rvTmLM4o)
     * [Why 'iota' - ref Wiki](https://en.wikipedia.org/wiki/Iota)
