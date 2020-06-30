@@ -43,3 +43,4 @@
     * [Go's Declaration Syntax](https://blog.golang.org/gos-declaration-syntax)
     * [【译】Go语言之声明语法](https://studygolang.com/articles/11812)
     * [Go服务GC停顿问题排查](https://mp.weixin.qq.com/s/H34xmtDIomaVSmZQO1JK-g)
+    * [一些GoLang小技巧](https://cloud.tencent.com/developer/article/1067780)
