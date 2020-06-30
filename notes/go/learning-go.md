@@ -31,7 +31,8 @@
     * [Go语言性能优化- For Range 性能研究](https://www.flysnow.org/2018/10/20/golang-for-range-slice-map.html)
     * [Go 语言 for 和 range 的实现](https://draveness.me/golang-for-range)
 * Buffer
-    * [Bench Buffer](https://omgnull.github.io/go-benchmark/buffer/)
+    * [Benchmark of Buffers](https://omgnull.github.io/go-benchmark/buffer/)
+    * [Leaky Buffer](https://golang.org/doc/effective_go.html#leaky_buffer)
 * 其他
     * [Golang Import Declarations](https://golang.org/ref/spec#Import_declarations)
     * [Go语言中文网](https://studygolang.com/)
