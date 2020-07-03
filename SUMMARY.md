@@ -31,6 +31,7 @@
   * [Go语言学习](notes/go/learning-go.md)
   * [问题总结](notes/go/faq.md)
   * [Go-Assemly在线编译对照](notes/go/go-assembly.md)
+  * [Sync Pool](notes/go/sync-pool.md)
 * [Python](notes/python.md)
 * Network
     * [HTTPS Proxy 部署](notes/network/https_proxy.md)
