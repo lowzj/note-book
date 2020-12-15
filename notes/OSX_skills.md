@@ -43,3 +43,11 @@ else
     sed -i 's/<your_regx>/<replace_string>/' <file>
 fi
 ```
+
+### 关闭chrome的开发者工具下的请求时间线(overview)
+
+[参考此文](https://blog.csdn.net/qq_15941409/article/details/103232414)
+
+`Network` -> 右上角`x`下面的配置按钮 -> 勾掉`Show overview`
+
+
