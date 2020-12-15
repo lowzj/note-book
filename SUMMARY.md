@@ -1,4 +1,5 @@
 * [GitBook自定义域名](notes/gitbook-custom-domain.md)
+* [Signing Commits](notes/signing-commits.md)
 * [Readings](notes/readings.md)
 * [Microservice](notes/microservices/README.md)
   * [Notes](notes/microservices/notes.md)
