@@ -54,6 +54,12 @@ secKey=`gpg --list-secret-keys ${UNAME} --keyid-format grep '^sec' | awk -F'/' '
 git config --global user.signingkey $secKey
 ```
 
+如果有多个GPG key，可以在每个repo下面做局部设置
+
+```bash
+git config --local user.signingkey $secKey
+```
+
 其中 `UNAME` 就是生成 GPG key 时填的用户名，也可以使用email。
 
 ### 给commit签名
