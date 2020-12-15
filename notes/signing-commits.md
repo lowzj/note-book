@@ -3,16 +3,16 @@
 ## 效果
 不说话，先上效果图
 
-![signing-commits](../img/siging-commits.png)
+![signing-commits](../img/signing-commits.png)
 
 签名后在commit后有个Verified标志，点击可以展开签名信息。
 
 ## 操作
 **具体操作如下**：
-1. Generating a new GPG key
-2. Adding a new GPG key to your GitHub account
-3. Telling Git about your signing key
-4. Signing commits
+1. [Generating a new GPG key](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-gpg-key)
+2. [Adding a new GPG key to your GitHub account](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account)
+3. [Telling Git about your signing key](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/telling-git-about-your-signing-key)
+4. [Signing commits](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/signing-commits)
 
 > 一定按顺序执行
 
@@ -26,15 +26,17 @@
 
 ```bash
 #!/bin/bash
+
 which gpg || brew install gpg
 
 # generate
 gpg --full-generate-key
 
 # list
-gpg --list-secret-keys --keyid-format LONG
-sec=`gpg --list-secret-keys --keyid-format LONG | grep '^sec' | awk -F'/' '{print $2}' | awk '{print $1}' | tail -n1`
-echo $sec
+email=`gpg --list-secret-keys --keyid-format LONG | grep '^uid' | awk -F'\<|\>' '{print $(NF-1)}' | tail -n1`
+echo "$email"
+sec=`gpg --list-secret-keys --keyid-format LONG $email | grep '^sec' | awk -F'/' '{print $2}' | awk '{print $1}'`
+echo "$sec"
 
 gpg --armor --export $sec | pbcopy
 ```
@@ -52,12 +54,19 @@ secKey=`gpg --list-secret-keys ${UNAME} --keyid-format grep '^sec' | awk -F'/' '
 git config --global user.signingkey $secKey
 ```
 
+其中 `UNAME` 就是生成 GPG key 时填的用户名，也可以使用email。
+
 ### 给commit签名
 参考操作4，需要输入密码
 
-git commit -S -m 'commit message'验证commit签名
 ```bash
-$ git verify-commit <commitId>
+git commit -S -m 'commit message'
+```
+
+### 验证commit签名
+
+```bash
+$ git verify-commit HEAD
 gpg: Signature made 二 12/15 22:52:03 2020 CST
 gpg:                using RSA key <your_key>
 gpg: Good signature from "lowzj <zj3142063@gmail.com>" [ultimate]
