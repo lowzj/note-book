@@ -20,8 +20,12 @@
 
 * 安装`gitbook`。[参考: CentOS上安装gitbook](http://www.jianshu.com/p/4ddfe52a27e4)
     ```sh
+    # centos
     yum -y install nodejs npm git
     npm install -g gitbook-cli
+    # macOS
+    brew install node npm
+    npm install -g n gitbook-cli
     ```
 
 * demo
@@ -33,6 +37,8 @@
     Starting server ...
     Serving book on http://localhost:4000
     ```
+
+> 问题: [**cb.apply is not a function**](https://flaviocopes.com/cb-apply-not-a-function/)
 
 ### 利用github部署及自动更新
 
