@@ -38,8 +38,6 @@
     Serving book on http://localhost:4000
     ```
 
-> 问题: [**cb.apply is not a function**](https://flaviocopes.com/cb-apply-not-a-function/)
-
 ### 利用github部署及自动更新
 
 * 在github上新建一个git repo，托管所有的markdown文件。
@@ -89,6 +87,14 @@
         运行`python main.py 9999`，端口是`9999`，在`Payload URL`中填入`http://your_ip:9999`。
     * 好了，以上就基本完成了自建`gitbook`的部署以及自动更新。
     
+### 问题
+
+mac上安装过程中可能遇到的问题
+
+* 需要先下载安装xcode
+* [xcode-select active developer directory error](https://stackoverflow.com/questions/17980759/xcode-select-active-developer-directory-error/17980786#17980786)
+* [**cb.apply is not a function**](https://flaviocopes.com/cb-apply-not-a-function/)
+
 ---
 
 Expect the upexpected!
