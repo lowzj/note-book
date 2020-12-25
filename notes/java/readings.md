@@ -6,6 +6,8 @@
     * [Proxy和InvocationHandler实现动态代理](https://www.jianshu.com/p/4df6e4d7eb46)
     * [Java实现AOP的两种方式](https://blog.csdn.net/feigeswjtu/article/details/78741245)
     * [AOP的四种主要Java实现方式](https://blog.csdn.net/mimicimim/article/details/1770348)
+* [Dubbo InternalThreadLocal](https://github.com/apache/dubbo/blob/master/dubbo-common/src/main/java/org/apache/dubbo/common/threadlocal/InternalThreadLocal.java)
+	* [Netty FastThreadLocal](https://github.com/netty/netty/blob/4.1/common/src/main/java/io/netty/util/concurrent/FastThreadLocalThread.java)
 * Unit Testing
     * [mock void方法](https://blog.csdn.net/dnc8371/article/details/107254747)
     * [Mockito使用指南](https://juejin.cn/post/6844904001855569933)
