@@ -1,6 +1,6 @@
 # Java 技术文章
 
-* AOP
+* [SpringFramework: Chapter 6. Aspect Oriented Programming with Spring](https://docs.spring.io/spring-framework/docs/2.5.x/reference/aop.html)
     * [CgLib 简单例子](https://blog.csdn.net/pnet2008/article/details/19566397)
     * [CgLib及基本使用](https://www.cnblogs.com/xrq730/p/6661692.html)
     * [Proxy和InvocationHandler实现动态代理](https://www.jianshu.com/p/4df6e4d7eb46)
