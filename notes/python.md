@@ -2,7 +2,7 @@
 
 ### shell 自动补全
 
-```bash
+```python
 # python shell auto completer, add this to env:
 #   export PYTHONSTARTUP=～/.startup.py
 try:
