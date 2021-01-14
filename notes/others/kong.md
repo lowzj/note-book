@@ -4,10 +4,8 @@
 
 ## Kong Dashboard
 
-github: https://github.com/PGBI/kong-dashboard
-
-![kong-dashboard](https://raw.githubusercontent.com/PGBI/kong-dashboard/master/screenshots/apis_list.jpg)
+GitHub: https://github.com/PGBI/kong-dashboard
 
 ## [OAuth 2.0 Auhtentication Plugin](https://getkong.org/plugins/oauth2-authentication/)
 
-![OAuth flow](../img/oauth2-flow.png)
+![OAuth flow](../../img/oauth2-flow.png)

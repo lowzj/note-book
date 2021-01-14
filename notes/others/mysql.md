@@ -4,7 +4,7 @@
 
 对于`alter table`，如果是在`enum`中添加新值的话，在后面添加，不会发生`copy table`，速度会非常快。
 
-![mysql-alter-table-enum](../img/mysql-alter-table-enum.png)
+![mysql-alter-table-enum](../../img/mysql-alter-table-enum.png)
 
 For ALTER TABLE tbl_name RENAME TO new_tbl_name without any other options, MySQL simply renames any files that correspond to the table tbl_name without making a copy. (You can also use the RENAME TABLEstatement to rename tables. See Section 13.1.33, “RENAME TABLE Syntax”.) Any privileges granted specifically for the renamed table are not migrated to the new name. They must be changed manually.
 

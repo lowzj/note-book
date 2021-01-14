@@ -1,7 +1,7 @@
 # Blue Green Deployment
 
 > Blue-Green Deployment 示意图如下，摘自[链接](http://martinfowler.com/bliki/BlueGreenDeployment.html)
-![blue_green_deployments](../img/blue_green_deployments.png)
+![blue_green_deployments](../../img/blue_green_deployments.png)
 
 ----
 
@@ -166,7 +166,7 @@
 ----
 
 > **Marathon Auto-Scaling**, add 3 instances
-> ![marathon_auto_scaling](../img/marathon_auto_scaling.png)
+> ![marathon_auto_scaling](../../img/marathon_auto_scaling.png)
 
 ----
 
