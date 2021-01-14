@@ -50,7 +50,7 @@ fi
 
 `Network` -> 右上角`x`下面的配置按钮 -> 勾掉`Show overview`
 
-### 产看某一端口的占用情况
+### 查看某一端口的占用情况
 
 ```bash
 # lsof -i:<port>
