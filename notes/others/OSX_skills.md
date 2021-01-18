@@ -57,3 +57,9 @@ fi
 lsof -i:1080
 ```
 
+### 去除iTerm终端粘贴URL自动转译
+实际这是`oh-my-zsh`的功能，在`~/.zshrc`最前面加上:
+```bash
+DISABLE_MAGIC_FUNCTIONS="true"
+```
+具体代码可参看: `~/.oh-my-zsh/lib/misc.zsh`
