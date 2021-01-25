@@ -44,6 +44,14 @@ else
 fi
 ```
 
+**solution2**
+```bash
+# linux;   mac
+sedi=(-i); test "$(uname -s)" = "Darwin" && sedi=(-i "")
+sed "${sedi[@]}" 's/<your_regx>/<replace_string>/' <file>
+```
+
+
 ### 关闭chrome的开发者工具下的请求时间线(overview)
 
 [参考此文](https://blog.csdn.net/qq_15941409/article/details/103232414)
