@@ -20,3 +20,5 @@
 * [How does 'object.new' work?](https://stackoverflow.com/questions/2863157/how-does-object-new-work-does-java-have-a-new-operator)
 * [JVM调优](https://hllvm-group.iteye.com/group/wiki/?category_id=301)
 * [A Java Fork-Join Calamity](http://coopsoft.com/ar/CalamityArticle.html)
+* [查看JVM加载了哪些类](https://www.cnblogs.com/z00377750/p/9167768.html)
+* [JVM进程jar包加载分析](https://my.oschina.net/u/4339939/blog/3320329)
