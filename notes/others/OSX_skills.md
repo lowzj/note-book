@@ -71,3 +71,8 @@ lsof -i:1080
 DISABLE_MAGIC_FUNCTIONS="true"
 ```
 具体代码可参看: `~/.oh-my-zsh/lib/misc.zsh`
+
+### ls: Operation not permitted
+
+* 没有磁盘访问权限: https://osxdaily.com/2018/10/09/fix-operation-not-permitted-terminal-error-macos/
+* 设置了文件保护: https://www.hjxfire.cn/2018/05/08/Mac-lsattr-chattr/
