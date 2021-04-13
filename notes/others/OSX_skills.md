@@ -76,3 +76,12 @@ DISABLE_MAGIC_FUNCTIONS="true"
 
 * 没有磁盘访问权限: https://osxdaily.com/2018/10/09/fix-operation-not-permitted-terminal-error-macos/
 * 设置了文件保护: https://www.hjxfire.cn/2018/05/08/Mac-lsattr-chattr/
+
+### 网页长截屏
+
+Chrome 开发者模式 -> `Shift+Command+P` -> 搜索 `screenshot`，有四种截屏模式
+
+* `Capture area sceenshot`
+* `Capture full size sceenshot`
+* `Capture node sceenshot`
+* `Capture sceenshot`
