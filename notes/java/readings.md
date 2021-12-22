@@ -11,6 +11,7 @@
 * Unit Testing
     * [mock void方法](https://blog.csdn.net/dnc8371/article/details/107254747)
     * [Mockito使用指南](https://juejin.cn/post/6844904001855569933)
+    * [Get the Path of the /src/test/resources](https://www.baeldung.com/junit-src-test-resources-directory-path)
 * 范型
     * [Java基础学习 - 泛型二](https://blog.csdn.net/shuanghujushi/article/details/52107973)
 * [互联网公司常用框架源码赏析](https://github.com/doocs/source-code-hunter)
