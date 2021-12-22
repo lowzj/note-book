@@ -24,3 +24,4 @@
 * [A Java Fork-Join Calamity](http://coopsoft.com/ar/CalamityArticle.html)
 * [查看JVM加载了哪些类](https://www.cnblogs.com/z00377750/p/9167768.html)
 * [JVM进程jar包加载分析](https://my.oschina.net/u/4339939/blog/3320329)
+* [Read a file from resources folder](https://mkyong.com/java/java-read-a-file-from-resources-folder/)
