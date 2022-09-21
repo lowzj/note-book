@@ -85,3 +85,12 @@ Chrome 开发者模式 -> `Shift+Command+P` -> 搜索 `screenshot`，有四种�
 * `Capture full size sceenshot`
 * `Capture node sceenshot`
 * `Capture sceenshot`
+
+### 查看ip端口关联的进程id
+
+```bash
+# 查看port是否被占用
+netstat -an | grep ${port}
+# 查看port关联的进程
+lsof -i :${port}
+```
