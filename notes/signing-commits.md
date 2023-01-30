@@ -50,7 +50,7 @@ gpg --armor --export $sec | pbcopy
 - 配置git
 
 ```bash
-secKey=`gpg --list-secret-keys ${UNAME} --keyid-format grep '^sec' | awk -F'/' '{print $2}' | awk '{print $1}'`
+secKey=`gpg --list-secret-keys --keyid-format LONG ${UNAME} | grep '^sec' | awk -F'/' '{print $2}' | awk '{print $1}'`
 git config --global user.signingkey $secKey
 ```
 
