@@ -72,7 +72,7 @@ git commit -S -m 'commit message'
 可以设置git全局配置，默认给commit都加签名，不用每次都加 -S 选项。
 
 ```bash
-git config -global commit.gpgsign true
+git config --global commit.gpgsign true
 ```
 
 ### 验证commit签名
