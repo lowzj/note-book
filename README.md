@@ -29,9 +29,6 @@
     npm install -g n gitbook-cli
     ```
 
-  > **NOTE**: 在安装`gitbook-cli`
-  的时候会报错，解决方案参考: [cb.apply is not a function](https://github.com/GitbookIO/gitbook-cli/issues/110#issuecomment-863706455)
-
 * demo
     ```sh
     $ mkdir demo
@@ -69,6 +66,8 @@
         cd note-book
         nohub gitbook serve . > /tmp/note-book.log 2>&1 &
         ```
+
+        > **NOTE**: 可能会报错，解决方案参考: [cb.apply is not a function](https://github.com/GitbookIO/gitbook-cli/issues/110#issuecomment-863706455)
     * 当然可以使用nginx等反向代理，访问`gitbook build`生成的`_book`静态文件，这里就不多说了
 * **自动更新**。当commit push到github后，就更新服务器上的本地repo，如果使用`gitbook build`，就再重新build一次。
     * 这里要利用github提供的[Webhooks](https://developer.github.com/webhooks/)功能。到github repo的`Settings`
@@ -119,4 +118,6 @@ mac上安装过程中可能遇到的问题
 
 ---
 
-Expect the upexpected!
+<pre align='center'>
+Expect The Unexpected!
+</pre>

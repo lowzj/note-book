@@ -1,6 +1,13 @@
 {
     "title": "KNOWLEDGE ABOUT IGNORANCE",
-    "plugins": ["3-ba", "katex", "github", "anchor-navigation-ex", "github-buttons", "tbfed-pagefooter", "donate"],
+    "author": "lowzj - Zhang Jin",
+    "plugins": [
+        "3-ba",
+        "katex", "github", "anchor-navigation-ex", "github-buttons",
+        "-lunr", "-search", "search-pro",
+        "favicon",
+        "tbfed-pagefooter", "donate"
+    ],
     "pluginsConfig": {
         "3-ba": {
             "token": "cd2a4fc566bc7fded44aff4c54e2ed6c"
@@ -19,6 +26,15 @@
             "isRewritePageTitle": false,
             "showLevel": false
         },
+        "favicon": {
+            "shortcut": "/img/favicon/favicon.ico",
+            "bookmark": "/img/favicon/favicon.ico",
+            "appleTouch": "/img/favicon/apple-touch-icon.png",
+            "appleTouchMore": {
+                "120x120": "/img/favicon/apple-touch-icon.png",
+                "180x180": "/img/favicon/apple-touch-icon.png"
+            }
+        },
         "donate": {
             "wechat": "/img/donate-wechat.png",
             "alipay": "/img/donate-alipay.png",
@@ -27,8 +43,8 @@
             "wechatText": "Wechat ¥1"
         },
         "tbfed-pagefooter": {
-            "copyright":"Copyright &copy lowzj 2017",
-            "modify_label": "Modified: ",
+            "copyright":"Copyright &copy <a href='https://github.com/lowzj'>lowzj</a>",
+            "modify_label": "Last Modified: ",
             "modify_format": "YYYY-MM-DD HH:mm"
         }
     }
