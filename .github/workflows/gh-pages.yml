@@ -20,14 +20,10 @@ concurrency:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        # node-version: [14.4.0, 16.x, 18.x]
         node-version: [19.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v3
@@ -43,18 +39,11 @@ jobs:
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
           npm i gitbook-cli
-          cd node_modules/gitbook-cli
-          npm i graceful-fs@4.1.4 --save
-          cd node_modules/npm
-          npm i graceful-fs@4.1.4 --save
-          cd ../../../..
+          cp .hack/polyfills.js node_modules/npm/node_modules/graceful-fs/
           node_modules/gitbook-cli/bin/gitbook.js install .
           node_modules/gitbook-cli/bin/gitbook.js build .
           echo "${{ steps.pages.outputs.host }}"
           echo "${{ steps.pages.outputs.host }}" > ./_book/CNAME
-          
-          echo 'node_modules/' > .gitignore
-          echo 'npm-debug.log' >> .gitignore
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
