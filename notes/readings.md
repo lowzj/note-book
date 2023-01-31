@@ -50,6 +50,11 @@
 ## Blogs
 
 
+### 2023
+
+* 2020-01
+    * [GitBook插件](https://jiangminggithub.github.io/gitbook/6-third_plugins.html)
+
 ### 2020
 * 2020-05
     * [Should I commit my 'go.sum' file as well as my 'go.mod' file?](https://github.com/golang/go/wiki/Modules#should-i-commit-my-gosum-file-as-well-as-my-gomod-file)
