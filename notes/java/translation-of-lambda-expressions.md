@@ -15,9 +15,7 @@ _2017-04-25_
 
 ---
 
-<pre align='center'>
-译文始
-</pre>
+<!--sec data-title="译文" data-id="translation" data-show=true ces-->
 
 # Translation of Lambda Expressions
 
@@ -508,9 +506,7 @@ interface B extends A<String> { void m(String s); }
 
 **TODO**: 如果我们支持命名式lambda(_named lambda_)的概念，当需要将名称以某种方式传递给`metafactory`时，我们可能会希望`toString`方法能够根据名称得出返回结果。
 
-<pre align='center'>
-译文终
-</pre>
+<!--endsec-->
 
 ---
 
@@ -521,9 +517,7 @@ interface B extends A<String> { void m(String s); }
 * [官方文档：类型擦除](https://docs.oracle.com/javase/tutorial/java/generics/erasure.html)
 * [桥接方法](http://blog.csdn.net/mhmyqn/article/details/47342577)
 
-<pre align='center'>
-脚注
-</pre>
+---
 
 [^1]: 本文将`translate`直译为`翻译`。
 [^2]: 本文直接使用`lambda factory`。

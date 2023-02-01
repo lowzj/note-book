@@ -1,9 +1,9 @@
 🔨 Spring Cloud 实践
 ===================
 
-<pre align="center">
+<p align="center">
 config, consul, ribbon, feign, hystrix, zuul, metrics, tracing
-</pre>
+</p>
 
 
 Spring Cloud Config

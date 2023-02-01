@@ -1,8 +1,7 @@
 # Serverless
 
-<pre align='center'>
-<a href="https://twitter.com/adrianco/status/736553530689998848?ref_src=twsrc%5Etfw">@adrianco</a>: If your PaaS can efficiently start instances in 20ms that run for half a second, then call it serverless. 
-</pre>
+> [!TIP|style:flat|iconVisibility:hidden|labelVisibility:hidden]
+> [@adrianco](https://twitter.com/adrianco/status/736553530689998848?ref_src=twsrc%5Etfw): If your PaaS can efficiently start instances in 20ms that run for half a second, then call it serverless.
 
 ## Platform
 

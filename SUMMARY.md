@@ -18,7 +18,6 @@
     * [Java8 Lambda](notes/java/java-lambda.md)
     * [Lambda表达式的翻译原理](notes/java/translation-of-lambda-expressions.md)
     * [Java Threads and Locks](notes/java/java-thread-lock.md)
-    * [Maven](notes/java/maven.md)
     * [Spring](notes/java/spring.md)
     * [String Concatenation](notes/java/string-concatenation.md)
     * [Java Regx](notes/java/java-regx.md)

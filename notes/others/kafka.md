@@ -1,9 +1,8 @@
 [Confluent Platform](http://docs.confluent.io/3.2.0/platform.html)
 ==================
 
-<pre align='center'>
-可以使我们在一个稳定高效的系统中组织和管理不同源数据的流处理平台。
-</pre>
+> [!TIP|style:flat|iconVisibility:hidden|labelVisibility:hidden]
+> 可以使我们在一个稳定高效的系统中组织和管理不同源数据的流处理平台。
 
 ## Introduction
 > Confluent Platform可以轻松构建实时数据管道和流应用程序。 通过将来自多个来源和位置的数据集成到您公司的单一中央流处理平台中，Confluent Platform可让您专注于如何从数据中获取商业价值，而不必担心数据如何在各种系统之间传输或通知的基本机制。 具体来说，Confluent Platform简化了将数据源连接到Kafka，使用Kafka构建应用程序，同时也保护，监控和管理您的Kafka基础设施。

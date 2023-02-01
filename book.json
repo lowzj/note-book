@@ -2,25 +2,32 @@
     "title": "KNOWLEDGE ABOUT IGNORANCE",
     "author": "lowzj - Zhang Jin",
     "plugins": [
-        "3-ba",
-        "katex", "github", "anchor-navigation-ex", "github-buttons",
-        "-lunr", "-search", "search-pro",
+        "katex",
+        "github",
+        "anchor-navigation-ex",
+        "github-buttons",
+        "-lunr",
+        "-search",
+        "search-pro",
         "favicon",
-        "tbfed-pagefooter", "donate"
+        "donate",
+        "tbfed-pagefooter",
+        "flexible-alerts",
+        "sectionx",
+        "-copy-code-button",
+        "code"
     ],
     "pluginsConfig": {
-        "3-ba": {
-            "token": "cd2a4fc566bc7fded44aff4c54e2ed6c"
-        },
         "github": {
             "url": "https://github.com/lowzj/note-book"
         },
         "github-buttons": {
-            "repo": "lowzj/note-book",
-            "types": [
-                "star"
-            ],
-            "size": "small"
+            "buttons": [{
+                "user": "lowzj",
+                "repo": "note-book",
+                "type": "star",
+                "size": "small"
+            }]
         },
         "anchor-navigation-ex": {
             "isRewritePageTitle": false,
@@ -38,14 +45,17 @@
         "donate": {
             "wechat": "/img/donate-wechat.png",
             "alipay": "/img/donate-alipay.png",
-            "button": "赏",
+            "button": "赞赏",
             "alipayText": "Alipay ¥1",
             "wechatText": "Wechat ¥1"
         },
         "tbfed-pagefooter": {
-            "copyright":"Copyright &copy <a href='https://github.com/lowzj'>lowzj</a>",
+            "copyright": "Copyright &copy <a href='https://github.com/lowzj'>lowzj</a>",
             "modify_label": "Last Modified: ",
             "modify_format": "YYYY-MM-DD HH:mm"
+        },
+        "sectionx": {
+            "tag": "b"
         }
     }
 }

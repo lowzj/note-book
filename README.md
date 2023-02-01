@@ -45,7 +45,7 @@
 
 #### Step 2: 自动构建部署
 
-##### 自动构建部署-方案1：GitHub Pages & Actions`
+##### 自动构建部署-方案1：GitHub Pages & Actions
 
 * 在新建的GitHub Repo上新增一个workflow文件(`./github/workflows/gh-pages.yml`)用于构建部署github
   pages，参考本站的自动构建脚本: [.github/workflows/gh-pages.yml](https://github.com/lowzj/note-book/blob/main/.github/workflows/gh-pages.yml)。
@@ -59,7 +59,7 @@
     * 首先得有一个能让外网机器访问的服务器
     * 然后在该服务器上将git repo clone下来，执行`gitbook serve .`，就可以生成一个gitbook网站啦
 
-        ```
+        ```sh
         mkdir -p ~/gitbook/
         cd ~/gitbook
         git clone git@github.com:lowzj/note-book.git
@@ -67,12 +67,14 @@
         nohub gitbook serve . > /tmp/note-book.log 2>&1 &
         ```
 
-        > **NOTE**: 可能会报错，解决方案参考: [cb.apply is not a function](https://github.com/GitbookIO/gitbook-cli/issues/110#issuecomment-863706455)
+        > [!WARNING]
+        > 可能会报错, 解决方案参考: [cb.apply is not a function](https://github.com/GitbookIO/gitbook-cli/issues/110#issuecomment-863706455)
     * 当然可以使用nginx等反向代理，访问`gitbook build`生成的`_book`静态文件，这里就不多说了
 * **自动更新**。当commit push到github后，就更新服务器上的本地repo，如果使用`gitbook build`，就再重新build一次。
     * 这里要利用github提供的[Webhooks](https://developer.github.com/webhooks/)功能。到github repo的`Settings`
       页面，选择`Webhooks & services`，如图所示。
       ![github-webhook](./img/note-book/webhook.png)
+      > [!Tip]
       > Webhooks allow external services to be notified when certain events happen within your repository. When the
       specified events happen, we’ll send a POST request to each of the URLs you provide. Learn more in
       our [Webhooks Guide](https://developer.github.com/webhooks).
@@ -118,6 +120,7 @@ mac上安装过程中可能遇到的问题
 
 ---
 
-<pre align='center'>
+<p class="alert flat tip title" style="text-align: center;font-style: italic">
 Expect The Unexpected!
-</pre>
+</p>
+

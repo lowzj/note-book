@@ -13,10 +13,7 @@
 * 当有变化的时候，将变化值写入consul key-value中，给nginx-upsync使用
 * 是有一定延迟，但是代码修改量很少
 
-<pre align="center">
-自己实现服务注册发现
-</pre>
-
+<!--sec data-title="自己实现服务注册发现" data-id="implRegister" data-show=true ces-->
 > 服务启动完成后，调用注册接口；停止之前，调用注销接口；并且提供一个health接口，用于健康检测。
 
 ## 注册
@@ -68,6 +65,8 @@ curl -s -i -XPOST "localhost:8500/v1/agent/service/deregister/${serviceId}"
 URL: `/management/health`
 Response: 正常返回status code 200
 ```
+
+<!--endsec-->
 
 # Readings
 
