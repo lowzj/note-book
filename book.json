@@ -26,7 +26,8 @@
                 "user": "lowzj",
                 "repo": "note-book",
                 "type": "star",
-                "size": "small"
+                "size": "small",
+                "count": true
             }]
         },
         "anchor-navigation-ex": {
