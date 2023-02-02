@@ -2,6 +2,7 @@
     "title": "KNOWLEDGE ABOUT IGNORANCE",
     "author": "lowzj - Zhang Jin",
     "plugins": [
+        "3-ba",
         "katex",
         "github",
         "anchor-navigation-ex",
@@ -18,6 +19,9 @@
         "code"
     ],
     "pluginsConfig": {
+        "3-ba": {
+            "token": "2caf82e27063deb7c30d74ed8655b80f"
+        },
         "github": {
             "url": "https://github.com/lowzj/note-book"
         },
