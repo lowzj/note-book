@@ -30,6 +30,7 @@ which pip
 * [Python 编码转换与中文处理](http://www.jianshu.com/p/53bb448fe85b)
 * [pip 使用国内镜像源](https://www.runoob.com/w3cnote/pip-cn-mirror.html)
 * [Python 中的依赖管理工具](https://www.kevinbai.com/articles/144.html)
+* [使用 Python Poetry 进行依赖管理](https://lxz9.com/2022/03/20/poetry/)
 * [Python七神器](https://zhuanlan.zhihu.com/p/355626817):
   * [Python Fire](https://github.com/google/python-fire)
   * [Python FastAPI](https://github.com/tiangolo/fastapi)
