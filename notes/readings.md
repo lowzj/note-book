@@ -54,6 +54,7 @@
 
 * 2023-03
     * [亚马逊AWS服务器收费细则(参考)](http://www.rrdaj.com/hzseo/ssyqjc/4074.html)
+        * [aws预留实例](https://www.bespinglobal.cn/wp-content/uploads/2019/01/%E4%BA%91%E4%BA%AB%E5%AE%B6-%E4%BA%94%E9%97%AERI-%E7%90%86%E8%A7%A3AWS%E9%A2%84%E7%95%99%E5%AE%9E%E4%BE%8B-.pdf)
     * [https://www.cnblogs.com/goldsunshine/p/15259246.html](https://www.cnblogs.com/goldsunshine/p/15259246.html)
     * [开通GitHub Sponsors](https://surmon.me/article/163)
     * [Roll your own Ngrok with Nginx, Letsencrypt, and SSH reverse tunnelling](https://jerrington.me/posts/2019-01-29-self-hosted-ngrok.html)
