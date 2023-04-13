@@ -1,6 +1,20 @@
 # OS X 小技巧
 
+### VSCode VIM: enable key-repeating
+
+> https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+
+```sh
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false      # For VS Code Insider
+defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false         # For VS Codium
+defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false   # For VS Codium Exploration users
+defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
+```
+
 ### 开启远程登陆，使用ssh互联互通。
+
+
 
 * [官方指导](https://support.apple.com/kb/PH18726?locale=zh_CN&viewlocale=zh_CN)
 * `系统偏好设置` -> `共享` -> `远程登录`
