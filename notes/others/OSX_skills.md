@@ -1,5 +1,14 @@
 # OS X 小技巧
 
+### setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory
+
+删除`/etc/ssh/ssh_config`下面语句中的`LC_*`
+
+```sh
+Host *
+    SendEnv LANG LC_*
+```
+
 ### VSCode VIM: enable key-repeating
 
 > https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
